@@ -1,0 +1,21 @@
+.allUsers{
+display: flex;
+flex-direction: column;
+width: fit-content;
+border-right: 3px solid red;
+}
+.users{
+    margin: 15px;
+    padding: 10px; 
+    background-color: rgb(225, 225, 225);   
+    border-radius: 25px;
+}
+.users-contenu{
+font-weight: lighter;
+margin: 0;
+}
+.icon-smile{
+font-size: 110%;
+color: rgba(0, 0, 0, 0.75);
+padding-right: 10px;
+}

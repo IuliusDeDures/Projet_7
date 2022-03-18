@@ -1,0 +1,119 @@
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 75px;
+  box-shadow: 10px 10px 20px rgb(255, 200, 200);
+}
+
+.group-logo {
+  width: 40%;
+  border-radius: 25px;
+}
+
+.group-header-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+}
+
+.group-login {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  font-weight: bold;
+  border: none;
+}
+
+.group-signUp {
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  font-weight: bold;
+  border: none;
+}
+
+.group-deleteUser {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  font-weight: bold;
+  border: none;
+}
+
+.group-form {
+  display: flex;
+  justify-content: space-around;
+}
+.form-login {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
+  width: fit-content;
+}
+.form-signUp {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
+  width: fit-content;
+}
+.form-deleteUser {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
+  width: fit-content;
+}
+
+.form-title {
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.label-email {
+  text-align: left;
+  font-weight: normal;
+  margin: 5px;
+}
+.email {
+  border-radius: 15px;
+  border: none;
+  font-size: 105%;
+}
+.label-pseudo {
+  text-align: left;
+  font-weight: normal;
+}
+.pseudo {
+  border-radius: 15px;
+  border: none;
+  font-size: 105%;
+}
+.label-password {
+  text-align: left;
+  font-weight: normal;
+  margin: 5px;
+}
+.password {
+  border-radius: 15px;
+  border: none;
+  font-size: 105%;
+}
+.form-send {
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgb(200, 200, 200);
+  padding: 3px 0;
+  font-weight: bold;
+  border: none;
+}

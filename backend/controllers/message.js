@@ -9,10 +9,9 @@ exports.createMessage = (req, res, next) => {
       imageUrl: `${req.protocol}://${req.get("host")}/images/${
         req.file.filename
       }`,
-      userId: req.auth.userId,
+      userPseudo: req.auth.userPseudo,
       text: req.body.text,
-      likes: 0,
-      dislikes: 0,
+      likes: 0,            
     });
     message
       .save()
@@ -20,10 +19,10 @@ exports.createMessage = (req, res, next) => {
       .catch((error) => res.status(400).json({ error }));
   } else {
     const message = new Message({
-      userId: req.auth.userId,
+      userPseudo: req.auth.userPseudo,
       text: req.body.text,
-      likes: 0,
-      dislikes: 0,
+      likes: 0,    
+      
     });
     message
       .save()
@@ -37,7 +36,7 @@ exports.deleteMessage = (req, res, next) => {
   const messageId = req.params.id;
   Message.findOne({ where: { id: messageId } })
     .then((message) => {
-      if (message.userId == req.auth.userId) {
+      if (message.userPseudo == req.auth.userPseudo) {
         if (req.file) {
           const filename = message.imageUrl.split("/images/")[1];
           fs.unlink(`images/${filename}`, () => {
@@ -99,7 +98,7 @@ exports.modifyMessage = (req, res, next) => {
     : { ...req.body };
   Message.findOne({ where: { id: messageId } })
     .then((message) => {
-      if (message.userId == req.auth.userId) {
+      if (message.userPseudo == req.auth.userPseudo) {
         Message.update(modifMessage, { where: { id: messageId } })
           .then(() => res.status(200).json({ message: "Message modifié !" }))
           .catch((error) => res.status(402).json({ error }));
@@ -114,7 +113,7 @@ exports.modifyMessage = (req, res, next) => {
 
 // route pour liker un message
 exports.likeMessage = (req, res, next) => {
-  const userId = req.body.userId;
+  const userPseudo = req.body.userPseudo;
   const like = req.body.likes;
   const modiflike = { likes: req.body.likes, updateAt: Date.now() };
   const messageId = req.params.id;

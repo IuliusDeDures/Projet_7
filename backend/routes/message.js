@@ -7,7 +7,7 @@ const multer = require("../middleware/multer-config");
 const messageCtrl = require("../controllers/message");
 
 // route pour l'affichage de l'ensemble des messages
-router.get("/", auth, messageCtrl.getAllMessage);
+router.get("/", messageCtrl.getAllMessage);
 
 // route pour la création d'un message
 router.post("/", auth, multer, messageCtrl.createMessage);

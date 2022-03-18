@@ -39,8 +39,8 @@ exports.login = (req, res, next) => {
           }
           res.status(200).json({
             message: "Bonjour " + user.pseudo,
-            userId: user.id,
-            token: jwt.sign({ userId: user.id }, "RANDOM_TOKEN_SECRET", {
+            userPseudo: user.pseudo,
+            token: jwt.sign({ userPseudo: user.pseudo }, "RANDOM_TOKEN_SECRET", {
               expiresIn: "2h",
             }),
           });
@@ -69,4 +69,17 @@ exports.deleteUser = (req, res, next) => {
       }*/
     })
     .catch((error) => res.status(501).json({ error }));
+};
+
+// route pour afficher l'ensemble des messages
+exports.getAllUsers = (req, res, next) => {
+  User.findAll()
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
 };

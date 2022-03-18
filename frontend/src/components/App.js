@@ -1,24 +1,20 @@
-import '../styles/App.css';
+import "../styles/App.css";
+import Banner from "./Banner";
+import AllMessage from "./AllMessages";
+import AllUsers from "./AllUsers";
+import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Banner></Banner>
+      <div className="main">
+        <AllUsers></AllUsers>
+        <AllMessage></AllMessage>
+      </div>
+      <Footer></Footer>
     </div>
   );
 }
 
 export default App;
-

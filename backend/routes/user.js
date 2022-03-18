@@ -13,4 +13,7 @@ router.post("/login", userCtrl.login);
 // route pour supprimer un utilisateur
 router.delete("/:id", userCtrl.deleteUser);
 
+// route pour afficher les utilisateurs
+router.get("/users", userCtrl.getAllUsers)
+
 module.exports = router;
