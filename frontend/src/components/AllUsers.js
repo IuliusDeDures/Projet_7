@@ -11,7 +11,7 @@ function AllUsers() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:3000/api/auth/users");
+      const result = await axios("http://127.0.0.1:8000/api/auth/users");
       setData(result.data);
     };
     fetchData();
@@ -28,6 +28,7 @@ function AllUsers() {
             />
             {info.pseudo}
           </p>
+          
         </div>
       ))}
     </div>

@@ -1,6 +1,7 @@
-.group-footer{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+.group-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 75px;
+  box-shadow: 10px 10px 20px rgb(255, 200, 200);
 }

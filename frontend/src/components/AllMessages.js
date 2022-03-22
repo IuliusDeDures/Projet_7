@@ -11,7 +11,7 @@ function AllMessage() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:3000/api/messages/");
+      const result = await axios("http://127.0.0.1:8000/api/messages/");
       setData(result.data);
     };
     fetchData();
