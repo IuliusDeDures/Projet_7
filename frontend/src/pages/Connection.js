@@ -3,36 +3,30 @@ import '../styles/Connection.css'
 
 function Connection() {
   return (
-    <div className="group-connection">
-      <div className="group-header">
-        <img src={logo} alt="logo-groupomania" className="group-logo" />
+    <div className="connect-group-connection">
+      <div className="connect-group-header">
+        <img src={logo} alt="logo-groupomania" className="connect-group-logo" />
       </div>
-      <div className="group-form">
-        <form className="form-login">
-          <p className="form-title">
-            Connection :
-            <br />
-            <label for="email" className="label-email">
-              Votre adresse email :{' '}
-            </label>
-            <input type="text" className="email" />
-            <br />
-            <label for="pseudo" className="label-pseudo">
-              Votre pseudo :{' '}
-            </label>
-            <input type="text" className="pseudo" />
-            <br />
-            <label for="password" className="label-password">
-              Votre password :{' '}
-            </label>
-            <input type="password" className="password" />
-            <br />
-            <button className="form-send">Connection</button>
-          </p>
+      <div className="connect-group-form">
+        <form className="connect-form-login">
+          <p className="connect-form-title">Connection :</p>
+          <label for="email" className="connect-label-email">
+            Votre adresse email :{' '}
+          </label>
+          <input type="text" className="connect-email" />
+          <label for="pseudo" className="connect-label-pseudo">
+            Votre pseudo :{' '}
+          </label>
+          <input type="text" className="connect-pseudo" />
+          <label for="password" className="connect-label-password">
+            Votre password :{' '}
+          </label>
+          <input type="password" className="connect-password" />
+          <button className="connect-form-send">Connection</button>
         </form>
       </div>
       <div>
-        <p className="group-signUp">
+        <p className="connect-group-signUp">
           Si vous n'êtes pas inscrit vous pouvez
           <br />
           créer un compte en cliquant{' '}

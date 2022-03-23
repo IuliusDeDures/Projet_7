@@ -1,38 +1,42 @@
-import "../styles/AllUsers.css";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faFaceSmile } from "@fortawesome/free-solid-svg-icons";
+import '../styles/AllUsers.css'
+import React, { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFaceSmile } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faFaceSmile);
+library.add(faFaceSmile)
 
 function AllUsers() {
-  const [data, setData] = useState([]);
+  const [data, setDataUsers] = useState([])
+
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:8000/api/auth/users");
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
+    async function fetchData() {
+      try {
+        const res = await fetch('http://127.0.0.1:8000/api/auth/users')
+        const data = await res.json()
+        setDataUsers(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    fetchData()
+  }, [])
 
   return (
     <div className="allUsers">
       {data.map((info) => (
-        <div className="users">
-          <p className="users-contenu" key={info.pseudo}>
+        <div className="users" key={info.id}>
+          <p className="users-contenu">
             <FontAwesomeIcon
               icon="fa-solid fa-face-smile"
               className="icon-smile"
             />
             {info.pseudo}
           </p>
-          
         </div>
       ))}
     </div>
-  );
+  )
 }
 
-export default AllUsers;
+export default AllUsers

@@ -1,119 +1,87 @@
-.group-header {
+.ins-group-inscription {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+}
+
+.ins-group-header {
+  display: flex;
   border-radius: 75px;
   box-shadow: 10px 10px 20px rgb(255, 200, 200);
+  margin: auto;
 }
 
-.group-logo {
+.ins-group-logo {
   width: 40%;
   border-radius: 25px;
+  margin: auto;
 }
 
-.group-header-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 30px;
-}
-
-.group-login {
+.ins-form-signUp {
   border-radius: 20px;
-  margin: 15px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  font-weight: bold;
-  border: none;
-}
-
-.group-signUp {
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  font-weight: bold;
-  border: none;
-}
-
-.group-deleteUser {
-  border-radius: 20px;
-  margin: 15px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  font-weight: bold;
-  border: none;
-}
-
-.group-form {
-  display: flex;
-  justify-content: space-around;
-}
-.form-login {
-  border-radius: 20px;
-  margin: 15px;
+  margin: 30px;
   padding: 10px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   background-color: rgb(225, 225, 225);
-  width: fit-content;
-}
-.form-signUp {
-  border-radius: 20px;
-  margin: 15px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  background-color: rgb(225, 225, 225);
-  width: fit-content;
-}
-.form-deleteUser {
-  border-radius: 20px;
-  margin: 15px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  background-color: rgb(225, 225, 225);
-  width: fit-content;
-}
-
-.form-title {
-  text-align: center;
-  font-weight: bold;
-  margin: 0;
   display: flex;
   flex-direction: column;
 }
-.label-email {
+
+.ins-form-title {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+  font-size: 125%;
+}
+.ins-label-email {
   text-align: left;
   font-weight: normal;
   margin: 5px;
+  font-size: 105%;
 }
-.email {
+.ins-email {
   border-radius: 15px;
   border: none;
   font-size: 105%;
+  margin: 5px;
 }
-.label-pseudo {
-  text-align: left;
-  font-weight: normal;
-}
-.pseudo {
-  border-radius: 15px;
-  border: none;
-  font-size: 105%;
-}
-.label-password {
+.ins-label-pseudo {
   text-align: left;
   font-weight: normal;
   margin: 5px;
+  font-size: 105%;
 }
-.password {
+.ins-pseudo {
   border-radius: 15px;
   border: none;
   font-size: 105%;
+  margin: 5px;
 }
-.form-send {
+.ins-label-password {
+  text-align: left;
+  font-weight: normal;
+  margin: 5px;
+  font-size: 105%;
+}
+.ins-password {
+  border-radius: 15px;
+  border: none;
+  font-size: 105%;
+  margin: 5px;
+}
+.ins-form-send {
   margin: 10px;
   border-radius: 15px;
   box-shadow: 2px 2px 4px rgb(200, 200, 200);
   padding: 3px 0;
   font-weight: bold;
   border: none;
+  font-size: 105%;
+}
+.ins-info-password {
+  font-weight: lighter;
+  font-size: 80%;
+  margin-top: 5px;
+  text-align: left;
+  margin-bottom: 10px;
 }

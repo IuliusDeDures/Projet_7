@@ -10,7 +10,7 @@ function Banner() {
     <div>
       <div className="group-header">
         <img src={logo} alt="logo-groupomania" className="group-logo" />
-        <div className="group-header-button">
+        <div>
           <button className="group-deleteUser" onClick={suppCompte}>
             Supprimer le compte
           </button>
