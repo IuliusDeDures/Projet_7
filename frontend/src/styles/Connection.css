@@ -41,18 +41,7 @@
   font-size: 105%;
   margin: 5px;
 }
-.connect-label-pseudo {
-  text-align: left;
-  font-weight: normal;
-  margin: 5px;
-  font-size: 105%;
-}
-.connect-pseudo {
-  border-radius: 15px;
-  border: none;
-  font-size: 105%;
-  margin: 5px;
-}
+
 .connect-label-password {
   text-align: left;
   font-weight: normal;

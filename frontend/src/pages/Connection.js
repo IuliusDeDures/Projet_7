@@ -1,7 +1,27 @@
 import logo from '../assets/icon-left-font-rogner.png'
 import '../styles/Connection.css'
+import React, { useState } from 'react'
+import axios from 'axios'
 
 function Connection() {
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  function Login() {
+    const user = {
+      email: email,
+      password: password,
+    }
+
+    axios
+      .post(`http://127.0.0.1:8000/api/auth/login`, user)
+      .then(
+        (res) =>
+          (window.location.href = './message?userPseudo=' + res.data.userPseudo)
+      )
+      .catch(() => alert("Vous n'êtes pas inscrit !"))
+  }
+
   return (
     <div className="connect-group-connection">
       <div className="connect-group-header">
@@ -11,18 +31,34 @@ function Connection() {
         <form className="connect-form-login">
           <p className="connect-form-title">Connection :</p>
           <label for="email" className="connect-label-email">
-            Votre adresse email :{' '}
+            Votre adresse email :{}
           </label>
-          <input type="text" className="connect-email" />
-          <label for="pseudo" className="connect-label-pseudo">
-            Votre pseudo :{' '}
-          </label>
-          <input type="text" className="connect-pseudo" />
+          <input
+            type="email"
+            className="connect-email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <label for="password" className="connect-label-password">
-            Votre password :{' '}
+            Votre password :{}
           </label>
-          <input type="password" className="connect-password" />
-          <button className="connect-form-send">Connection</button>
+          <input
+            type="password"
+            className="connect-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            className="connect-form-send"
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault()
+              Login()
+              console.log(email, password)
+            }}
+          >
+            Connection
+          </button>
         </form>
       </div>
       <div>
@@ -33,7 +69,7 @@ function Connection() {
           <span>
             <a href="/inscription"> ici </a>
           </span>
-        </p>
+        </p>{' '}
       </div>
     </div>
   )

@@ -47,15 +47,16 @@ exports.login = (req, res, next) => {
         })
         .catch((error) => res.status(500).json({ error }));
     })
-    .catch((error) => res.status(500).json({ error }));
+    .catch((error) => res.status(501).json({ error }));
 };
 
 // route pour supprimer un utilisateur
 exports.deleteUser = (req, res, next) => {
-  User.findOne({ where: { id: req.params.id } })
+  const email = req.params.email;
+  User.findOne({ where: { email: email } })
     .then((user) => {
       //if (user.userId == req.auth.userId) {
-      User.destroy({ where: { id: req.params.id } })
+      User.destroy({ where: { email: email } })
         .then(() =>
           res
             .status(200)
