@@ -1,14 +1,15 @@
 .group-header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 75px;
   box-shadow: 10px 10px 20px rgb(255, 200, 200);
 }
 
 .group-logo {
-  width: 40%;
+  width: 30%;
   border-radius: 25px;
+  margin-left: 50px;
 }
 
 .group-deleteUser {

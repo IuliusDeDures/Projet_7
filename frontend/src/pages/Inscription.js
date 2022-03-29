@@ -27,11 +27,7 @@ function Inscription() {
     axios
       .post(`http://127.0.0.1:8000/api/auth/signup`, user)
       .then((res) => {
-        console.log(
-          email,
-          pseudo,
-          password
-        )((window.location.href = './message?userPseudo=' + pseudo))
+        console.log(email, pseudo, password)((window.location.href = './'))
       })
       .catch(() => alert('les informations saisies sont incorrectes'))
   }
@@ -89,6 +85,15 @@ function Inscription() {
             }}
           >
             Créer le compte
+          </button>
+          <button
+            className="ins-form-retour"
+            onClick={(e) => {
+              e.preventDefault()
+              window.location.href = './'
+            }}
+          >
+            Retour
           </button>
         </form>
       </div>

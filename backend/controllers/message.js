@@ -5,7 +5,8 @@ const jwt = require("jsonwebtoken");
 // route pour  créer un message
 exports.createMessage = (req, res, next) => {
   if (req.file) {
-    const message = new Message({
+    
+    const message = new Message({      
       imageUrl: `${req.protocol}://${req.get("host")}/images/${
         req.file.filename
       }`,
@@ -25,9 +26,9 @@ exports.createMessage = (req, res, next) => {
       
     });
     message
-      .save()
-      .then(() => res.status(201).json({ message: "Message enregistré !" }))
-      .catch((error) => res.status(400).json({ error }));
+.save()
+     .then(() => res.status(201).json({ message: "Message enregistré !" }))
+     .catch((error) => res.status(400).json({ error }));
   }
 };
 

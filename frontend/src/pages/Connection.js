@@ -17,7 +17,11 @@ function Connection() {
       .post(`http://127.0.0.1:8000/api/auth/login`, user)
       .then(
         (res) =>
-          (window.location.href = './message?userPseudo=' + res.data.userPseudo)
+          (window.location.href =
+            './message?userPseudo=' +
+            res.data.userPseudo +
+            'Bearer' +
+            res.data.token)
       )
       .catch(() => alert("Vous n'êtes pas inscrit !"))
   }

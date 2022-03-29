@@ -1,7 +1,7 @@
-import AllMessage from '../components/AllMessages'
-import AllUsers from '../components/AllUsers'
+import SectionMessage from '../components/SectionMessage'
+import SectionUsers from '../components/SectionUsers'
 import Banner from '../components/Banner'
-import Footer from '../components/Footer'
+//import Footer from '../components/Footer'
 import '../styles/Message.css'
 
 function Message() {
@@ -9,10 +9,9 @@ function Message() {
     <div className="group-message">
       <Banner></Banner>
       <div className="group-message-contenu">
-        <AllUsers></AllUsers>
-        <AllMessage></AllMessage>
+        <SectionMessage></SectionMessage>
+        <SectionUsers></SectionUsers>
       </div>
-      <Footer></Footer>
     </div>
   )
 }

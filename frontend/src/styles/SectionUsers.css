@@ -1,12 +1,15 @@
 .allUsers {
   display: flex;
   flex-direction: column;
-  width: fit-content;
-  border-right: 3px solid red;
+  width: 20%;
+  border-left: 3px solid red;
+  margin-left: 15px;
 }
 .users {
-  margin: 15px;
+  align-self: center;
+  margin-top: 15px;
   padding: 10px;
+  width: max-content;
   background-color: rgb(225, 225, 225);
   border-radius: 25px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
