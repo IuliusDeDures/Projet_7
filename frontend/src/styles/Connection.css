@@ -62,6 +62,7 @@
   font-weight: bold;
   border: none;
   font-size: 105%;
+  cursor: pointer;
 }
 .connect-group-signUp {
   border-radius: 20px;

@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const { Sequelize } = require("sequelize");
 const userRoutes = require("./routes/user");
 const messageRoutes = require("./routes/message");
+const commentaireRoutes = require("./routes/commentaire")
 const path = require("path");
 
 // configuration du limiteur de requête
@@ -57,8 +58,11 @@ app.use((req, res, next) => {
 // middleware pour la gestion d'image de manière statique
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-// middleware pour les routes sauces
+// middleware pour les routes messages
 app.use("/api/messages", messageRoutes);
+
+// middleware pour les routes commentaire
+app.use("/api/commentaires", commentaireRoutes);
 
 // middleware pour les routes users
 app.use("/api/auth", userRoutes);

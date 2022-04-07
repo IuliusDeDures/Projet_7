@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `groupomania` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `groupomania`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: groupomania
@@ -18,23 +16,26 @@ USE `groupomania`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `commentaires`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `commentaires`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
+CREATE TABLE `commentaires` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `email` varchar(250) NOT NULL,
-  `pseudo` varchar(250) NOT NULL,
-  `password` varchar(500) NOT NULL,
+  `idMessage` int NOT NULL,
+  `userPseudo` varchar(250) DEFAULT NULL,
+  `commentaire` varchar(250) NOT NULL,
+  `likes` int DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL COMMENT 'Create Time',
   `updatedAt` datetime DEFAULT NULL COMMENT 'Update Time',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `pseudo` (`pseudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `idMessage` (`idMessage`),
+  KEY `userPseudo` (`userPseudo`),
+  CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`idMessage`) REFERENCES `messages` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `commentaires_ibfk_2` FOREIGN KEY (`userPseudo`) REFERENCES `users` (`pseudo`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -46,4 +47,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-31 11:35:59
+-- Dump completed on 2022-04-07 12:50:36

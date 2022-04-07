@@ -26,7 +26,7 @@ exports.createMessage = (req, res, next) => {
       
     });
     message
-.save()
+    .save()
      .then(() => res.status(201).json({ message: "Message enregistré !" }))
      .catch((error) => res.status(400).json({ error }));
   }

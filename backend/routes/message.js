@@ -16,7 +16,7 @@ router.post("/", auth, multer, messageCtrl.createMessage);
 router.delete("/:id", auth, messageCtrl.deleteMessage);
 
 // route pour l'affichage d'un message
-router.get("/:id", auth, messageCtrl.getOneMessage);
+router.get("/:id", messageCtrl.getOneMessage);
 
 // route pour la modification d'un message
 router.put("/:id", auth, multer, messageCtrl.modifyMessage);

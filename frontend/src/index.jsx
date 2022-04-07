@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Connection from './pages/Connection'
 import Inscription from './pages/Inscription'
-import Message from './pages/Message'
+import Forum from './pages/Forum'
 import SupprimerCompte from './pages/SupprimerCompte'
 
 ReactDOM.render(
@@ -17,7 +17,7 @@ ReactDOM.render(
           <Inscription />
         </Route>
         <Route path="/message">
-          <Message />
+          <Forum />
         </Route>
         <Route path="/supprimerCompte">
           <SupprimerCompte />

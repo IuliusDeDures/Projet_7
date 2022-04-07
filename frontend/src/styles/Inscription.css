@@ -77,6 +77,7 @@
   font-weight: bold;
   border: none;
   font-size: 105%;
+  cursor: pointer;
 }
 .ins-info-password {
   font-weight: lighter;
@@ -100,4 +101,5 @@
   font-weight: bold;
   border: none;
   font-size: 105%;
+  cursor: pointer;
 }

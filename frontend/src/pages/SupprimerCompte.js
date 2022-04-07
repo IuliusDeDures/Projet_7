@@ -66,6 +66,15 @@ function SupprimerCompte() {
           >
             Supprimer le compte
           </button>
+          <button
+            className="sup-form-retour"
+            onClick={(e) => {
+              e.preventDefault()
+              window.location.href = './'
+            }}
+          >
+            Retour
+          </button>
         </form>
       </div>
     </div>

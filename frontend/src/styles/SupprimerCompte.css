@@ -85,3 +85,13 @@
   border: none;
   font-size: 105%;
 }
+.sup-form-retour {
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgb(200, 200, 200);
+  padding: 3px 0;
+  font-weight: bold;
+  border: none;
+  font-size: 105%;
+  cursor: pointer;
+}

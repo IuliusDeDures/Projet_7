@@ -1,0 +1,91 @@
+.commentairesPlusForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.allCommentaires {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 20px;
+  margin: 0px 15px 5px 15px;
+  padding: 5px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentaire-pseudoUser {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1px 1px 5px 1px;
+  font-size: small;
+}
+
+.commentaire-contenu {
+  display: flex;
+  justify-content: center;
+  margin: 1px 1px 5px 1px;
+}
+.commentaire-boutton {
+  display: flex;
+  justify-content: flex-end;
+}
+.sup-commentaire {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+
+.sup-commentaire-icon {
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.sup-commentaire-icon:hover {
+  color: red;
+}
+.like-commentaire {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+.like-commentaire-icon {
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.like-commentaire-icon:hover {
+  color: blue;
+}
+
+.form-commentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 20px;
+  margin: 10px 15px 5px 15px;
+  padding: 5px;
+}
+.nouveau-commentaire {
+  border-radius: 20px;
+  margin: 2px;
+}
+.envoie-nouveau-commentaire {
+  border-radius: 20px;
+  border: none;
+  margin-right: 5px;
+}
+.envoie-nouveau-commentaire:hover {
+  color: blue;
+}

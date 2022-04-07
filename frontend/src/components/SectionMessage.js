@@ -4,29 +4,36 @@ import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faImage } from '@fortawesome/free-regular-svg-icons'
-import { PublieMessage, AfficheMessages } from './Requete'
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
+import {
+  PublieMessage,
+  AfficheMessages,
+  SupprimerMessage,
+  SelectUnMessage,
+} from './Requete'
+import Commentaire from './Commentaire'
 
-library.add(faThumbsUp, faImage)
+library.add(faThumbsUp, faImage, faComment, faTrashCan)
 
-library.add(faThumbsUp)
-
-function AllMessage() {
+function SectionMessage() {
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoBearer = ''
   let token = ''
-  let useurPseudo = ''
+  let userPseudo = ''
   if (search_parms.has('userPseudo')) {
     userPseudoBearer = search_parms.get('userPseudo')
     token = userPseudoBearer.split('Bearer')[1]
-    useurPseudo = userPseudoBearer.split('Bearer')[0]
+    userPseudo = userPseudoBearer.split('Bearer')[0]
   }
 
   const [dataMessage, setDataMessages] = useState([])
   const [text, setText] = useState('')
   const [image, setImage] = useState()
   const [file, setFile] = useState()
+  const [afficheCommentaire, setAfficheCommentaire] = useState(false)
 
   useEffect(() => {
     AfficheMessages(setDataMessages)
@@ -57,21 +64,77 @@ function AllMessage() {
     setFile('')
   }
 
+  function supMessage(info) {
+    SupprimerMessage(info, token)
+    alert('Message suprimé')
+    AfficheMessages(setDataMessages)
+  }
+  function selectMessage(info) {
+    SelectUnMessage(setAfficheCommentaire, info)
+    setAfficheCommentaire(!afficheCommentaire)
+  }
+
   return (
     <div className="sectionMessage">
       <div className="allMessages">
         {dataMessage.map((info) => (
-          <div key={info.id}>
+          <div key={info.id} className="messagePlusCommentaire">
             <p className="message-pseudoUser">{info.userPseudo}</p>
             <div className="message">
-              <p className="message-contenu">
-                {info.text}
-                <FontAwesomeIcon
-                  icon="fa-solid fa-thumbs-up"
-                  className="icon-like"
-                />
-              </p>
+              <p className="message-contenu">{info.text}</p>
+              <div className="message-boutton">
+                {userPseudo === info.userPseudo ? (
+                  <button
+                    className="sup-message"
+                    title="Supprimer le message"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      supMessage(info)
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      className="sup-message-icon"
+                      icon="fa-regular fa-trash-can"
+                    />
+                  </button>
+                ) : null}
+                {!afficheCommentaire ? (
+                  <button
+                    className="com-boutton"
+                    title="Afficher les commentaires"
+                  >
+                    <FontAwesomeIcon
+                      className="icon-commentaire"
+                      icon="fa-regular fa-comment"
+                      onClick={() => {
+                        selectMessage(info)
+                      }}
+                    />
+                  </button>
+                ) : null}
+                {afficheCommentaire ? (
+                  <button
+                    className="com-boutton"
+                    title="Ne plus afficher les commentaires"
+                  >
+                    <FontAwesomeIcon
+                      className="icon-commentaire"
+                      icon="fa-regular fa-comment"
+                      onClick={() => {
+                        setAfficheCommentaire(!afficheCommentaire)
+                      }}
+                    />
+                  </button>
+                ) : null}
+                <button className="like-message" title="Liker le message">
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-thumbs-up"
+                    className="like-message-icon"
+                  />
+                </button>
+              </div>
             </div>
+            {afficheCommentaire === info.id && <Commentaire info={info} />}
           </div>
         ))}
       </div>
@@ -90,7 +153,7 @@ function AllMessage() {
           {text || image ? (
             <li className="contenu-message">
               <div className="contenu-header">
-                <p className="p-contenu">{useurPseudo}</p>
+                <p className="p-contenu">{userPseudo}</p>
               </div>
               <div className="contenu">
                 <p className="p-contenu">{text}</p>
@@ -110,6 +173,7 @@ function AllMessage() {
               accept=".jpg, .jpeg, .png, .mp4"
               onChange={(e) => handlePicture(e)}
               value={image}
+              title="Ajouter une image ou une vidéo"
             />
             {text || image ? (
               <button className="annule-message" onClick={annuler}>
@@ -132,4 +196,4 @@ function AllMessage() {
   )
 }
 
-export default AllMessage
+export default SectionMessage

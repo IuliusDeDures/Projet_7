@@ -34,7 +34,7 @@ function Connection() {
       <div className="connect-group-form">
         <form className="connect-form-login">
           <p className="connect-form-title">Connection :</p>
-          <label for="email" className="connect-label-email">
+          <label type="email" className="connect-label-email">
             Votre adresse email :{}
           </label>
           <input
@@ -43,7 +43,7 @@ function Connection() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label for="password" className="connect-label-password">
+          <label type="password" className="connect-label-password">
             Votre password :{}
           </label>
           <input

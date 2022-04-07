@@ -40,9 +40,7 @@ exports.login = (req, res, next) => {
           res.status(200).json({
             message: "Bonjour " + user.pseudo,
             userPseudo: user.pseudo,
-            token: jwt.sign({ userPseudo: user.pseudo }, "RANDOM_TOKEN_SECRET", {
-              expiresIn: "2h",
-            }),
+            token: jwt.sign({ userPseudo: user.pseudo }, "RANDOM_TOKEN_SECRET"),
           });
         })
         .catch((error) => res.status(500).json({ error }));
