@@ -16,8 +16,11 @@
   align-items: center;
 }
 .messagePlusCommentaire {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
-  width: max-content;
+  max-width: 90%;
+  width: fit-content;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
 }
@@ -29,6 +32,8 @@
   padding: 10px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   width: fit-content;
+  max-width: 90%;
+  align-self: center;
 }
 .message:hover {
   background-color: rgb(200, 200, 200);
@@ -46,8 +51,9 @@
   border-radius: 20px;
   padding: 2px 7px;
   width: fit-content;
-  margin: 5px 10px 5px 30px;
+  margin: 5px 10px 5px 10px;
   box-shadow: 2px 2px 4px rgb(200, 200, 200);
+  align-self: center;
 }
 
 .ajout-message {
@@ -202,4 +208,50 @@
 }
 .like-message-icon:hover {
   color: blue;
+}
+.message-nbrCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 3px;
+  display: flex;
+}
+.message-icon-nbrRepCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 10px;
+  display: flex;
+}
+.icon-nbrRepCommentaire {
+  padding: 7px;
+  align-self: center;
+}
+.nbrCommentaire {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
+}
+.nbrRepCommentaire {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
+}
+.message-nbrRepCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 3px;
+  display: flex;
+}
+.message-nbrLikes {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 3px;
+  display: flex;
+}
+.nbrLikes {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
 }

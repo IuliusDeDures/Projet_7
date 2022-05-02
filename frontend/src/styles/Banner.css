@@ -21,8 +21,26 @@
   border: none;
   cursor: pointer;
 }
+.group-admin-deleteUser {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
 
 .group-logout {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.group-listeUser {
   border-radius: 20px;
   margin: 15px;
   padding: 10px;

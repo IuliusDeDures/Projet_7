@@ -48,20 +48,6 @@
   margin: 5px;
 }
 
-.sup-label-pseudo {
-  text-align: left;
-  font-weight: normal;
-  font-size: 105%;
-  margin: 5px;
-}
-
-.sup-pseudo {
-  border-radius: 15px;
-  border: none;
-  font-size: 105%;
-  margin: 5px;
-}
-
 .sup-label-password {
   text-align: left;
   font-weight: normal;

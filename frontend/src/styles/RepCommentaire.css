@@ -1,0 +1,79 @@
+.repCommentairesPlusForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.allRepCommentaires {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  width: fit-content;
+}
+
+.repCommentaire {
+  background-color: white;
+  border-radius: 20px;
+  margin: 0px 5px 5px 5px;
+  padding: 5px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+}
+
+.repCommentaire-pseudoUser {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1px 1px 5px 1px;
+  font-size: small;
+}
+
+.repCommentaire-contenu {
+  display: flex;
+  justify-content: center;
+  margin: 1px 1px 5px 1px;
+}
+.repCommentaire-boutton {
+  display: flex;
+  justify-content: flex-end;
+}
+.sup-repCommentaire {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+
+.sup-repCommentaire-icon {
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.sup-repCommentaire-icon:hover {
+  color: red;
+}
+
+.form-repCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 20px;
+  margin: 10px 15px 5px 15px;
+  padding: 5px;
+}
+.nouveau-repCommentaire {
+  border-radius: 20px;
+  margin: 2px;
+}
+.envoie-nouveau-repCommentaire {
+  border-radius: 20px;
+  border: none;
+  margin-right: 5px;
+}
+.envoie-nouveau-repCommentaire:hover {
+  color: blue;
+}

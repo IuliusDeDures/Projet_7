@@ -23,7 +23,6 @@ function Inscription() {
       pseudo: pseudo,
       password: password,
     }
-
     axios
       .post(`http://127.0.0.1:8000/api/auth/signup`, user)
       .then((res) => {
@@ -40,7 +39,7 @@ function Inscription() {
       <div className="ins-group-form">
         <form className="ins-form-signUp">
           <p className="ins-form-title">Créer un compte :</p>
-          <label for="text" className="ins-label-email">
+          <label htmlFor="text" className="ins-label-email">
             Votre adresse email :
           </label>
           <input
@@ -50,7 +49,7 @@ function Inscription() {
             value={email}
             required
           />
-          <label for="text" className="ins-label-pseudo">
+          <label htmlFor="text" className="ins-label-pseudo">
             Votre pseudo :
           </label>
           <input
@@ -62,7 +61,7 @@ function Inscription() {
           <span className="ins-info-pseudo">
             Votre pseudo doit contenir au moin 3 caractères.
           </span>
-          <label for="email" className="ins-label-password">
+          <label htmlFor="email" className="ins-label-password">
             Votre password :
           </label>
           <input

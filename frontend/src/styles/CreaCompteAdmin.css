@@ -1,23 +1,23 @@
-.ins-group-inscription {
+.cca-group-inscription {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.ins-group-header {
+.cca-group-header {
   display: flex;
   border-radius: 75px;
   box-shadow: 10px 10px 20px rgb(255, 200, 200);
   margin: auto;
 }
 
-.ins-group-logo {
+.cca-group-logo {
   width: 40%;
   border-radius: 25px;
   margin: auto;
 }
 
-.ins-form-signUp {
+.cca-form-signUp {
   border-radius: 20px;
   margin: 30px;
   padding: 10px;
@@ -27,49 +27,49 @@
   flex-direction: column;
 }
 
-.ins-form-title {
+.cca-form-title {
   text-align: center;
   font-weight: bold;
   margin: 10px 0 10px 0;
   font-size: 125%;
 }
-.ins-label-email {
+.cca-label-email {
   text-align: left;
   font-weight: normal;
   margin: 5px;
   font-size: 105%;
 }
-.ins-email {
+.cca-email {
   border-radius: 15px;
   border: none;
   font-size: 105%;
   margin: 5px;
 }
-.ins-label-pseudo {
+.cca-label-pseudo {
   text-align: left;
   font-weight: normal;
   margin: 5px;
   font-size: 105%;
 }
-.ins-pseudo {
+.cca-pseudo {
   border-radius: 15px;
   border: none;
   font-size: 105%;
   margin: 5px;
 }
-.ins-label-password {
+.cca-label-password {
   text-align: left;
   font-weight: normal;
   margin: 5px;
   font-size: 105%;
 }
-.ins-password {
+.cca-password {
   border-radius: 15px;
   border: none;
   font-size: 105%;
   margin: 5px;
 }
-.ins-form-send {
+.cca-form-send {
   margin: 10px;
   border-radius: 15px;
   box-shadow: 2px 2px 4px rgb(200, 200, 200);
@@ -79,21 +79,21 @@
   font-size: 105%;
   cursor: pointer;
 }
-.ins-info-password {
+.cca-info-password {
   font-weight: lighter;
   font-size: 80%;
   margin-top: 5px;
   text-align: left;
   margin-bottom: 15px;
 }
-.ins-info-pseudo {
+.cca-info-pseudo {
   font-weight: lighter;
   font-size: 80%;
   margin-top: 5px;
   text-align: left;
   margin-bottom: 10px;
 }
-.ins-form-retour {
+.cca-form-retour {
   margin: 10px;
   border-radius: 15px;
   box-shadow: 2px 2px 4px rgb(200, 200, 200);
@@ -102,4 +102,7 @@
   border: none;
   font-size: 105%;
   cursor: pointer;
+}
+.cca-info-compteAdmin {
+  font-size: 105%;
 }

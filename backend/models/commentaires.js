@@ -11,8 +11,9 @@ const config = {
   const Commentaire = database.define("Commentaire", {
     idMessage: { type: Sequelize.INTEGER, allowNull: false },
     userPseudo: { type: Sequelize.STRING },
-    commentaire: { type: Sequelize.STRING, allowNull: false },    
+    commentaire: { type: Sequelize.STRING, allowNull: false },  
     likes: { type: Sequelize.INTEGER },
+    nbrRepCommentaireCom : { type: Sequelize.INTEGER },
   });
   
   module.exports = database.models.Commentaire;

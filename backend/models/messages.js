@@ -13,6 +13,8 @@ const Message = database.define("Message", {
   text: { type: Sequelize.STRING(500), allowNull: false },
   imageUrl: { type: Sequelize.STRING },
   likes: { type: Sequelize.INTEGER },
+  nbrCommentaire : { type: Sequelize.INTEGER },
+  nbrRepCommentaire : { type: Sequelize.INTEGER },
 });
 
 module.exports = database.models.Message;

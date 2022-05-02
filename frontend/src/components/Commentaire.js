@@ -3,6 +3,9 @@ import {
   AfficheCommentaire,
   PublieCommentaire,
   SupprimerCommentaire,
+  AfficheMessages,
+  ModifNbrCommentaire,
+  SelectUnCommentaire,
 } from './Requete'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -10,24 +13,29 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import '../styles/Commentaire.css'
+import RepCommentaire from './RepCommentaire'
 
 library.add(faThumbsUp, faComment, faTrashCan)
 
-function Commentaire({ info }) {
+function Commentaire({ info, setDataMessages }) {
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
-  let userPseudoBearer = ''
+  let userPseudoIsAdminBearer = ''
   let token = ''
   let userPseudo = ''
-
+  let isAdmin = ''
+  let userPseudoIsAdmin = ''
   if (search_parms.has('userPseudo')) {
-    userPseudoBearer = search_parms.get('userPseudo')
-    token = userPseudoBearer.split('Bearer')[1]
-    userPseudo = userPseudoBearer.split('Bearer')[0]
+    userPseudoIsAdminBearer = search_parms.get('userPseudo')
+    token = userPseudoIsAdminBearer.split('Bearer')[1]
+    userPseudoIsAdmin = userPseudoIsAdminBearer.split('Bearer')[0]
+    isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
+    userPseudo = userPseudoIsAdmin.split('isAdmin')[0]
   }
 
   const [dataCommentaire, setDataCommentaire] = useState([])
   const [commentaire, setCommentaire] = useState('')
+  const [afficheReponse, setAfficheReponse] = useState(false)
 
   useEffect(() => {
     AfficheCommentaire(setDataCommentaire)
@@ -35,24 +43,45 @@ function Commentaire({ info }) {
 
   async function Commenter() {
     if (commentaire) {
-      const data = { idMessage: info.id, commentaire: commentaire }
+      const data = {
+        idMessage: info.id,
+        commentaire: commentaire,
+        nbrCommentaire: info.nbrCommentaire,
+      }
       await PublieCommentaire(data, token)
-      console.log(info.id, commentaire)
+
       AfficheCommentaire(setDataCommentaire)
       annuler()
+      AfficheMessages(setDataMessages)
     } else {
       alert('Veuillez entrer un commentaire ')
     }
   }
 
   function supCommentaire(dataCom) {
-    SupprimerCommentaire(dataCom, token)
-    alert('Commentaire supprimé !')
-    AfficheCommentaire(setDataCommentaire)
+    if (dataCom.nbrRepCommentaireCom === 0) {
+      SupprimerCommentaire(dataCom, token)
+      const data = {
+        idMessage: info.id,
+        nbrCommentaire: info.nbrCommentaire,
+      }
+      ModifNbrCommentaire(data)
+
+      alert('Commentaire supprimé !')
+      AfficheCommentaire(setDataCommentaire)
+      AfficheMessages(setDataMessages)
+    } else {
+      alert(
+        'Ce commentaire ne peut être supprimer car il ya des reponses à ce commentaire. Supprimer les réponses pour supprimer le commentaire'
+      )
+    }
   }
 
   function annuler() {
     setCommentaire('')
+  }
+  function selectCommentaire(dataCom) {
+    SelectUnCommentaire(setAfficheReponse, dataCom)
   }
 
   return (
@@ -65,7 +94,7 @@ function Commentaire({ info }) {
                 <p className="commentaire-pseudoUser">{dataCom.userPseudo} :</p>
                 <p className="commentaire-contenu">{dataCom.commentaire}</p>
                 <div className="commentaire-boutton">
-                  {userPseudo === dataCom.userPseudo ? (
+                  {isAdmin === 'true' || userPseudo === dataCom.userPseudo ? (
                     <button
                       className="sup-commentaire"
                       title="Supprimer le commentaire"
@@ -80,6 +109,40 @@ function Commentaire({ info }) {
                       />
                     </button>
                   ) : null}
+
+                  {!afficheReponse ? (
+                    <button
+                      className="repondre-commentaire"
+                      title="Répondre à ce commentaire"
+                      onClick={() => {
+                        selectCommentaire(dataCom)
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon="fa-regular fa-comments"
+                        className="icon-nbrRepCommentaire"
+                      />
+                    </button>
+                  ) : null}
+                  {afficheReponse ? (
+                    <button
+                      className="repondre-commentaire"
+                      title="Ne pas répondre à ce commentaire"
+                      onClick={() => {
+                        setAfficheReponse(!afficheReponse)
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon="fa-regular fa-comments"
+                        className="icon-nbrRepCommentaireCom"
+                      />
+                    </button>
+                  ) : null}
+                  <div className="message-nbrRepCommentaire">
+                    <p className="nbrRepCommentaire">
+                      {dataCom.nbrRepCommentaireCom}
+                    </p>
+                  </div>
                   <button
                     className="like-commentaire"
                     title="Liker le commentaire"
@@ -90,6 +153,14 @@ function Commentaire({ info }) {
                     />
                   </button>
                 </div>
+                {afficheReponse === dataCom.id && (
+                  <RepCommentaire
+                    info={info}
+                    setDataMessages={setDataMessages}
+                    dataCom={dataCom}
+                    setDataCommentaire={setDataCommentaire}
+                  />
+                )}
               </div>
             ) : null}
           </div>

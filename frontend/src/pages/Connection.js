@@ -20,6 +20,8 @@ function Connection() {
           (window.location.href =
             './message?userPseudo=' +
             res.data.userPseudo +
+            'isAdmin' +
+            res.data.isAdmin +
             'Bearer' +
             res.data.token)
       )

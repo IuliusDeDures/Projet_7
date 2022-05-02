@@ -7,12 +7,13 @@ const { Sequelize } = require("sequelize");
 const userRoutes = require("./routes/user");
 const messageRoutes = require("./routes/message");
 const commentaireRoutes = require("./routes/commentaire")
+const repCommentaireRoutes = require("./routes/repCommentaire")
 const path = require("path");
 
 // configuration du limiteur de requête
 const limiteur = rateLimit({
   windowMs: 15 * 60 * 1000, // période 15 minutes
-  max: 100, // limite à 100 requête pour 15 minutes
+  max: 200, // limite à 200 requête pour 15 minutes
   standardHeaders: true,
   legacyHeaders: false,
 });
@@ -44,7 +45,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization,"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -63,6 +64,9 @@ app.use("/api/messages", messageRoutes);
 
 // middleware pour les routes commentaire
 app.use("/api/commentaires", commentaireRoutes);
+
+// middleware pour les routes des réponse de commentaire
+app.use("/api/repCommentaires", repCommentaireRoutes);
 
 // middleware pour les routes users
 app.use("/api/auth", userRoutes);

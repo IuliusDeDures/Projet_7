@@ -12,7 +12,9 @@ exports.createMessage = (req, res, next) => {
       }`,
       userPseudo: req.auth.userPseudo,
       text: req.body.text,
-      likes: 0,            
+      likes: 0,
+      nbrCommentaire: 0,  
+      nbrRepCommentaire : 0,          
     });
     message
       .save()
@@ -22,8 +24,9 @@ exports.createMessage = (req, res, next) => {
     const message = new Message({
       userPseudo: req.auth.userPseudo,
       text: req.body.text,
-      likes: 0,    
-      
+      likes: 0,  
+      nbrCommentaire: 0,  
+      nbrRepCommentaire : 0,         
     });
     message
     .save()

@@ -4,15 +4,22 @@ import axios from 'axios'
 import { useState } from 'react'
 
 function SupprimerCompte() {
-  const [email, setEmail] = useState()
-  const [pseudo, setPseudo] = useState()
-  const [password, setPassword] = useState()
+  let url = new URL(window.location.href)
+  let search_parms = new URLSearchParams(url.search)
+  let token = ''
+  if (search_parms.has('token')) {
+    token = search_parms.get('token')
+  }
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   function Delete() {
     axios
-      .delete(`http://127.0.0.1:8000/api/auth/${email}`)
+      .delete(`http://127.0.0.1:8000/api/auth/${email}`, {
+        headers: { Authorization: 'bearer ' + token },
+      })
       .then((res) => {
-        alert('Utilisateur ' + pseudo + ' supprimé')
+        alert('Utilisateur supprimé')
         window.location.href = '/'
       })
       .catch(() => alert('les informations saisies sont incorrectes'))
@@ -26,27 +33,17 @@ function SupprimerCompte() {
       <div className="sup-group-form">
         <form className="sup-form-deleteUser">
           <p className="sup-form-title">Supprimer un compte :</p>
-          <label for="text" className="sup-label-email">
+          <label htmlFor="email" className="sup-label-email">
             Votre adresse email :{' '}
           </label>
           <input
-            type="text"
+            type="email"
             className="sup-email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             required
           />
-          <label for="text" className="sup-label-pseudo">
-            Votre pseudo :{' '}
-          </label>
-          <input
-            type="text"
-            className="sup-pseudo"
-            onChange={(e) => setPseudo(e.target.value)}
-            value={pseudo}
-            required
-          />
-          <label for="email" className="sup-label-password">
+          <label htmlFor="password" className="sup-label-password">
             Votre password :{' '}
           </label>
           <input

@@ -7,6 +7,7 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faImage } from '@fortawesome/free-regular-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
 import {
   PublieMessage,
   AfficheMessages,
@@ -15,20 +16,24 @@ import {
 } from './Requete'
 import Commentaire from './Commentaire'
 
-library.add(faThumbsUp, faImage, faComment, faTrashCan)
+library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
 
 function SectionMessage() {
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
-  let userPseudoBearer = ''
+  let userPseudoIsAdminBearer = ''
   let token = ''
   let userPseudo = ''
+  let isAdmin = ''
+  let userPseudoIsAdmin = ''
   if (search_parms.has('userPseudo')) {
-    userPseudoBearer = search_parms.get('userPseudo')
-    token = userPseudoBearer.split('Bearer')[1]
-    userPseudo = userPseudoBearer.split('Bearer')[0]
+    userPseudoIsAdminBearer = search_parms.get('userPseudo')
+    token = userPseudoIsAdminBearer.split('Bearer')[1]
+    userPseudoIsAdmin = userPseudoIsAdminBearer.split('Bearer')[0]
+    isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
+    userPseudo = userPseudoIsAdmin.split('isAdmin')[0]
   }
-
+  console.log(userPseudo, isAdmin, token)
   const [dataMessage, setDataMessages] = useState([])
   const [text, setText] = useState('')
   const [image, setImage] = useState()
@@ -71,7 +76,6 @@ function SectionMessage() {
   }
   function selectMessage(info) {
     SelectUnMessage(setAfficheCommentaire, info)
-    setAfficheCommentaire(!afficheCommentaire)
   }
 
   return (
@@ -83,7 +87,7 @@ function SectionMessage() {
             <div className="message">
               <p className="message-contenu">{info.text}</p>
               <div className="message-boutton">
-                {userPseudo === info.userPseudo ? (
+                {isAdmin === 'true' || userPseudo === info.userPseudo ? (
                   <button
                     className="sup-message"
                     title="Supprimer le message"
@@ -126,15 +130,36 @@ function SectionMessage() {
                     />
                   </button>
                 ) : null}
+                <div className="message-nbrCommentaire">
+                  <p className="nbrCommentaire">{info.nbrCommentaire}</p>
+                </div>
+                <div
+                  className="message-icon-nbrRepCommentaire"
+                  title="Réponses de commentaires"
+                >
+                  <FontAwesomeIcon
+                    icon="fa-regular fa-comments"
+                    className="icon-nbrRepCommentaire"
+                  />
+                </div>
+                <div className="message-nbrRepCommentaire">
+                  <p className="nbrRepCommentaire">{info.nbrRepCommentaire}</p>
+                </div>
                 <button className="like-message" title="Liker le message">
                   <FontAwesomeIcon
                     icon="fa-solid fa-thumbs-up"
                     className="like-message-icon"
+                    onClick={() => {}}
                   />
                 </button>
+                <div className="message-nbrLikes">
+                  <p className="nbrLikes">{info.likes}</p>
+                </div>
               </div>
             </div>
-            {afficheCommentaire === info.id && <Commentaire info={info} />}
+            {afficheCommentaire === info.id && (
+              <Commentaire info={info} setDataMessages={setDataMessages} />
+            )}
           </div>
         ))}
       </div>

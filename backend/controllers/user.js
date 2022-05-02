@@ -13,6 +13,7 @@ exports.signup = (req, res, next) => {
         email: req.body.email,
         pseudo: req.body.pseudo,
         password: hash,
+        isAdmin: req.body.isAdmin,
       });
       user
         .save()
@@ -41,6 +42,7 @@ exports.login = (req, res, next) => {
             message: "Bonjour " + user.pseudo,
             userPseudo: user.pseudo,
             token: jwt.sign({ userPseudo: user.pseudo }, "RANDOM_TOKEN_SECRET"),
+            isAdmin: user.isAdmin,
           });
         })
         .catch((error) => res.status(500).json({ error }));
@@ -48,29 +50,49 @@ exports.login = (req, res, next) => {
     .catch((error) => res.status(501).json({ error }));
 };
 
-// route pour supprimer un utilisateur
+// route pour supprimer un utilisateur (compte utilisateur)
 exports.deleteUser = (req, res, next) => {
-  const email = req.params.email;
+  const email = req.params.email;  
   User.findOne({ where: { email: email } })
-    .then((user) => {
-      //if (user.userId == req.auth.userId) {
+
+  .then((user) => {      
+      if (user.pseudo == req.auth.userPseudo) {
       User.destroy({ where: { email: email } })
-        .then(() =>
-          res
+          .then(() =>
+            res
             .status(200)
             .json({ message: "Utilisateur " + user.pseudo + " supprimé !" })
-        )
-        .catch((error) => res.status(403).json({ error }));
-      /*} else {
-        res.status(401).json({
-          error: "Utilisateur non valide !",
-        });
-      }*/
-    })
+            )
+          .catch((error) => res.status(403).json({ error }));   
+    }else{
+      res.status(401).json({
+        error: "Utilisateur non valide",
+      });      
+    }     
+  })
     .catch((error) => res.status(501).json({ error }));
 };
 
-// route pour afficher l'ensemble des messages
+// route pour supprimer un utilisateur (compte administrateur)
+exports.deleteOneUser = (req, res, next) => {
+  const pseudo = req.params.pseudo;  
+  User.findOne({ where: { pseudo: pseudo } })
+
+  .then((user) => {      
+      User.destroy({ where: { pseudo: pseudo } })
+          .then(() =>
+            res
+            .status(200)
+            .json({ message: "Utilisateur " + user.pseudo + " supprimé !" })
+            )
+          .catch((error) => res.status(403).json({ error }));     
+      })      
+    .catch((error) => res.status(501).json({ error }));
+};
+
+
+
+// route pour afficher l'ensemble des utilisateurs
 exports.getAllUsers = (req, res, next) => {
   User.findAll()
     .then((user) => {

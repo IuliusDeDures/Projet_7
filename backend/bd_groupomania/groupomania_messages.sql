@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `groupomania` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `groupomania`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: groupomania
@@ -30,12 +28,14 @@ CREATE TABLE `messages` (
   `text` varchar(500) NOT NULL,
   `imageUrl` varchar(250) DEFAULT NULL,
   `likes` int DEFAULT NULL,
-  `createdAt` datetime DEFAULT NULL COMMENT 'Create Time',
-  `updatedAt` datetime DEFAULT NULL COMMENT 'Update Time',
+  `nbrCommentaire` int DEFAULT NULL,
+  `nbrRepCommentaire` int DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userPseudo` (`userPseudo`),
   CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`userPseudo`) REFERENCES `users` (`pseudo`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +47,4 @@ CREATE TABLE `messages` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-31 11:35:59
+-- Dump completed on 2022-04-29 11:40:27

@@ -24,14 +24,14 @@ function AllUsers() {
 
   return (
     <div className="allUsers">
-      {data.map((info) => (
-        <div className="users" key={info.id}>
+      {data.map((dataUser) => (
+        <div className="users" key={dataUser.id}>
           <p className="users-contenu">
             <FontAwesomeIcon
               icon="fa-solid fa-face-smile"
               className="icon-smile"
             />
-            {info.pseudo}
+            {dataUser.pseudo}
           </p>
         </div>
       ))}

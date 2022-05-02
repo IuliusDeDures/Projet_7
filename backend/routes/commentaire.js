@@ -17,10 +17,10 @@ router.delete("/:id", auth, commentaireCtrl.deleteCommentaire);
 // route pour l'affichage d'un commentaire
 router.get("/:id", commentaireCtrl.getOneCommentaire);
 
-// route pour la modification d'un commentaire
-router.put("/:id", auth, commentaireCtrl.modifyCommentaire);
-
 // route pour liker ou disliker un commentaire
 router.post("/:id/like", commentaireCtrl.likeCommentaire);
+
+// route pour modifier le nombre de commentaires
+router.put("/",commentaireCtrl.modifNbrCommentaire);
 
 module.exports = router;
