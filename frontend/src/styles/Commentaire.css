@@ -60,22 +60,6 @@
 .sup-commentaire-icon:hover {
   color: red;
 }
-.like-commentaire {
-  border: none;
-  background-color: rgb(225, 225, 225);
-  border-radius: 10px;
-  display: flex;
-  margin-left: 10px;
-}
-.like-commentaire-icon {
-  font-size: 115%;
-  padding: 5px;
-  align-self: center;
-  cursor: pointer;
-}
-.like-commentaire-icon:hover {
-  color: blue;
-}
 
 .form-commentaire {
   background-color: rgb(225, 225, 225);

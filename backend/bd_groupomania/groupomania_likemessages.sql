@@ -16,27 +16,23 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `commentaires`
+-- Table structure for table `likemessages`
 --
 
-DROP TABLE IF EXISTS `commentaires`;
+DROP TABLE IF EXISTS `likemessages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `commentaires` (
+CREATE TABLE `likemessages` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `idMessage` int NOT NULL,
-  `userPseudo` varchar(250) DEFAULT NULL,
-  `commentaire` varchar(250) NOT NULL,
-  `nbrRepCommentaireCom` int DEFAULT NULL,
-  `likes` int DEFAULT NULL,
+  `idMessage` int DEFAULT NULL,
+  `userPseudo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `likeMessage` tinyint(1) DEFAULT '0',
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idMessage` (`idMessage`),
-  KEY `userPseudo` (`userPseudo`),
-  CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`idMessage`) REFERENCES `messages` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `commentaires_ibfk_2` FOREIGN KEY (`userPseudo`) REFERENCES `users` (`pseudo`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `likemessages_ibfk_1` FOREIGN KEY (`idMessage`) REFERENCES `messages` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +44,4 @@ CREATE TABLE `commentaires` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-05 14:43:27
+-- Dump completed on 2022-05-06 21:52:07

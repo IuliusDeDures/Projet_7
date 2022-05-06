@@ -1,6 +1,7 @@
 const Message = require("../models/messages");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
+const LikeMessage = require("../models/likeMessage")
 
 // route pour  créer un message
 exports.createMessage = (req, res, next) => {
@@ -15,11 +16,12 @@ exports.createMessage = (req, res, next) => {
       likes: 0,
       nbrCommentaire: 0,  
       nbrRepCommentaire : 0,          
-    });
+    });    
     message
       .save()
       .then(() => res.status(201).json({ message: "Message enregistré !" }))
       .catch((error) => res.status(400).json({ error }));
+        
   } else {
     const message = new Message({
       userPseudo: req.auth.userPseudo,
@@ -32,7 +34,7 @@ exports.createMessage = (req, res, next) => {
     .save()
      .then(() => res.status(201).json({ message: "Message enregistré !" }))
      .catch((error) => res.status(400).json({ error }));
-  }
+     }
 };
 
 // route pour supprimer un message
@@ -113,34 +115,4 @@ exports.modifyMessage = (req, res, next) => {
       }
     })
     .catch((error) => res.status(500).json({ error }));
-};
-
-// route pour liker un message
-exports.likeMessage = (req, res, next) => {
-  const userPseudo = req.body.userPseudo;
-  const like = req.body.likes;
-  const modiflike = { likes: req.body.likes, updateAt: Date.now() };
-  const messageId = req.params.id;
-  Message.findOne({ where: { id: messageId } })
-    .then((message) => {
-      switch (like) {
-        case 1:
-          if (like == 1) {
-            Message.update(modiflike, { where: { id: messageId } })
-              .then(() => res.status(201).json({ message: "Message liké !" }))
-              .catch((error) => res.status(400).json({ error }));
-          }
-          break;
-        case 0:
-          if (like == 0) {
-            Message.update(modiflike, { where: { id: messageId } })
-              .then(() =>
-                res.status(201).json({ message: "Message n'est plus liké !" })
-              )
-              .catch((error) => res.status(400).json({ error }));
-          }
-          break;
-      }
-    })
-    .catch((error) => res.status(404).json({ error }));
 };

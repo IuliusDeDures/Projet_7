@@ -83,33 +83,3 @@ exports.getOneCommentaire = (req, res, next) => {
     })
     .catch((error) => res.status(404).json({ error }));
 };
-
-// route pour liker un commentaire
-exports.likeCommentaire = (req, res, next) => {
-  const userPseudo = req.body.userPseudo;
-  const like = req.body.likes;
-  const modiflike = { likes: req.body.likes, updateAt: Date.now() };
-  const commentaireId = req.params.id;
-  Commentaire.findOne({ where: { id: commentaireId } })
-    .then((commentaire) => {
-      switch (like) {
-        case 1:
-          if (like == 1) {
-            Commentaire.update(modiflike, { where: { id: commentaireId } })
-              .then(() => res.status(201).json({ message: "Commentaire liké !" }))
-              .catch((error) => res.status(400).json({ error }));
-          }
-          break;
-        case 0:
-          if (like == 0) {
-            Commentaire.update(modiflike, { where: { id: commentaireId } })
-              .then(() =>
-                res.status(201).json({ message: "Le commentaire n'est plus liké !" })
-              )
-              .catch((error) => res.status(400).json({ error }));
-          }
-          break;
-      }
-    })
-    .catch((error) => res.status(404).json({ error }));
-};

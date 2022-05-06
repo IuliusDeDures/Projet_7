@@ -21,7 +21,4 @@ router.get("/:id", messageCtrl.getOneMessage);
 // route pour la modification d'un message
 router.put("/:id", auth, multer, messageCtrl.modifyMessage);
 
-// route pour liker ou disliker un message
-router.post("/:id/like", auth, messageCtrl.likeMessage);
-
 module.exports = router;

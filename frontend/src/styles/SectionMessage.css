@@ -12,7 +12,7 @@
   margin: auto;
   background: url('../assets/icon-rogner.png') center 10px no-repeat;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
 }
 .messagePlusCommentaire {
@@ -192,22 +192,6 @@
   margin-left: 10px;
   border-radius: 10px;
   display: flex;
-}
-.like-message {
-  border: none;
-  background-color: rgb(225, 225, 225);
-  border-radius: 10px;
-  margin-left: 10px;
-  display: flex;
-}
-.like-message-icon {
-  font-size: 115%;
-  padding: 5px;
-  align-self: center;
-  cursor: pointer;
-}
-.like-message-icon:hover {
-  color: blue;
 }
 .message-nbrCommentaire {
   background-color: rgb(225, 225, 225);

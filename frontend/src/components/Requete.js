@@ -157,3 +157,71 @@ function ModifNbrRepCommentaire(data) {
   })
 }
 export { ModifNbrRepCommentaire }
+
+// requete pour supprimer un like message
+function SupprimerLikeMessage(info, token) {
+  axios
+    .delete(`http://127.0.0.1:8000/api/likes/likeMessage/${info.id}`, {
+      headers: { Authorization: 'bearer ' + token },
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+export { SupprimerLikeMessage }
+
+// requete pour créer un like message
+async function CréerLikeMessage(data, token) {
+  try {
+    await axios.post('http://127.0.0.1:8000/api/likes/likeMessage/', data, {
+      headers: { Authorization: 'bearer ' + token },
+    })
+  } catch {
+    return alert('les informations saisies sont incorrectes')
+  }
+}
+export { CréerLikeMessage }
+
+// requete pour modifier le nombre like message
+function ModifNbrLikeMessage(data) {
+  axios
+    .put('http://127.0.0.1:8000/api/likes/likeMessage/', data)
+    .catch((err) => {
+      console.log(err)
+    })
+}
+export { ModifNbrLikeMessage }
+
+// requete pour supprimer un like message
+function SupprimerLikeCommentaire(info, token) {
+  axios
+    .delete(`http://127.0.0.1:8000/api/likes/likeCommentaire/${info.id}`, {
+      headers: { Authorization: 'bearer ' + token },
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+export { SupprimerLikeCommentaire }
+
+// requete pour créer un like message
+async function CréerLikeCommentaire(data, token) {
+  try {
+    await axios.post('http://127.0.0.1:8000/api/likes/likeCommentaire/', data, {
+      headers: { Authorization: 'bearer ' + token },
+    })
+  } catch {
+    return alert('les informations saisies sont incorrectes')
+  }
+}
+export { CréerLikeCommentaire }
+
+// requete pour modifier le nombre like message
+function ModifNbrLikeCommentaire(data) {
+  axios
+    .put('http://127.0.0.1:8000/api/likes/likeCommentaire/', data)
+    .catch((err) => {
+      console.log(err)
+    })
+}
+export { ModifNbrLikeCommentaire }

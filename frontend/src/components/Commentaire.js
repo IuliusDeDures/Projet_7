@@ -14,6 +14,7 @@ import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import '../styles/Commentaire.css'
 import RepCommentaire from './RepCommentaire'
+import LikeCommentaire from './LikeCommentaire'
 
 library.add(faThumbsUp, faComment, faTrashCan)
 
@@ -123,8 +124,7 @@ function Commentaire({ info, setDataMessages }) {
                         className="icon-nbrRepCommentaire"
                       />
                     </button>
-                  ) : null}
-                  {afficheReponse ? (
+                  ) : (
                     <button
                       className="repondre-commentaire"
                       title="Ne pas répondre à ce commentaire"
@@ -137,21 +137,20 @@ function Commentaire({ info, setDataMessages }) {
                         className="icon-nbrRepCommentaireCom"
                       />
                     </button>
-                  ) : null}
+                  )}
+
                   <div className="message-nbrRepCommentaire">
                     <p className="nbrRepCommentaire">
                       {dataCom.nbrRepCommentaireCom}
                     </p>
                   </div>
-                  <button
-                    className="like-commentaire"
-                    title="Liker le commentaire"
-                  >
-                    <FontAwesomeIcon
-                      icon="fa-solid fa-thumbs-up"
-                      className="like-commentaire-icon"
-                    />
-                  </button>
+                  <LikeCommentaire
+                    dataCom={dataCom}
+                    setDataCommentaire={setDataCommentaire}
+                  />
+                  <div className="message-nbrLikes">
+                    <p className="nbrLikes">{dataCom.likes}</p>
+                  </div>
                 </div>
                 {afficheReponse === dataCom.id && (
                   <RepCommentaire

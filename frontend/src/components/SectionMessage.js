@@ -15,6 +15,7 @@ import {
   SelectUnMessage,
 } from './Requete'
 import Commentaire from './Commentaire'
+import LikeMessage from './LikeMessage'
 
 library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
 
@@ -33,7 +34,6 @@ function SectionMessage() {
     isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
     userPseudo = userPseudoIsAdmin.split('isAdmin')[0]
   }
-  console.log(userPseudo, isAdmin, token)
   const [dataMessage, setDataMessages] = useState([])
   const [text, setText] = useState('')
   const [image, setImage] = useState()
@@ -145,13 +145,7 @@ function SectionMessage() {
                 <div className="message-nbrRepCommentaire">
                   <p className="nbrRepCommentaire">{info.nbrRepCommentaire}</p>
                 </div>
-                <button className="like-message" title="Liker le message">
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-thumbs-up"
-                    className="like-message-icon"
-                    onClick={() => {}}
-                  />
-                </button>
+                <LikeMessage info={info} setDataMessages={setDataMessages} />
                 <div className="message-nbrLikes">
                   <p className="nbrLikes">{info.likes}</p>
                 </div>

@@ -1,0 +1,31 @@
+.like-commentaire {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+.like-commentaire-icon {
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.dislike-commentaire {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+.dislike-commentaire-icon {
+  color: blue;
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.all-like-commentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 10px;
+  display: flex;
+}
