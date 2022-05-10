@@ -1,5 +1,4 @@
-import '../styles/SectionMessage.css'
-import '../styles/Footer.css'
+import '../styles/Message.css'
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -16,6 +15,7 @@ import {
 } from './Requete'
 import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
+import { dateParser } from './utils/DateParser'
 
 library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
 
@@ -48,7 +48,7 @@ function SectionMessage() {
     if (text || image) {
       const data = new FormData()
       data.append('text', text)
-      if (file) data.append('imageUrl', file)
+      if (file) data.append('file', file)
 
       await PublieMessage(data, token)
       AfficheMessages(setDataMessages)
@@ -83,9 +83,19 @@ function SectionMessage() {
       <div className="allMessages">
         {dataMessage.map((info) => (
           <div key={info.id} className="messagePlusCommentaire">
-            <p className="message-pseudoUser">{info.userPseudo}</p>
+            <div className="message-header">
+              <p className="message-pseudoUser">{info.userPseudo}</p>
+              <p className="message-date">{dateParser(info.createdAt)}</p>
+            </div>
             <div className="message">
               <p className="message-contenu">{info.text}</p>
+              {info.file && (
+                <img
+                  className="message-image"
+                  src={info.file}
+                  alt="fichier_image"
+                />
+              )}
               <div className="message-boutton">
                 {isAdmin === 'true' || userPseudo === info.userPseudo ? (
                   <button
@@ -189,10 +199,9 @@ function SectionMessage() {
               className="ajout-photo-message"
               type="file"
               name="file"
-              accept=".jpg, .jpeg, .png, .mp4"
+              accept=".jpg, .jpeg, .png"
               onChange={(e) => handlePicture(e)}
-              value={image}
-              title="Ajouter une image ou une vidéo"
+              title="Ajouter une image"
             />
             {text || image ? (
               <button className="annule-message" onClick={annuler}>

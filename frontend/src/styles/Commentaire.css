@@ -25,10 +25,15 @@
 .commentaire:hover {
   background-color: rgb(200, 200, 200);
 }
-
-.commentaire-pseudoUser {
+.commentaire-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+}
+.commentaire-pseudoUser {
+  margin: 1px 1px 5px 1px;
+  font-size: small;
+}
+.commentaire-date {
   margin: 1px 1px 5px 1px;
   font-size: small;
 }

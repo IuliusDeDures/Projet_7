@@ -7,6 +7,7 @@ import {
   ModifNbrRepCommentaire,
   AfficheCommentaire,
 } from './Requete'
+import { dateParser } from './utils/DateParser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
@@ -89,9 +90,14 @@ function RepCommentaire({
           <div key={dataRepCom.id}>
             {dataRepCom.idCommentaire === dataCom.id ? (
               <div className="repCommentaire">
-                <p className="repCommentaire-pseudoUser">
-                  {dataRepCom.userPseudo} :
-                </p>
+                <div className="repCommentaire-header">
+                  <p className="repCommentaire-pseudoUser">
+                    {dataRepCom.userPseudo} :
+                  </p>
+                  <p className="repCommentaire-date">
+                    {dateParser(dataRepCom.createdAt)}
+                  </p>
+                </div>
                 <p className="repCommentaire-contenu">
                   {dataRepCom.repCommentaire}
                 </p>

@@ -53,13 +53,13 @@ exports.createLikeMessage = (req, res, next) => {
 
 // route pour supprimer un like de commentaire
 exports.deleteLikeCommentaire = (req, res, next) => {
-  const likeCommentaireId = req.params.id;
-  
-  LikeCommentaire.findOne({ where: { id: likeCommentaireId } })
+    const likeUser = req.auth.userPseudo
+    const likeCommentaireId = req.params.id;  
+  LikeCommentaire.findOne({ where: { idCommentaire: likeCommentaireId, userPseudo: likeUser }})
     .then((likeCommentaire) => {
-      if (likeCommentaire.userPseudo == req.auth.userPseudo) {
+      if (likeCommentaire.userPseudo == likeUser) {
                      
-        LikeCommentaire.destroy({ where: { id: likeCommentaireId } })
+        LikeCommentaire.destroy({ where: { idCommentaire: likeCommentaireId, userPseudo: likeUser} })
             .then(() => res.status(200).json({ message: "Like de commentaire supprimé !" }))
             .catch((error) => res.status(403).json({ error }));        
         
@@ -74,12 +74,13 @@ exports.deleteLikeCommentaire = (req, res, next) => {
 
 // route pour supprimer un like de message
 exports.deleteLikeMessage = (req, res, next) => {
+    const likeUser = req.auth.userPseudo
     const likeMessageId = req.params.id;    
-    LikeMessage.findOne({ where: { idMessage: likeMessageId } })
+    LikeMessage.findOne({ where: { idMessage: likeMessageId, userPseudo: likeUser } })
       .then((likeMessage) => {
-        if (likeMessage.userPseudo == req.auth.userPseudo) {
+        if (likeMessage.userPseudo == likeUser) {
                        
-            LikeMessage.destroy({ where: { idMessage: likeMessageId } })
+            LikeMessage.destroy({ where: { idMessage: likeMessageId, userPseudo: likeUser } })
               .then(() => res.status(200).json({ message: "Like de message supprimé !" }))
               .catch((error) => res.status(403).json({ error }));        
           

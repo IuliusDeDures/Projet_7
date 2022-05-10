@@ -15,6 +15,7 @@ import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import '../styles/Commentaire.css'
 import RepCommentaire from './RepCommentaire'
 import LikeCommentaire from './LikeCommentaire'
+import { dateParser } from './utils/DateParser'
 
 library.add(faThumbsUp, faComment, faTrashCan)
 
@@ -92,7 +93,14 @@ function Commentaire({ info, setDataMessages }) {
           <div key={dataCom.id}>
             {dataCom.idMessage === info.id ? (
               <div className="commentaire">
-                <p className="commentaire-pseudoUser">{dataCom.userPseudo} :</p>
+                <div className="commentaire-header">
+                  <p className="commentaire-pseudoUser">
+                    {dataCom.userPseudo} :
+                  </p>
+                  <p className="commentaire-date">
+                    {dateParser(dataCom.createdAt)}
+                  </p>
+                </div>
                 <p className="commentaire-contenu">{dataCom.commentaire}</p>
                 <div className="commentaire-boutton">
                   {isAdmin === 'true' || userPseudo === dataCom.userPseudo ? (

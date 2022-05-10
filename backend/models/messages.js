@@ -11,7 +11,7 @@ const database = new Sequelize(config);
 const Message = database.define("Message", {
   userPseudo: { type: Sequelize.STRING },
   text: { type: Sequelize.STRING(500), allowNull: false },
-  imageUrl: { type: Sequelize.STRING },
+  file: { type: Sequelize.STRING },
   likes: { type: Sequelize.INTEGER },
   nbrCommentaire : { type: Sequelize.INTEGER },
   nbrRepCommentaire : { type: Sequelize.INTEGER },

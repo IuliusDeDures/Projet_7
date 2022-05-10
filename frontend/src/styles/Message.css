@@ -1,3 +1,255 @@
-.group-message-contenu {
+.sectionMessage {
+  width: 80%;
   display: flex;
+  flex-direction: column-reverse;
+  margin-left: 15px;
+}
+
+.allMessages {
+  width: 100%;
+  max-height: 555px;
+  overflow: auto;
+  margin: auto;
+  background: url('../assets/icon-rogner.png') center 10px no-repeat;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.messagePlusCommentaire {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  max-width: 90%;
+  width: fit-content;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+}
+
+.message {
+  background-color: rgb(225, 225, 225);
+  border-radius: 20px;
+  margin: 0px 5px 15px 5px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  width: fit-content;
+  max-width: 90%;
+  align-self: center;
+}
+.message:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+.message-contenu {
+  display: flex;
+  justify-content: center;
+  margin: 1px 1px 10px 1px;
+}
+.message-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.message-pseudoUser {
+  font-size: small;
+  background-color: rgb(225, 225, 225);
+  border-radius: 20px;
+  padding: 2px 7px;
+  width: fit-content;
+  margin: 5px 10px 5px 10px;
+  box-shadow: 2px 2px 4px rgb(200, 200, 200);
+  align-self: center;
+}
+.message-date {
+  font-size: small;
+  background-color: rgb(225, 225, 225);
+  border-radius: 20px;
+  padding: 2px 7px;
+  width: fit-content;
+  margin: 5px 10px 5px 10px;
+  box-shadow: 2px 2px 4px rgb(200, 200, 200);
+  align-self: center;
+}
+
+.ajout-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.form-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.nouveau-message {
+  border: none;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
+  padding: 10px;
+  margin: 15px;
+  border-radius: 25px;
+}
+.ajout-photo-message {
+  border: none;
+  width: 45px;
+  height: min-content;
+  margin-left: -60px;
+  opacity: 0%;
+  cursor: pointer;
+}
+.icon-photo {
+  width: 25px;
+  height: 25px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  border-radius: 25px;
+  margin-right: 15px;
+  padding: 10px;
+  background-color: rgb(225, 225, 225);
+  position: relative;
+  cursor: pointer;
+}
+.envoie-message {
+  border: none;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px;
+  margin-left: 20px;
+  width: min-content;
+  height: min-content;
+  cursor: pointer;
+}
+.annule-message {
+  border: none;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  font-weight: bold;
+  border-radius: 25px;
+  margin-left: 20px;
+  padding: 10px;
+  width: min-content;
+  height: min-content;
+  cursor: pointer;
+}
+.contenu-message {
+  background-color: rgb(225, 225, 225);
+  list-style-type: none;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  min-width: 600px;
+  min-height: 50px;
+  margin-bottom: 15px;
+}
+
+.contenu-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+.p-contenu {
+  margin: 0px;
+}
+
+.contenu {
+  text-align: start;
+  padding: 10px;
+}
+.footer-nouveau-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-boutton {
+  display: flex;
+  justify-content: flex-end;
+  height: 20px;
+  padding: 5px;
+  border-radius: 15px;
+}
+.sup-message {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+.sup-message-icon {
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.sup-message-icon:hover {
+  color: red;
+}
+.com-message {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  margin-left: 10px;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+.icon-commentaire {
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.icon-commentaire:hover {
+  color: blue;
+}
+.com-boutton {
+  border: none;
+  background-color: rgb(225, 225, 225);
+  margin-left: 10px;
+  border-radius: 10px;
+  display: flex;
+}
+.message-nbrCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 3px;
+  display: flex;
+}
+.message-icon-nbrRepCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 10px;
+  display: flex;
+}
+.icon-nbrRepCommentaire {
+  padding: 7px;
+  align-self: center;
+}
+.nbrCommentaire {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
+}
+.nbrRepCommentaire {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
+}
+.message-nbrRepCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 3px;
+  display: flex;
+}
+.message-nbrLikes {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  margin-left: 3px;
+  display: flex;
+}
+.nbrLikes {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
 }

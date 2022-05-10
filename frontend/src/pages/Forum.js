@@ -1,19 +1,13 @@
-import SectionMessage from '../components/SectionMessage'
-import SectionUsers from '../components/SectionUsers'
+import Message from '../components/Message'
 import Banner from '../components/Banner'
-//import Footer from '../components/Footer'
-import '../styles/Message.css'
 
-function Message() {
+function Forum() {
   return (
-    <div className="group-message">
+    <div className="group-forum">
       <Banner></Banner>
-      <div className="group-message-contenu">
-        <SectionMessage></SectionMessage>
-        <SectionUsers></SectionUsers>
-      </div>
+      <Message></Message>
     </div>
   )
 }
 
-export default Message
+export default Forum

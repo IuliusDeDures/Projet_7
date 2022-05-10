@@ -5,10 +5,9 @@ const LikeMessage = require("../models/likeMessage")
 
 // route pour  créer un message
 exports.createMessage = (req, res, next) => {
-  if (req.file) {
-    
+  if (req.file) {    
     const message = new Message({      
-      imageUrl: `${req.protocol}://${req.get("host")}/images/${
+      file: `${req.protocol}://${req.get("host")}/images/${
         req.file.filename
       }`,
       userPseudo: req.auth.userPseudo,

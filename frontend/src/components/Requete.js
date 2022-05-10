@@ -193,9 +193,9 @@ function ModifNbrLikeMessage(data) {
 export { ModifNbrLikeMessage }
 
 // requete pour supprimer un like message
-function SupprimerLikeCommentaire(info, token) {
+function SupprimerLikeCommentaire(dataCom, token) {
   axios
-    .delete(`http://127.0.0.1:8000/api/likes/likeCommentaire/${info.id}`, {
+    .delete(`http://127.0.0.1:8000/api/likes/likeCommentaire/${dataCom.id}`, {
       headers: { Authorization: 'bearer ' + token },
     })
     .catch((err) => {
