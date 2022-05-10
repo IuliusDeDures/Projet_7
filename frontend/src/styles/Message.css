@@ -34,6 +34,8 @@
   width: fit-content;
   max-width: 90%;
   align-self: center;
+  display: flex;
+  flex-direction: column;
 }
 .message:hover {
   background-color: rgb(200, 200, 200);
@@ -43,6 +45,10 @@
   display: flex;
   justify-content: center;
   margin: 1px 1px 10px 1px;
+}
+.message-image {
+  align-self: center;
+  padding-bottom: 10px;
 }
 .message-header {
   display: flex;

@@ -88,30 +88,3 @@ exports.getOneMessage = (req, res, next) => {
     })
     .catch((error) => res.status(404).json({ error }));
 };
-
-// route pour modifier un message
-exports.modifyMessage = (req, res, next) => {
-  const messageId = req.params.id;
-  const modifMessage = { text: req.body.text, updateAt: Date.now() };
-  const messageObject = req.file
-    ? {
-        ...JSON.parse(req.body.message),
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
-          req.file.filename
-        }`,
-      }
-    : { ...req.body };
-  Message.findOne({ where: { id: messageId } })
-    .then((message) => {
-      if (message.userPseudo == req.auth.userPseudo) {
-        Message.update(modifMessage, { where: { id: messageId } })
-          .then(() => res.status(200).json({ message: "Message modifié !" }))
-          .catch((error) => res.status(402).json({ error }));
-      } else {
-        res.status(403).json({
-          error: "Utilisateur non valide !",
-        });
-      }
-    })
-    .catch((error) => res.status(500).json({ error }));
-};
