@@ -33,7 +33,7 @@ function Banner() {
     <div>
       <div className="group-header">
         <img src={logo} alt="logo-groupomania" className="group-logo" />
-        <div>
+        <div className="group-boutton">
           {isAdmin === 'true' ? (
             <button className="group-listeUser" onClick={CreaCompteAdmin}>
               Créer un compte administrateur

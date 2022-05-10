@@ -10,7 +10,7 @@
   margin: auto;
 }
 .connect-group-logo {
-  width: 40%;
+  width: 50%;
   border-radius: 25px;
   margin: auto;
 }
@@ -75,4 +75,10 @@
   background-color: rgb(225, 225, 225);
   text-align: center;
   margin: 5px;
+}
+@media all and (max-width: 950px) {
+  .connect-group-logo {
+    margin: auto;
+    min-width: 230px;
+  }
 }

@@ -12,7 +12,7 @@
 }
 
 .sup-admin-group-logo {
-  width: 40%;
+  width: 50%;
   border-radius: 25px;
   margin: auto;
 }
@@ -66,4 +66,10 @@
   border: none;
   font-size: 105%;
   cursor: pointer;
+}
+@media all and (max-width: 950px) {
+  .sup-admin-group-logo {
+    margin: auto;
+    min-width: 230px;
+  }
 }

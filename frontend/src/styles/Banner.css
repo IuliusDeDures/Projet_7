@@ -11,6 +11,12 @@
   border-radius: 25px;
   margin-left: 50px;
 }
+.group-boutton {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
 
 .group-deleteUser {
   border-radius: 20px;
@@ -48,4 +54,17 @@
   font-weight: bold;
   border: none;
   cursor: pointer;
+}
+@media all and (max-width: 950px) {
+  .group-header {
+    flex-direction: column;
+    margin: auto;
+    border-radius: 75px;
+  }
+  .group-logo {
+    margin: auto;
+    width: 50%;
+    min-width: 230px;
+    padding-top: 10px;
+  }
 }
