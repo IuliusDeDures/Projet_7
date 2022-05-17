@@ -12,14 +12,17 @@ import {
   AfficheMessages,
   SupprimerMessage,
   SelectUnMessage,
-} from './Requete'
+} from './utils/Requete'
 import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
 import { dateParser } from './utils/DateParser'
 
+// ajout des différents icons
 library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
 
+// fonction principal des messages
 function SectionMessage() {
+  // recupération du token, isAdmin et de user pseudo
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -44,6 +47,7 @@ function SectionMessage() {
     AfficheMessages(setDataMessages)
   }, [])
 
+  // fonction pour créer un nouveau message et mettre à jour le DOM
   async function publier() {
     if (text || image) {
       const data = new FormData()
@@ -58,52 +62,57 @@ function SectionMessage() {
     }
   }
 
+  // fonction pour l'ajout d'image
   function handlePicture(e) {
     setImage(URL.createObjectURL(e.target.files[0]))
     setFile(e.target.files[0])
   }
 
+  // fonction pour et mettre à jour le State
   function annuler() {
     setText('')
     setImage('')
     setFile('')
   }
 
-  function supMessage(info) {
-    SupprimerMessage(info, token)
+  // fonction pour supprimer un message et mettre à jour le DOM
+  function supMessage(dataMess) {
+    SupprimerMessage(dataMess, token)
     alert('Message suprimé')
     AfficheMessages(setDataMessages)
   }
-  function selectMessage(info) {
-    SelectUnMessage(setAfficheCommentaire, info)
+
+  // fonction pour selectionner un message
+  function selectMessage(dataMess) {
+    SelectUnMessage(setAfficheCommentaire, dataMess)
   }
 
   return (
     <div className="sectionMessage">
       <div className="allMessages">
-        {dataMessage.map((info) => (
-          <div key={info.id} className="messagePlusCommentaire">
+        {dataMessage.map((dataMess) => (
+          <div key={dataMess.id} className="messagePlusCommentaire">
             <div className="message-header">
-              <p className="message-pseudoUser">{info.userPseudo}</p>
-              <p className="message-date">{dateParser(info.createdAt)}</p>
+              <p className="message-pseudoUser">{dataMess.userPseudo}</p>
+              <p className="message-date">{dateParser(dataMess.createdAt)}</p>
             </div>
             <div className="message">
-              <p className="message-contenu">{info.text}</p>
-              {info.file && (
+              <p className="message-contenu">{dataMess.text}</p>
+              {dataMess.file && (
                 <img
                   className="message-image"
-                  src={info.file}
+                  src={dataMess.file}
                   alt="fichier_image"
                 />
               )}
               <div className="message-boutton">
-                {isAdmin === 'true' || userPseudo === info.userPseudo ? (
+                {isAdmin === 'true' || userPseudo === dataMess.userPseudo ? (
                   <button
                     className="sup-message"
                     title="Supprimer le message"
                     onClick={(e) => {
                       e.preventDefault()
-                      supMessage(info)
+                      supMessage(dataMess)
                     }}
                   >
                     <FontAwesomeIcon
@@ -121,7 +130,7 @@ function SectionMessage() {
                       className="icon-commentaire"
                       icon="fa-regular fa-comment"
                       onClick={() => {
-                        selectMessage(info)
+                        selectMessage(dataMess)
                       }}
                     />
                   </button>
@@ -141,7 +150,7 @@ function SectionMessage() {
                   </button>
                 ) : null}
                 <div className="message-nbrCommentaire">
-                  <p className="nbrCommentaire">{info.nbrCommentaire}</p>
+                  <p className="nbrCommentaire">{dataMess.nbrCommentaire}</p>
                 </div>
                 <div
                   className="message-icon-nbrRepCommentaire"
@@ -153,16 +162,24 @@ function SectionMessage() {
                   />
                 </div>
                 <div className="message-nbrRepCommentaire">
-                  <p className="nbrRepCommentaire">{info.nbrRepCommentaire}</p>
+                  <p className="nbrRepCommentaire">
+                    {dataMess.nbrRepCommentaire}
+                  </p>
                 </div>
-                <LikeMessage info={info} setDataMessages={setDataMessages} />
+                <LikeMessage
+                  dataMess={dataMess}
+                  setDataMessages={setDataMessages}
+                />
                 <div className="message-nbrLikes">
-                  <p className="nbrLikes">{info.likes}</p>
+                  <p className="nbrLikes">{dataMess.likes}</p>
                 </div>
               </div>
             </div>
-            {afficheCommentaire === info.id && (
-              <Commentaire info={info} setDataMessages={setDataMessages} />
+            {afficheCommentaire === dataMess.id && (
+              <Commentaire
+                dataMess={dataMess}
+                setDataMessages={setDataMessages}
+              />
             )}
           </div>
         ))}

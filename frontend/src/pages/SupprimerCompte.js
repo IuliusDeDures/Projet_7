@@ -1,6 +1,6 @@
 import logo from '../assets/icon-left-font-rogner.png'
 import '../styles/SupprimerCompte.css'
-import axios from 'axios'
+import { UserDelete } from '../components/utils/Requete'
 import { useState } from 'react'
 
 function SupprimerCompte() {
@@ -14,15 +14,7 @@ function SupprimerCompte() {
   const [password, setPassword] = useState('')
 
   function Delete() {
-    axios
-      .delete(`http://127.0.0.1:8000/api/auth/${email}`, {
-        headers: { Authorization: 'bearer ' + token },
-      })
-      .then((res) => {
-        alert('Utilisateur supprimé')
-        window.location.href = '/'
-      })
-      .catch(() => alert('les informations saisies sont incorrectes'))
+    UserDelete(email, token)
   }
 
   return (

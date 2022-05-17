@@ -6,21 +6,24 @@ import {
   AfficheMessages,
   ModifNbrRepCommentaire,
   AfficheCommentaire,
-} from './Requete'
+} from './utils/Requete'
 import { dateParser } from './utils/DateParser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import '../styles/RepCommentaire.css'
 
+// ajout des différents icons
 library.add(faTrashCan)
 
+// fonction principal des reponses de commentaire
 function RepCommentaire({
-  info,
+  dataMess,
   setDataMessages,
   setDataCommentaire,
   dataCom,
 }) {
+  // recupération du token, isAdmin et de user pseudo
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -43,13 +46,14 @@ function RepCommentaire({
     AfficheRepCommentaire(setDataRepCommentaire)
   }, [])
 
+  // fonction pour créer une reponse de commentaire et mettre à jour le DOM
   async function Repondre() {
     if (repCommentaire) {
       const data = {
-        idMessage: info.id,
+        idMessage: dataMess.id,
         idCommentaire: dataCom.id,
         repCommentaire: repCommentaire,
-        nbrRepCommentaire: info.nbrRepCommentaire,
+        nbrRepCommentaire: dataMess.nbrRepCommentaire,
         nbrRepCommentaireCom: dataCom.nbrRepCommentaireCom,
       }
       await PublieRepCommentaire(data, token)
@@ -62,16 +66,15 @@ function RepCommentaire({
       alert('Veuillez entrer un commentaire ')
     }
   }
-
+  // fonction pour supprimer une reponse de commentaire et mettre à jour le DOM
   function supRepCommentaire(dataRepCom) {
     SupprimerRepCommentaire(dataRepCom, token)
     const data = {
-      idMessage: info.id,
-      nbrRepCommentaire: info.nbrRepCommentaire,
+      idMessage: dataMess.id,
+      nbrRepCommentaire: dataMess.nbrRepCommentaire,
       idCommentaire: dataCom.id,
       nbrRepCommentaireCom: dataCom.nbrRepCommentaireCom,
     }
-
     ModifNbrRepCommentaire(data)
     alert('Réponse de commentaire supprimé !')
     AfficheRepCommentaire(setDataRepCommentaire)
@@ -79,6 +82,7 @@ function RepCommentaire({
     AfficheCommentaire(setDataCommentaire)
   }
 
+  // fonction pour et mettre à jour le State
   function annuler() {
     setRepCommentaire('')
   }

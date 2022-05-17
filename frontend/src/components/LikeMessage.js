@@ -4,16 +4,20 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 
 import {
+  AfficheLikeMessage,
   CréerLikeMessage,
   SupprimerLikeMessage,
   ModifNbrLikeMessage,
   AfficheMessages,
-} from './Requete'
+} from './utils/Requete'
 import '../styles/LikeMessage.css'
 
+// ajout des différents icons
 library.add(faThumbsUp)
 
-function LikeMessage({ info, setDataMessages }) {
+// fonction principal des likes messages
+function LikeMessage({ dataMess, setDataMessages }) {
+  // recupération du token, isAdmin et de user pseudo
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -30,34 +34,26 @@ function LikeMessage({ info, setDataMessages }) {
   const [dataLikeMessage, setDataLikeMessages] = useState(false)
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/likes/likeMessage/`)
-      .then((res) => res.json())
-      .then((data) => {
-        for (let dataLike of data) {
-          if (
-            dataLike.idMessage === info.id &&
-            dataLike.userPseudo === userPseudo
-          )
-            setDataLikeMessages(true)
-        }
-      })
-  }, [info.id, userPseudo])
+    AfficheLikeMessage(dataMess, userPseudo, setDataLikeMessages)
+  }, [dataMess, userPseudo])
 
+  // fonction pour liker un message et mettre à jour le DOM
   async function LikeMessage() {
     const data = {
-      idMessage: info.id,
-      nbrLikeMessage: info.likes,
+      idMessage: dataMess.id,
+      nbrLikeMessage: dataMess.likes,
       likeMessage: true,
     }
     await CréerLikeMessage(data, token)
     AfficheMessages(setDataMessages)
   }
 
+  // fonction pour supprimer un like de message et mettre à jour le DOM
   async function supLikeMessage() {
-    SupprimerLikeMessage(info, token)
+    SupprimerLikeMessage(dataMess, token)
     const data = {
-      idMessage: info.id,
-      nbrLikeMessage: info.likes,
+      idMessage: dataMess.id,
+      nbrLikeMessage: dataMess.likes,
     }
     ModifNbrLikeMessage(data)
     alert('message disliké')

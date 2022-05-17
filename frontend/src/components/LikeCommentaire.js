@@ -4,16 +4,20 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 
 import {
+  AfficheLikeCommentaire,
   CréerLikeCommentaire,
   SupprimerLikeCommentaire,
   ModifNbrLikeCommentaire,
   AfficheCommentaire,
-} from './Requete'
+} from './utils/Requete'
 import '../styles/LikeCommentaire.css'
 
+// ajout des différents icons
 library.add(faThumbsUp)
 
+// fonction principal des likes commentaires
 function LikeCommentaire({ dataCom, setDataCommentaire }) {
+  // recupération du token, isAdmin et de user pseudo
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -30,19 +34,10 @@ function LikeCommentaire({ dataCom, setDataCommentaire }) {
   const [dataLikeCommentaire, setDataLikeCommentaire] = useState(false)
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/likes/likeCommentaire/`)
-      .then((res) => res.json())
-      .then((data) => {
-        for (let dataLike of data) {
-          if (
-            dataLike.idCommentaire === dataCom.id &&
-            dataLike.userPseudo === userPseudo
-          )
-            setDataLikeCommentaire(true)
-        }
-      })
-  }, [dataCom.id, userPseudo])
+    AfficheLikeCommentaire(dataCom, userPseudo, setDataLikeCommentaire)
+  }, [dataCom, userPseudo])
 
+  // fonction pour liker un commentaire et mettre à jour le DOM
   async function LikeCommentaire() {
     const data = {
       idCommentaire: dataCom.id,
@@ -53,6 +48,7 @@ function LikeCommentaire({ dataCom, setDataCommentaire }) {
     AfficheCommentaire(setDataCommentaire)
   }
 
+  // fonction pour supprimer un like de commentaire et mettre à jour le DOM
   async function supLikeCommentaire() {
     SupprimerLikeCommentaire(dataCom, token)
     const data = {

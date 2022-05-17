@@ -1,20 +1,23 @@
 import logo from '../assets/icon-left-font-rogner.png'
 import '../styles/Banner.css'
 
+// fonction qui envoie faire la page de suppression de compte
 function suppCompte() {
   window.location.href = '/supprimerCompte?token=' + token
 }
+// fonction qui envoie faire la page de suppression de compte (administrateur)
 function suppUnCompte() {
   window.location.href = '/supprimerUnCompte'
 }
-
+// fonction qui envoie faire la page de connexion
 function connexion() {
   window.location.href = '/'
 }
+// fonction qui envoie faire la page de creation de compte (administrateur)
 function CreaCompteAdmin() {
   window.location.href = '/CreaCompteAdmin'
 }
-
+// recupération du token, isAdmin
 let url = new URL(window.location.href)
 let search_parms = new URLSearchParams(url.search)
 let userPseudoIsAdminBearer = ''
@@ -28,6 +31,7 @@ if (search_parms.has('userPseudo')) {
   isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
 }
 
+// fonction pour afficher le header de la page forum
 function Banner() {
   return (
     <div>

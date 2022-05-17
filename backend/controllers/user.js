@@ -90,8 +90,6 @@ exports.deleteOneUser = (req, res, next) => {
     .catch((error) => res.status(501).json({ error }));
 };
 
-
-
 // route pour afficher l'ensemble des utilisateurs
 exports.getAllUsers = (req, res, next) => {
   User.findAll()

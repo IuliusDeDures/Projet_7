@@ -1,7 +1,7 @@
 import logo from '../assets/icon-left-font-rogner.png'
 import '../styles/Connection.css'
 import React, { useState } from 'react'
-import axios from 'axios'
+import { UserLogin } from '../components/utils/Requete'
 
 function Connection() {
   const [email, setEmail] = useState()
@@ -12,20 +12,7 @@ function Connection() {
       email: email,
       password: password,
     }
-
-    axios
-      .post(`http://127.0.0.1:8000/api/auth/login`, user)
-      .then(
-        (res) =>
-          (window.location.href =
-            './message?userPseudo=' +
-            res.data.userPseudo +
-            'isAdmin' +
-            res.data.isAdmin +
-            'Bearer' +
-            res.data.token)
-      )
-      .catch(() => alert("Vous n'êtes pas inscrit !"))
+    UserLogin(user)
   }
 
   return (

@@ -6,7 +6,7 @@ import {
   AfficheMessages,
   ModifNbrCommentaire,
   SelectUnCommentaire,
-} from './Requete'
+} from './utils/Requete'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
@@ -17,9 +17,12 @@ import RepCommentaire from './RepCommentaire'
 import LikeCommentaire from './LikeCommentaire'
 import { dateParser } from './utils/DateParser'
 
+// ajout des différents icons
 library.add(faThumbsUp, faComment, faTrashCan)
 
-function Commentaire({ info, setDataMessages }) {
+// fonction principal des commentaires
+function Commentaire({ dataMess, setDataMessages }) {
+  // recupération du token, isAdmin et de user pseudo
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -43,12 +46,13 @@ function Commentaire({ info, setDataMessages }) {
     AfficheCommentaire(setDataCommentaire)
   }, [])
 
+  // fonction pour créer un nouveau commentaire et mettre à jour le DOM
   async function Commenter() {
     if (commentaire) {
       const data = {
-        idMessage: info.id,
+        idMessage: dataMess.id,
         commentaire: commentaire,
-        nbrCommentaire: info.nbrCommentaire,
+        nbrCommentaire: dataMess.nbrCommentaire,
       }
       await PublieCommentaire(data, token)
 
@@ -59,13 +63,13 @@ function Commentaire({ info, setDataMessages }) {
       alert('Veuillez entrer un commentaire ')
     }
   }
-
+  // fonction pour supprimer un commentaire et mettre à jour le DOM
   function supCommentaire(dataCom) {
     if (dataCom.nbrRepCommentaireCom === 0) {
       SupprimerCommentaire(dataCom, token)
       const data = {
-        idMessage: info.id,
-        nbrCommentaire: info.nbrCommentaire,
+        idMessage: dataMess.id,
+        nbrCommentaire: dataMess.nbrCommentaire,
       }
       ModifNbrCommentaire(data)
 
@@ -78,10 +82,11 @@ function Commentaire({ info, setDataMessages }) {
       )
     }
   }
-
+  // fonction pour et mettre à jour le State
   function annuler() {
     setCommentaire('')
   }
+  // fonction pour selectionner un commentaire
   function selectCommentaire(dataCom) {
     SelectUnCommentaire(setAfficheReponse, dataCom)
   }
@@ -91,7 +96,7 @@ function Commentaire({ info, setDataMessages }) {
       <div className="allCommentaires">
         {dataCommentaire.map((dataCom) => (
           <div key={dataCom.id}>
-            {dataCom.idMessage === info.id ? (
+            {dataCom.idMessage === dataMess.id ? (
               <div className="commentaire">
                 <div className="commentaire-header">
                   <p className="commentaire-pseudoUser">
@@ -162,7 +167,7 @@ function Commentaire({ info, setDataMessages }) {
                 </div>
                 {afficheReponse === dataCom.id && (
                   <RepCommentaire
-                    info={info}
+                    dataMess={dataMess}
                     setDataMessages={setDataMessages}
                     dataCom={dataCom}
                     setDataCommentaire={setDataCommentaire}

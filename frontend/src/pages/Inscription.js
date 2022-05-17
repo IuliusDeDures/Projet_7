@@ -1,7 +1,7 @@
 import logo from '../assets/icon-left-font-rogner.png'
 import '../styles/Inscription.css'
 import React, { useState } from 'react'
-import axios from 'axios'
+import { UserSignup } from '../components/utils/Requete'
 
 function Inscription() {
   const [email, setEmail] = useState()
@@ -23,12 +23,7 @@ function Inscription() {
       pseudo: pseudo,
       password: password,
     }
-    axios
-      .post(`http://127.0.0.1:8000/api/auth/signup`, user)
-      .then((res) => {
-        console.log(email, pseudo, password)((window.location.href = './'))
-      })
-      .catch(() => alert('les informations saisies sont incorrectes'))
+    UserSignup(user)
   }
 
   return (

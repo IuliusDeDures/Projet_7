@@ -1,7 +1,7 @@
 import logo from '../assets/icon-left-font-rogner.png'
 import '../styles/CreaCompteAdmin.css'
 import React, { useState } from 'react'
-import axios from 'axios'
+import { UserSignup } from '../components/utils/Requete'
 
 function Inscription() {
   const [email, setEmail] = useState()
@@ -18,7 +18,7 @@ function Inscription() {
     }
   }
 
-  function Login() {
+  function Signup() {
     if (isAdmin === true) {
       const user = {
         email: validationMail(email),
@@ -26,17 +26,7 @@ function Inscription() {
         password: password,
         isAdmin: true,
       }
-      axios
-        .post(`http://127.0.0.1:8000/api/auth/signup`, user)
-        .then((res) => {
-          console.log(
-            email,
-            pseudo,
-            password,
-            user.isAdmin
-          )((window.location.href = './'))
-        })
-        .catch(() => alert('les informations saisies sont incorrectes'))
+      UserSignup(user)
     } else {
       const user = {
         email: validationMail(email),
@@ -44,17 +34,7 @@ function Inscription() {
         password: password,
         isAdmin: false,
       }
-      axios
-        .post(`http://127.0.0.1:8000/api/auth/signup`, user)
-        .then((res) => {
-          console.log(
-            email,
-            pseudo,
-            password,
-            user.isAdmin
-          )((window.location.href = './'))
-        })
-        .catch(() => alert('les informations saisies sont incorrectes'))
+      UserSignup(user)
     }
   }
 
@@ -117,7 +97,7 @@ function Inscription() {
             type="submit"
             onClick={(e) => {
               e.preventDefault()
-              Login()
+              Signup()
             }}
           >
             Créer le compte
