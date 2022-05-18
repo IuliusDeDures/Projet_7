@@ -45,10 +45,13 @@
   display: flex;
   justify-content: center;
   margin: 1px 1px 10px 1px;
+  max-width: 650px;
 }
 .message-image {
   align-self: center;
   padding-bottom: 10px;
+  width: 95%;
+  max-width: 650px;
 }
 .message-header {
   display: flex;
@@ -145,8 +148,7 @@
   list-style-type: none;
   border-radius: 25px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  min-width: 600px;
-  min-height: 50px;
+  min-width: 250px;
   margin-bottom: 15px;
 }
 
@@ -158,11 +160,19 @@
 
 .p-contenu {
   margin: 0px;
+  max-width: 650px;
 }
-
+.p-image {
+  width: 95%;
+  max-width: 650px;
+  align-self: center;
+  margin: 10px 0 10px 0;
+}
 .contenu {
   text-align: start;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .footer-nouveau-message {
   display: flex;

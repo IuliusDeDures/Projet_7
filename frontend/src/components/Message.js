@@ -203,7 +203,7 @@ function SectionMessage() {
               </div>
               <div className="contenu">
                 <p className="p-contenu">{text}</p>
-                <img src={image} alt=""></img>
+                <img className="p-image" src={image} alt=""></img>
               </div>
             </li>
           ) : null}
