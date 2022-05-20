@@ -1,4 +1,4 @@
-import logo from '../assets/icon-left-font-rogner.png'
+import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/Inscription.css'
 import React, { useState } from 'react'
 import { UserSignup } from '../components/utils/Requete'
@@ -30,24 +30,26 @@ function Inscription() {
     <div className="ins-group-inscription">
       <div className="ins-group-header">
         <img src={logo} alt="logo-groupomania" className="ins-group-logo" />
+        <h1 className="ins-group-titre">Groupomania</h1>
       </div>
       <div className="ins-group-form">
         <form className="ins-form-signUp">
-          <p className="ins-form-title">Créer un compte :</p>
-          <label htmlFor="text" className="ins-label-email">
-            Votre adresse email :
+          <h2 className="ins-form-title">Créer un compte :</h2>
+          <label htmlFor="email" className="ins-label-email">
+            Votre adresse email :{}
           </label>
           <input
-            type="email"
+            id="email"
             className="ins-email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             required
           />
-          <label htmlFor="text" className="ins-label-pseudo">
-            Votre pseudo :
+          <label htmlFor="pseudo" className="ins-label-pseudo">
+            Votre pseudo :{}
           </label>
           <input
+            id="pseudo"
             type="text"
             className="ins-pseudo"
             onChange={(e) => setPseudo(e.target.value)}
@@ -56,10 +58,11 @@ function Inscription() {
           <span className="ins-info-pseudo">
             Votre pseudo doit contenir au moin 3 caractères.
           </span>
-          <label htmlFor="email" className="ins-label-password">
-            Votre password :
+          <label htmlFor="password" className="ins-label-password">
+            Votre password :{}
           </label>
           <input
+            id="password"
             type="password"
             className="ins-password"
             onChange={(e) => setPassword(e.target.value)}

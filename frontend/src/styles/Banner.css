@@ -1,17 +1,37 @@
+@font-face {
+  font-family: 'Nevis';
+  src: url('../components/utils/police/nevis.ttf');
+}
+
+.group-banner-header {
+  background-color: rgb(0, 128, 255);
+  width: 85%;
+  margin: auto;
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+
 .group-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 75px;
-  box-shadow: 10px 10px 20px rgb(255, 200, 200);
-  width: 80%;
+  width: 90%;
   margin: auto;
+  background-color: rgb(225, 225, 225);
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
 }
 
 .group-logo {
-  width: 30%;
   border-radius: 25px;
-  margin-left: 50px;
+  margin: 5px 0 5px 50px;
+  width: 70px;
+}
+.group-header-title {
+  margin: auto;
+  font-family: 'Nevis';
+  font-size: 3.5em;
+  margin-left: 20px;
 }
 .group-boutton {
   display: flex;
@@ -22,7 +42,7 @@
 
 .group-deleteUser {
   border-radius: 20px;
-  margin: 15px;
+  margin: 10px;
   padding: 10px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
@@ -31,7 +51,7 @@
 }
 .group-admin-deleteUser {
   border-radius: 20px;
-  margin: 15px;
+  margin: 10px;
   padding: 10px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
@@ -41,7 +61,7 @@
 
 .group-logout {
   border-radius: 20px;
-  margin: 15px;
+  margin: 10px;
   padding: 10px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
@@ -50,7 +70,7 @@
 }
 .group-listeUser {
   border-radius: 20px;
-  margin: 15px;
+  margin: 10px;
   padding: 10px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
@@ -58,16 +78,38 @@
   cursor: pointer;
 }
 @media all and (max-width: 950px) {
+  .group-banner-header {
+    width: 100%;
+  }
   .group-header {
     flex-direction: column;
     margin: auto;
-    border-radius: 75px;
-    width: 100%;
+    border-radius: 40px;
+    width: 90%;
+  }
+  .group-header-title {
+    font-size: 2em;
+    margin: auto;
   }
   .group-logo {
+    padding-top: 5px;
+    border-radius: 25px;
     margin: auto;
-    width: 50%;
-    min-width: 230px;
-    padding-top: 10px;
+    width: 30px;
+  }
+  .group-boutton {
+    padding: 0 0 5px 0;
+  }
+  .group-listeUser {
+    margin: 5px;
+  }
+  .group-logout {
+    margin: 5px;
+  }
+  .group-admin-deleteUser {
+    margin: 5px;
+  }
+  .group-deleteUser {
+    margin: 5px;
   }
 }

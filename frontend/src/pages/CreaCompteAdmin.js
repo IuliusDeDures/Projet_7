@@ -1,4 +1,4 @@
-import logo from '../assets/icon-left-font-rogner.png'
+import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/CreaCompteAdmin.css'
 import React, { useState } from 'react'
 import { UserSignup } from '../components/utils/Requete'
@@ -42,24 +42,27 @@ function Inscription() {
     <div className="cca-group-inscription">
       <div className="cca-group-header">
         <img src={logo} alt="logo-groupomania" className="cca-group-logo" />
+        <h1 className="cca-group-titre">Groupomania</h1>
       </div>
       <div className="cca-group-form">
         <form className="cca-form-signUp">
-          <p className="cca-form-title">Créer un compte :</p>
-          <label htmlFor="text" className="cca-label-email">
-            Votre adresse email :
+          <h2 className="cca-form-title">Créer un compte :</h2>
+          <label htmlFor="email" className="cca-label-email">
+            Votre adresse email :{}
           </label>
           <input
+            id="email"
             type="email"
             className="cca-email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             required
           />
-          <label htmlFor="text" className="cca-label-pseudo">
-            Votre pseudo :
+          <label htmlFor="pseudo" className="cca-label-pseudo">
+            Votre pseudo :{}
           </label>
           <input
+            id="pseudo"
             type="text"
             className="cca-pseudo"
             onChange={(e) => setPseudo(e.target.value)}
@@ -68,10 +71,11 @@ function Inscription() {
           <span className="cca-info-pseudo">
             Votre pseudo doit contenir au moin 3 caractères.
           </span>
-          <label htmlFor="email" className="cca-label-password">
-            Votre password :
+          <label htmlFor="password" className="cca-label-password">
+            Votre password :{}
           </label>
           <input
+            id="password"
             type="password"
             className="cca-password"
             onChange={(e) => setPassword(e.target.value)}
@@ -83,10 +87,11 @@ function Inscription() {
             <br /> dont 1 majuscule, 1 minuscule et 1 chiffre.
           </span>
           <div>
-            <label className="cca-info-compteAdmin">
+            <label htmlFor="compteAdmin" className="cca-info-compteAdmin">
               Compte administrateur :{' '}
             </label>
             <input
+              id="compteAdmin"
               className="isAdmin"
               type="checkbox"
               onChange={() => setIsAdmin(!isAdmin)}

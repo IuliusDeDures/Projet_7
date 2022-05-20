@@ -1,4 +1,4 @@
-import logo from '../assets/icon-left-font-rogner.png'
+import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/Banner.css'
 
 // fonction qui envoie faire la page de suppression de compte
@@ -34,9 +34,11 @@ if (search_parms.has('userPseudo')) {
 // fonction pour afficher le header de la page forum
 function Banner() {
   return (
-    <div>
+    <div className="group-banner-header">
       <div className="group-header">
         <img src={logo} alt="logo-groupomania" className="group-logo" />
+        <h1 className="group-header-title">Goupomania</h1>
+
         <div className="group-boutton">
           {isAdmin === 'true' ? (
             <button className="group-listeUser" onClick={CreaCompteAdmin}>

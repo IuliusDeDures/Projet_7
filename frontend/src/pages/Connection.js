@@ -1,4 +1,4 @@
-import logo from '../assets/icon-left-font-rogner.png'
+import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/Connection.css'
 import React, { useState } from 'react'
 import { UserLogin } from '../components/utils/Requete'
@@ -19,23 +19,26 @@ function Connection() {
     <div className="connect-group-connection">
       <div className="connect-group-header">
         <img src={logo} alt="logo-groupomania" className="connect-group-logo" />
+        <h1 className="connect-group-titre">Groupomania</h1>
       </div>
       <div className="connect-group-form">
         <form className="connect-form-login">
-          <p className="connect-form-title">Connection :</p>
-          <label type="email" className="connect-label-email">
+          <h2 className="connect-form-title">Connection :</h2>
+          <label htmlFor="email" className="connect-label-email">
             Votre adresse email :{}
           </label>
           <input
+            id="email"
             type="email"
             className="connect-email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label type="password" className="connect-label-password">
+          <label htmlFor="password" className="connect-label-password">
             Votre password :{}
           </label>
           <input
+            id="password"
             type="password"
             className="connect-password"
             value={password}

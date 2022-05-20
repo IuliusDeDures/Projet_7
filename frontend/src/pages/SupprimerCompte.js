@@ -1,4 +1,4 @@
-import logo from '../assets/icon-left-font-rogner.png'
+import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/SupprimerCompte.css'
 import { UserDelete } from '../components/utils/Requete'
 import { useState } from 'react'
@@ -21,14 +21,16 @@ function SupprimerCompte() {
     <div className="sup-group-suppression">
       <div className="sup-group-header">
         <img src={logo} alt="logo-groupomania" className="sup-group-logo" />
+        <h1 className="sup-group-titre">Groupomania</h1>
       </div>
       <div className="sup-group-form">
         <form className="sup-form-deleteUser">
-          <p className="sup-form-title">Supprimer un compte :</p>
+          <h2 className="sup-form-title">Supprimer un compte :</h2>
           <label htmlFor="email" className="sup-label-email">
             Votre adresse email :{' '}
           </label>
           <input
+            id="email"
             type="email"
             className="sup-email"
             onChange={(e) => setEmail(e.target.value)}
@@ -39,6 +41,7 @@ function SupprimerCompte() {
             Votre password :{' '}
           </label>
           <input
+            id="password"
             type="password"
             className="sup-password"
             onChange={(e) => setPassword(e.target.value)}

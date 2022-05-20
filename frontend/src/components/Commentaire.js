@@ -94,6 +94,7 @@ function Commentaire({ dataMess, setDataMessages }) {
   return (
     <div className="commentairesPlusForm">
       <div className="allCommentaires">
+        <p className="titre-commentaire">Commentaire :</p>
         {dataCommentaire.map((dataCom) => (
           <div key={dataCom.id}>
             {dataCom.idMessage === dataMess.id ? (

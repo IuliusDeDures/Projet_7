@@ -89,6 +89,63 @@ function SectionMessage() {
 
   return (
     <div className="sectionMessage">
+      <div className="ajout-message">
+        <form className="form-message">
+          <label htmlFor="nouveau-message" className="nouveau-message-label">
+            ""
+          </label>
+          <textarea
+            id="nouveau-message"
+            className="nouveau-message"
+            rows="2"
+            cols="70"
+            placeholder="Tapez votre message"
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+            required
+          ></textarea>
+
+          {text || image ? (
+            <li className="contenu-message">
+              <div className="contenu-header">
+                <p className="p-contenu">{userPseudo}</p>
+              </div>
+              <div className="contenu">
+                <p className="p-contenu">{text}</p>
+                <img className="p-image" src={image} alt=""></img>
+              </div>
+            </li>
+          ) : null}
+          <div className="footer-nouveau-message">
+            <FontAwesomeIcon
+              icon="fa-regular fa-image"
+              className="icon-photo"
+            />
+            <input
+              className="ajout-photo-message"
+              type="file"
+              name="file"
+              accept=".jpg, .jpeg, .png"
+              onChange={(e) => handlePicture(e)}
+              title="Ajouter une image"
+            />
+            {text || image ? (
+              <button className="annule-message" onClick={annuler}>
+                Annuler
+              </button>
+            ) : null}
+            <button
+              className="envoie-message"
+              onClick={(e) => {
+                e.preventDefault()
+                publier()
+              }}
+            >
+              Publier
+            </button>
+          </div>
+        </form>
+      </div>
       <div className="allMessages">
         {dataMessage.map((dataMess) => (
           <div key={dataMess.id} className="messagePlusCommentaire">
@@ -183,59 +240,6 @@ function SectionMessage() {
             )}
           </div>
         ))}
-      </div>
-      <div className="ajout-message">
-        <form className="form-message">
-          <textarea
-            name="nouveau-message"
-            className="nouveau-message"
-            rows="2"
-            cols="70"
-            placeholder="Tapez votre message"
-            onChange={(e) => setText(e.target.value)}
-            value={text}
-            required
-          ></textarea>
-          {text || image ? (
-            <li className="contenu-message">
-              <div className="contenu-header">
-                <p className="p-contenu">{userPseudo}</p>
-              </div>
-              <div className="contenu">
-                <p className="p-contenu">{text}</p>
-                <img className="p-image" src={image} alt=""></img>
-              </div>
-            </li>
-          ) : null}
-          <div className="footer-nouveau-message">
-            <FontAwesomeIcon
-              icon="fa-regular fa-image"
-              className="icon-photo"
-            />
-            <input
-              className="ajout-photo-message"
-              type="file"
-              name="file"
-              accept=".jpg, .jpeg, .png"
-              onChange={(e) => handlePicture(e)}
-              title="Ajouter une image"
-            />
-            {text || image ? (
-              <button className="annule-message" onClick={annuler}>
-                Annuler
-              </button>
-            ) : null}
-            <button
-              className="envoie-message"
-              onClick={(e) => {
-                e.preventDefault()
-                publier()
-              }}
-            >
-              Publier
-            </button>
-          </div>
-        </form>
       </div>
     </div>
   )

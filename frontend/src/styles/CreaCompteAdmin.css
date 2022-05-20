@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Nevis';
+  src: url('../components/utils/police/nevis.ttf');
+}
 .cca-group-inscription {
   display: flex;
   flex-direction: column;
@@ -7,14 +11,21 @@
 .cca-group-header {
   display: flex;
   border-radius: 75px;
-  box-shadow: 10px 10px 20px rgb(255, 200, 200);
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
   margin: auto;
 }
 
 .cca-group-logo {
-  width: 50%;
+  width: 15%;
   border-radius: 25px;
   margin: auto;
+  padding: 5px;
+}
+.cca-group-titre {
+  margin: auto;
+  font-family: 'Nevis';
+  font-size: 2.5em;
 }
 
 .cca-form-signUp {
@@ -107,8 +118,7 @@
   font-size: 105%;
 }
 @media all and (max-width: 950px) {
-  .cca-group-logo {
-    margin: auto;
-    min-width: 230px;
+  .cca-group-titre {
+    font-size: 2em;
   }
 }

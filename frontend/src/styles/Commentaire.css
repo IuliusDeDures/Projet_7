@@ -11,6 +11,10 @@
   justify-content: center;
   align-items: center;
 }
+.titre-commentaire {
+  font-size: 110%;
+  font-weight: bold;
+}
 
 .commentaire {
   background-color: rgb(225, 225, 225);
@@ -21,9 +25,6 @@
   width: fit-content;
   display: flex;
   flex-direction: column;
-}
-.commentaire:hover {
-  background-color: rgb(200, 200, 200);
 }
 .commentaire-header {
   display: flex;

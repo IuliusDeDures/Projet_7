@@ -1,16 +1,16 @@
 .sectionMessage {
   width: 85%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   margin: auto;
+  max-height: 800px;
+  overflow: Auto;
 }
 
 .allMessages {
   width: 100%;
-  max-height: 555px;
-  overflow: auto;
   margin: auto;
-  background: url('../assets/icon-rogner.png') center no-repeat;
+  background-color: rgb(0, 128, 255);
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -23,6 +23,7 @@
   width: fit-content;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  background-color: rgb(200, 200, 200);
 }
 
 .message {
@@ -37,12 +38,9 @@
   display: flex;
   flex-direction: column;
 }
-.message:hover {
-  background-color: rgb(200, 200, 200);
-}
-
 .message-contenu {
   display: flex;
+  text-align: center;
   justify-content: center;
   margin: 1px 1px 10px 1px;
   max-width: 650px;
@@ -83,6 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: rgb(0, 128, 255);
 }
 .form-message {
   display: flex;
@@ -101,6 +100,9 @@
   margin: 15px;
   border-radius: 25px;
   max-width: 100%;
+}
+.nouveau-message-label {
+  display: none;
 }
 .ajout-photo-message {
   border: none;
@@ -270,4 +272,22 @@
   padding: 5px;
   font-size: 80%;
   align-self: center;
+}
+@media all and (max-width: 950px) {
+  .sectionMessage {
+    width: 100%;
+  }
+  .form-message {
+    max-width: 90%;
+  }
+  .messagePlusCommentaire {
+    max-width: 90%;
+  }
+  .form-message {
+    padding: 0 0 10px 0;
+  }
+}
+.nouveau-message {
+  margin-top: 0px;
+  margin-bottom: 10px;
 }

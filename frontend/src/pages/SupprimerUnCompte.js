@@ -1,4 +1,4 @@
-import logo from '../assets/icon-left-font-rogner.png'
+import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/SupprimerUnCompte.css'
 import axios from 'axios'
 import { useState } from 'react'
@@ -24,14 +24,16 @@ function SupprimerUnCompte() {
           alt="logo-groupomania"
           className="sup-admin-group-logo"
         />
+        <h1 className="sup-admin-group-titre">Groupomania</h1>
       </div>
       <div className="sup-admin-group-form">
         <form className="sup-admin-form-deleteUser">
-          <p className="sup-admin-form-title">Supprimer un compte :</p>
-          <label htmlFor="text" className="sup-admin-label-pseudo">
+          <h2 className="sup-admin-form-title">Supprimer un compte :</h2>
+          <label htmlFor="pseudo" className="sup-admin-label-pseudo">
             Saisissez le pseudo du compte à supprimer :{' '}
           </label>
           <input
+            id="pseudo"
             type="text"
             className="sup-admin-pseudo"
             onChange={(e) => setPseudo(e.target.value)}

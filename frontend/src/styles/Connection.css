@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Nevis';
+  src: url('../components/utils/police/nevis.ttf');
+}
+
 .connect-group-connection {
   display: flex;
   flex-direction: column;
@@ -5,14 +10,22 @@
 }
 .connect-group-header {
   border-radius: 75px;
-  box-shadow: 10px 10px 20px rgb(255, 200, 200);
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
   display: flex;
   margin: auto;
 }
+
 .connect-group-logo {
-  width: 50%;
+  width: 15%;
   border-radius: 25px;
   margin: auto;
+  padding: 5px;
+}
+.connect-group-titre {
+  margin: auto;
+  font-family: 'Nevis';
+  font-size: 2.5em;
 }
 .connect-form-login {
   border-radius: 20px;
@@ -76,9 +89,8 @@
   text-align: center;
   margin: 5px;
 }
-@media all and (max-width: 950px) {
-  .connect-group-logo {
-    margin: auto;
-    min-width: 230px;
+@media all and (max-width: 450px) {
+  .connect-group-titre {
+    font-size: 2em;
   }
 }
