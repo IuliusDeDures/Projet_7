@@ -1,6 +1,10 @@
 import Message from '../components/Message'
 import Banner from '../components/Banner'
 
+/**
+ * fonction de la page forum
+ * @returns - la page forum
+ */
 function Forum() {
   return (
     <div className="group-forum">

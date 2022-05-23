@@ -3,6 +3,10 @@ import '../styles/SupprimerCompte.css'
 import { UserDelete } from '../components/utils/Requete'
 import { useState } from 'react'
 
+/**
+ * fonction pour la page de suppression de son compte utilisateur
+ * @returns - la page de suppression de son compte utilisateur
+ */
 function SupprimerCompte() {
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
@@ -13,6 +17,9 @@ function SupprimerCompte() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  /**
+   * fonction pour supprimer son compte utilisateur
+   */
   function Delete() {
     UserDelete(email, token)
   }

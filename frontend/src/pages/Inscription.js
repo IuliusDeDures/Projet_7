@@ -3,11 +3,20 @@ import '../styles/Inscription.css'
 import React, { useState } from 'react'
 import { UserSignup } from '../components/utils/Requete'
 
+/**
+ * fonction pour s'inscrire au site
+ * @returns page d'insription
+ */
 function Inscription() {
   const [email, setEmail] = useState()
   const [pseudo, setPseudo] = useState()
   const [password, setPassword] = useState()
 
+  /**
+   * fonction pour la validation de l'email de l'utilisateur
+   * @param {*} email - email de l'utlisateur
+   * @returns - message d'erreur
+   */
   function validationMail(email) {
     if (email.includes('@')) {
       setEmail(email)
@@ -16,7 +25,9 @@ function Inscription() {
       alert("L'email saisie est incorrecte !")
     }
   }
-
+  /**
+   * fonction pour s'inscrire sur le site
+   */
   function Login() {
     const user = {
       email: validationMail(email),

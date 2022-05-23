@@ -3,10 +3,17 @@ import '../styles/Connection.css'
 import React, { useState } from 'react'
 import { UserLogin } from '../components/utils/Requete'
 
+/**
+ * fonction pour la connection au site
+ * @returns - la page de connection
+ */
 function Connection() {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
 
+  /**
+   * fonction pour ce connecter au site
+   */
   function Login() {
     const user = {
       email: email,

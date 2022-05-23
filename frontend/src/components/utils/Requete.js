@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-// liste url
+/**
+ * liste des URL de l'API */
 const urlMessage = 'http://127.0.0.1:8000/api/messages/'
 const urlCommentaire = 'http://127.0.0.1:8000/api/commentaires/'
 const urlRepCommentaire = 'http://127.0.0.1:8000/api/repCommentaires/'
@@ -10,13 +11,18 @@ const urlLogin = 'http://127.0.0.1:8000/api/auth/login'
 const urlSignup = 'http://127.0.0.1:8000/api/auth/signup'
 const urlDeleteUser = 'http://127.0.0.1:8000/api/auth/'
 const urlDeleteOneUser = 'http://127.0.0.1:8000/api/auth/deleteOne/'
-
-// message d'alerte
+/**
+ * message d'alerte */
 const alertMessage1 = 'les informations saisies sont incorrectes'
 const AlertMessage2 = "Vous n'êtes pas inscrit !"
 const AlertMessage3 = 'Utilisateur supprimé'
 
-// requete pour publier un message
+/**
+ * fonction pour publie un message
+ * @param {*} data - information du message
+ * @param {*} token - token d'identification de l'utilisateur
+ * @returns - message d'erreur
+ */
 async function PublieMessage(data, token) {
   try {
     await axios.post(urlMessage, data, {
@@ -28,7 +34,10 @@ async function PublieMessage(data, token) {
 }
 export { PublieMessage }
 
-// requete pour afficher les messages
+/**
+ * fonction pour afficher l'ensemblre des messages
+ * @param {*} setDataMessages -  state message
+ */
 function AfficheMessages(setDataMessages) {
   axios
     .get(urlMessage)
@@ -42,7 +51,11 @@ function AfficheMessages(setDataMessages) {
 }
 export { AfficheMessages }
 
-// requete pour supprimer un message
+/**
+ * fonction pour supprimer un message
+ * @param {*} dataMess - information du message
+ * @param {*} token - token d'identification de l'utilisateur
+ */
 function SupprimerMessage(dataMess, token) {
   axios
     .delete(urlMessage + dataMess.id, {
@@ -54,7 +67,11 @@ function SupprimerMessage(dataMess, token) {
 }
 export { SupprimerMessage }
 
-// requete selection un message
+/**
+ * fonction pour select un message
+ * @param {*} setAfficheCommentaire - state commentaire
+ * @param {*} dataMess - information du message
+ */
 function SelectUnMessage(setAfficheCommentaire, dataMess) {
   axios
     .get(urlMessage + dataMess.id)
@@ -68,7 +85,12 @@ function SelectUnMessage(setAfficheCommentaire, dataMess) {
 }
 export { SelectUnMessage }
 
-// requete pour publier un commentaire
+/**
+ * fonction pour publier un commentaire
+ * @param {*} data - information du commentaire
+ * @param {*} token - token d'identification de l'utilisateur
+ * @returns - mesage d'erreur
+ */
 async function PublieCommentaire(data, token) {
   try {
     await axios.post(urlCommentaire, data, {
@@ -80,7 +102,10 @@ async function PublieCommentaire(data, token) {
 }
 export { PublieCommentaire }
 
-// requete pour afficher les commentaires
+/**
+ * fonction pour afficher un commentaire
+ * @param {*} setDataCommentaire - state commentaire
+ */
 function AfficheCommentaire(setDataCommentaire) {
   axios
     .get(urlCommentaire)
@@ -94,7 +119,11 @@ function AfficheCommentaire(setDataCommentaire) {
 }
 export { AfficheCommentaire }
 
-// requete selectionner un commentaire
+/**
+ * fonction pour selectionner un commentaire
+ * @param {*} setReponse - state réponse de commentaire
+ * @param {*} dataCom - information du commentaire
+ */
 function SelectUnCommentaire(setReponse, dataCom) {
   axios
     .get(urlCommentaire + dataCom.id)
@@ -108,7 +137,11 @@ function SelectUnCommentaire(setReponse, dataCom) {
 }
 export { SelectUnCommentaire }
 
-// requete pour supprimer un commentaire
+/**
+ * fonction pour supprimer un commentaire
+ * @param {*} dataCom - information du commentaire
+ * @param {*} token - token d'identification de l'utilisateur
+ */
 function SupprimerCommentaire(dataCom, token) {
   axios
     .delete(urlCommentaire + dataCom.id, {
@@ -120,7 +153,10 @@ function SupprimerCommentaire(dataCom, token) {
 }
 export { SupprimerCommentaire }
 
-// requete pour modifier le nombre de commentaires
+/**
+ * fonction pour modifier le nombre de commentaire
+ * @param {*} data - information du message
+ */
 function ModifNbrCommentaire(data) {
   axios.put(urlCommentaire, data).catch((err) => {
     console.log(err)
@@ -128,7 +164,10 @@ function ModifNbrCommentaire(data) {
 }
 export { ModifNbrCommentaire }
 
-// requete pour afficher les réponses de commentaires
+/**
+ * fonction pour affiche les réponses de commentaire
+ * @param {*} setDataRepCommentaire - state réponse de commentaire
+ */
 function AfficheRepCommentaire(setDataRepCommentaire) {
   axios
     .get(urlRepCommentaire)
@@ -142,7 +181,12 @@ function AfficheRepCommentaire(setDataRepCommentaire) {
 }
 export { AfficheRepCommentaire }
 
-// requete pour publier une reponse de commentaire
+/**
+ * fonction pour publier les réponses de commentaire
+ * @param {*} data - information des réponses de commentaire
+ * @param {*} token - token d'identification de l'utilisateur
+ * @returns - message d'erreur
+ */
 async function PublieRepCommentaire(data, token) {
   try {
     await axios.post(urlRepCommentaire, data, {
@@ -154,7 +198,11 @@ async function PublieRepCommentaire(data, token) {
 }
 export { PublieRepCommentaire }
 
-// requete pour supprimer une reponse de commentaire
+/**
+ * fonction pour supprimer une réponse de commentaire
+ * @param {*} dataRepCom - information des réponses de commentaire
+ * @param {*} token - token d'identification de l'utilisateur
+ */
 function SupprimerRepCommentaire(dataRepCom, token) {
   axios
     .delete(urlRepCommentaire + dataRepCom.id, {
@@ -166,7 +214,10 @@ function SupprimerRepCommentaire(dataRepCom, token) {
 }
 export { SupprimerRepCommentaire }
 
-// requete pour modifier le nombre de reponse commentaires
+/**
+ * fonction pour modifier le nombre de réponse de commentaire
+ * @param {*} data - informantion de commentaire
+ */
 function ModifNbrRepCommentaire(data) {
   axios.put(urlRepCommentaire, data).catch((err) => {
     console.log(err)
@@ -174,7 +225,12 @@ function ModifNbrRepCommentaire(data) {
 }
 export { ModifNbrRepCommentaire }
 
-// requete pour afficher les likes message
+/**
+ * fonction pour afficher les likes message
+ * @param {*} dataMess - information de message
+ * @param {*} userPseudo - pseudo de l'utilisateur
+ * @param {*} setDataLikeMessages - state des likes messages
+ */
 function AfficheLikeMessage(dataMess, userPseudo, setDataLikeMessages) {
   fetch(urlLikeMessaqge)
     .then((res) => res.json())
@@ -190,7 +246,11 @@ function AfficheLikeMessage(dataMess, userPseudo, setDataLikeMessages) {
 }
 export { AfficheLikeMessage }
 
-// requete pour supprimer un like message
+/**
+ * fonction pour supprimer un like message
+ * @param {*} dataMess - information du message
+ * @param {*} token - token d'identification de l'utilisateur
+ */
 function SupprimerLikeMessage(dataMess, token) {
   axios
     .delete(urlLikeMessaqge + dataMess.id, {
@@ -202,7 +262,12 @@ function SupprimerLikeMessage(dataMess, token) {
 }
 export { SupprimerLikeMessage }
 
-// requete pour créer un like message
+/**
+ * fonction pour liker un message
+ * @param {*} data - information like message
+ * @param {*} token - token d'identification de l'utilisateur
+ * @returns - message d'erreur
+ */
 async function CréerLikeMessage(data, token) {
   try {
     await axios.post(urlLikeMessaqge, data, {
@@ -214,7 +279,10 @@ async function CréerLikeMessage(data, token) {
 }
 export { CréerLikeMessage }
 
-// requete pour modifier le nombre like message
+/**
+ * fonction pour modifier le nombre de like message
+ * @param {*} data - information message
+ */
 function ModifNbrLikeMessage(data) {
   axios.put(urlLikeMessaqge, data).catch((err) => {
     console.log(err)
@@ -222,7 +290,12 @@ function ModifNbrLikeMessage(data) {
 }
 export { ModifNbrLikeMessage }
 
-// requete pour affiche les likes commentaire
+/**
+ * fonction pour afficher les likes commentaire
+ * @param {*} dataCom - information commentaire
+ * @param {*} userPseudo - pseudo de l'utilisateur
+ * @param {*} setDataLikeCommentaire - state like commentaire
+ */
 function AfficheLikeCommentaire(dataCom, userPseudo, setDataLikeCommentaire) {
   fetch(urlLikeCommentaire)
     .then((res) => res.json())
@@ -238,7 +311,11 @@ function AfficheLikeCommentaire(dataCom, userPseudo, setDataLikeCommentaire) {
 }
 export { AfficheLikeCommentaire }
 
-// requete pour supprimer un like commentaire
+/**
+ * fonction pour supprimer un like commentaire
+ * @param {*} dataCom - information commentaire
+ * @param {*} token - token d'identification de l'utilisateur
+ */
 function SupprimerLikeCommentaire(dataCom, token) {
   axios
     .delete(urlLikeCommentaire + dataCom.id, {
@@ -250,7 +327,12 @@ function SupprimerLikeCommentaire(dataCom, token) {
 }
 export { SupprimerLikeCommentaire }
 
-// requete pour créer un like commentaire
+/**
+ * fonction pour liker un commentaire
+ * @param {*} data - information like commentaire
+ * @param {*} token - token d'identification de l'utilisateur
+ * @returns - message d'erreur
+ */
 async function CréerLikeCommentaire(data, token) {
   try {
     await axios.post(urlLikeCommentaire, data, {
@@ -262,7 +344,10 @@ async function CréerLikeCommentaire(data, token) {
 }
 export { CréerLikeCommentaire }
 
-// requete pour modifier le nombre like commentaire
+/**
+ * fonction pour modifier le nombre de like commentaire
+ * @param {*} data - information commentaire
+ */
 function ModifNbrLikeCommentaire(data) {
   axios.put(urlLikeCommentaire, data).catch((err) => {
     console.log(err)
@@ -270,7 +355,10 @@ function ModifNbrLikeCommentaire(data) {
 }
 export { ModifNbrLikeCommentaire }
 
-// requete pour la connection au site
+/**
+ * fonction pour se connecter au site
+ * @param {*} user - information de l'utilisateur
+ */
 function UserLogin(user) {
   axios
     .post(urlLogin, user)
@@ -288,7 +376,10 @@ function UserLogin(user) {
 }
 export { UserLogin }
 
-// requete pour la création d'un compte
+/**
+ * fonction pour créer un nouvel utilisateur
+ * @param {*} user - information de l'utilisateur
+ */
 function UserSignup(user) {
   axios
     .post(urlSignup, user)
@@ -299,7 +390,11 @@ function UserSignup(user) {
 }
 export { UserSignup }
 
-// requete pour supprimer un compte
+/**
+ * fonction pour suppimer son compte utilisteur
+ * @param {*} email - email de l'utilisateur
+ * @param {*} token - token d'identification de l'utilisateur
+ */
 function UserDelete(email, token) {
   axios
     .delete(urlDeleteUser + email, {
@@ -313,7 +408,10 @@ function UserDelete(email, token) {
 }
 export { UserDelete }
 
-// requete pour supprimer un compte (administrateur)
+/**
+ * fonction pour supprimer un compte utilisateur pour l'administrateur
+ * @param {*} pseudo - pseudo de l'utilisateur
+ */
 function DeleteOneUser(pseudo) {
   axios
     .delete(urlDeleteOneUser + pseudo)

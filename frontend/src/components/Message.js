@@ -17,12 +17,16 @@ import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
 import { dateParser } from './utils/DateParser'
 
-// ajout des différents icons
 library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
 
-// fonction principal des messages
+/**
+ * fonction principal des messages
+ * @returns - les messages
+ */
 function SectionMessage() {
-  // recupération du token, isAdmin et de user pseudo
+  /**
+   * recupération du token, isAdmin et de user pseudo
+   */
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -47,7 +51,9 @@ function SectionMessage() {
     AfficheMessages(setDataMessages)
   }, [])
 
-  // fonction pour créer un nouveau message et mettre à jour le DOM
+  /**
+   * fonction pour créer un nouveau message et mettre à jour le DOM
+   */
   async function publier() {
     if (text || image) {
       const data = new FormData()
@@ -62,27 +68,38 @@ function SectionMessage() {
     }
   }
 
-  // fonction pour l'ajout d'image
+  /**
+   * fonction pour l'ajout d'image
+   * @param {*} e
+   */
   function handlePicture(e) {
     setImage(URL.createObjectURL(e.target.files[0]))
     setFile(e.target.files[0])
   }
 
-  // fonction pour et mettre à jour le State
+  /**
+   * fonction pour et mettre à jour le State
+   */
   function annuler() {
     setText('')
     setImage('')
     setFile('')
   }
 
-  // fonction pour supprimer un message et mettre à jour le DOM
+  /**
+   * fonction pour supprimer un message et mettre à jour le DOM
+   * @param {*} dataMess - information message
+   */
   function supMessage(dataMess) {
     SupprimerMessage(dataMess, token)
     alert('Message suprimé')
     AfficheMessages(setDataMessages)
   }
 
-  // fonction pour selectionner un message
+  /**
+   * fonction pour selectionner un message
+   * @param {*} dataMess - information message
+   */
   function selectMessage(dataMess) {
     SelectUnMessage(setAfficheCommentaire, dataMess)
   }

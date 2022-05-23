@@ -13,17 +13,25 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import '../styles/RepCommentaire.css'
 
-// ajout des différents icons
 library.add(faTrashCan)
 
-// fonction principal des reponses de commentaire
+/**
+ * // fonction principal des réponses de commentaire
+ * @param {*} dataMess - information message
+ * @param {*} setDataMessages - state message
+ * @param {*} setDataCommentaire - state commentaire
+ * @param {*} dataCom - information commentaire
+ * @returns - les réponses de commentaire
+ */
 function RepCommentaire({
   dataMess,
   setDataMessages,
   setDataCommentaire,
   dataCom,
 }) {
-  // recupération du token, isAdmin et de user pseudo
+  /**
+   * recupération du token, isAdmin et de user pseudo
+   */
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -46,7 +54,9 @@ function RepCommentaire({
     AfficheRepCommentaire(setDataRepCommentaire)
   }, [])
 
-  // fonction pour créer une reponse de commentaire et mettre à jour le DOM
+  /**
+   * fonction pour créer une reponse de commentaire et mettre à jour le DOM
+   */
   async function Repondre() {
     if (repCommentaire) {
       const data = {
@@ -66,7 +76,10 @@ function RepCommentaire({
       alert('Veuillez entrer un commentaire ')
     }
   }
-  // fonction pour supprimer une reponse de commentaire et mettre à jour le DOM
+  /**
+   * fonction pour supprimer une reponse de commentaire et mettre à jour le DOM
+   * @param {*} dataRepCom - information réponse de commentaire
+   */
   function supRepCommentaire(dataRepCom) {
     SupprimerRepCommentaire(dataRepCom, token)
     const data = {
@@ -82,7 +95,9 @@ function RepCommentaire({
     AfficheCommentaire(setDataCommentaire)
   }
 
-  // fonction pour et mettre à jour le State
+  /**
+   *  fonction pour et mettre à jour le State
+   */
   function annuler() {
     setRepCommentaire('')
   }

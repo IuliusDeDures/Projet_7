@@ -12,12 +12,18 @@ import {
 } from './utils/Requete'
 import '../styles/LikeCommentaire.css'
 
-// ajout des différents icons
 library.add(faThumbsUp)
 
-// fonction principal des likes commentaires
+/**
+ * // fonction principal des likes commentaires
+ * @param {*} dataCom - information commentaire
+ * @param {*} setDataCommentaire - state commentaire
+ * @returns - likes commentaire
+ */
 function LikeCommentaire({ dataCom, setDataCommentaire }) {
-  // recupération du token, isAdmin et de user pseudo
+  /**
+   * recupération du token, isAdmin et de user pseudo
+   */
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -37,7 +43,9 @@ function LikeCommentaire({ dataCom, setDataCommentaire }) {
     AfficheLikeCommentaire(dataCom, userPseudo, setDataLikeCommentaire)
   }, [dataCom, userPseudo])
 
-  // fonction pour liker un commentaire et mettre à jour le DOM
+  /**
+   * fonction pour liker un commentaire et mettre à jour le DOM
+   */
   async function LikeCommentaire() {
     const data = {
       idCommentaire: dataCom.id,
@@ -48,7 +56,9 @@ function LikeCommentaire({ dataCom, setDataCommentaire }) {
     AfficheCommentaire(setDataCommentaire)
   }
 
-  // fonction pour supprimer un like de commentaire et mettre à jour le DOM
+  /**
+   * fonction pour supprimer un like de commentaire et mettre à jour le DOM
+   */
   async function supLikeCommentaire() {
     SupprimerLikeCommentaire(dataCom, token)
     const data = {

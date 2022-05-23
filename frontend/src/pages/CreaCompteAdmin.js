@@ -3,12 +3,21 @@ import '../styles/CreaCompteAdmin.css'
 import React, { useState } from 'react'
 import { UserSignup } from '../components/utils/Requete'
 
+/**
+ * fonction pour l'inscription au site pour l'administrateur
+ * @returns - la page d'inscription au site pour l'administrateur
+ */
 function Inscription() {
   const [email, setEmail] = useState()
   const [pseudo, setPseudo] = useState()
   const [password, setPassword] = useState()
   const [isAdmin, setIsAdmin] = useState(false)
 
+  /**
+   * fonction pour la validation de l'email de l'utilisateur
+   * @param {*} email - email de l'utlisateur
+   * @returns - message d'erreur
+   */
   function validationMail(email) {
     if (email.includes('@')) {
       setEmail(email)
@@ -18,6 +27,9 @@ function Inscription() {
     }
   }
 
+  /**
+   * fonction pour s'inscrire sur le site
+   */
   function Signup() {
     if (isAdmin === true) {
       const user = {

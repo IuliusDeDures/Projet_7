@@ -17,12 +17,18 @@ import RepCommentaire from './RepCommentaire'
 import LikeCommentaire from './LikeCommentaire'
 import { dateParser } from './utils/DateParser'
 
-// ajout des différents icons
 library.add(faThumbsUp, faComment, faTrashCan)
 
-// fonction principal des commentaires
+/**
+ * fonction principal des commentaires
+ * @param {*} dataMess - information message
+ * @param {*} setDataMessages - state message
+ * @returns - les commentaires
+ */
 function Commentaire({ dataMess, setDataMessages }) {
-  // recupération du token, isAdmin et de user pseudo
+  /**
+   * recupération du token, d'isAdmin et du user pseudo
+   */
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -46,7 +52,9 @@ function Commentaire({ dataMess, setDataMessages }) {
     AfficheCommentaire(setDataCommentaire)
   }, [])
 
-  // fonction pour créer un nouveau commentaire et mettre à jour le DOM
+  /**
+   * fonction pour créer un nouveau commentaire et mettre à jour le DOM
+   */
   async function Commenter() {
     if (commentaire) {
       const data = {
@@ -63,7 +71,11 @@ function Commentaire({ dataMess, setDataMessages }) {
       alert('Veuillez entrer un commentaire ')
     }
   }
-  // fonction pour supprimer un commentaire et mettre à jour le DOM
+  /**
+   * fonction pour supprimer un commentaire et mettre à jour le DOM
+   * @param {*} dataCom - information commentaire
+   */
+
   function supCommentaire(dataCom) {
     if (dataCom.nbrRepCommentaireCom === 0) {
       SupprimerCommentaire(dataCom, token)
@@ -82,11 +94,16 @@ function Commentaire({ dataMess, setDataMessages }) {
       )
     }
   }
-  // fonction pour et mettre à jour le State
+  /**
+   * fonction pour et mettre à jour le State
+   */
   function annuler() {
     setCommentaire('')
   }
-  // fonction pour selectionner un commentaire
+  /**
+   * fonction pour selectionner un commentaire
+   * @param {*} dataCom - information commentaire
+   */
   function selectCommentaire(dataCom) {
     SelectUnCommentaire(setAfficheReponse, dataCom)
   }

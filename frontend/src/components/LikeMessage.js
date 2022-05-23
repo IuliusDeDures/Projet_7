@@ -12,12 +12,18 @@ import {
 } from './utils/Requete'
 import '../styles/LikeMessage.css'
 
-// ajout des différents icons
 library.add(faThumbsUp)
 
-// fonction principal des likes messages
+/**
+ * fonction principal des likes messages
+ * @param {*} dataMess - information message
+ * @param {*} setDataMessages - state message
+ * @returns likes message
+ */
 function LikeMessage({ dataMess, setDataMessages }) {
-  // recupération du token, isAdmin et de user pseudo
+  /**
+   * recupération du token, isAdmin et de user pseudo
+   */
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
@@ -37,7 +43,9 @@ function LikeMessage({ dataMess, setDataMessages }) {
     AfficheLikeMessage(dataMess, userPseudo, setDataLikeMessages)
   }, [dataMess, userPseudo])
 
-  // fonction pour liker un message et mettre à jour le DOM
+  /**
+   * fonction pour liker un message et mettre à jour le DOM
+   */
   async function LikeMessage() {
     const data = {
       idMessage: dataMess.id,
@@ -48,7 +56,9 @@ function LikeMessage({ dataMess, setDataMessages }) {
     AfficheMessages(setDataMessages)
   }
 
-  // fonction pour supprimer un like de message et mettre à jour le DOM
+  /**
+   * fonction pour supprimer un like de message et mettre à jour le DOM
+   */
   async function supLikeMessage() {
     SupprimerLikeMessage(dataMess, token)
     const data = {

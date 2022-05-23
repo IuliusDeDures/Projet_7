@@ -3,9 +3,16 @@ import '../styles/SupprimerUnCompte.css'
 import axios from 'axios'
 import { useState } from 'react'
 
+/**
+ * fonction pour la page de suppression d'un compte utilisateur pour l'administrateur
+ * @returns - la page de suppression d'un compte utilisateur pour l'administrateur
+ */
 function SupprimerUnCompte() {
   const [pseudo, setPseudo] = useState('')
 
+  /**
+   * fonction pour supprimer un compte utlisateur pour l'administrateur
+   */
   function Delete() {
     axios
       .delete(`http://127.0.0.1:8000/api/auth/deleteOne/${pseudo}`)
