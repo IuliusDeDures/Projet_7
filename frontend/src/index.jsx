@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Connection from './pages/Connection'
+import Connexion from './pages/Connexion'
 import Inscription from './pages/Inscription'
 import Forum from './pages/Forum'
 import SupprimerCompte from './pages/SupprimerCompte'
@@ -13,7 +13,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/">
-          <Connection />
+          <Connexion />
         </Route>
         <Route path="/inscription">
           <Inscription />

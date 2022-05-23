@@ -30,16 +30,13 @@ exports.createCommentaire = (req, res, next) => {
 
 // route pour supprimer un commentaire
 exports.deleteCommentaire = (req, res, next) => {
-  const commentaireId = req.params.id;
-  
+  const commentaireId = req.params.id;  
   Commentaire.findOne({ where: { id: commentaireId } })
     .then((commentaire) => {
-      if (commentaire.userPseudo == req.auth.userPseudo) {
-                     
+      if (commentaire.userPseudo == req.auth.userPseudo) {                     
         Commentaire.destroy({ where: { id: commentaireId } })
             .then(() => res.status(200).json({ message: "Commentaire supprimé !" }))
             .catch((error) => res.status(403).json({ error }));        
-        
       } else {
         res.status(401).json({
           error: "Utilisateur non valide !",
@@ -48,6 +45,19 @@ exports.deleteCommentaire = (req, res, next) => {
     })
     .catch((error) => res.status(503).json({ error }));
 };
+
+// route pour supprimer un commentaire pour l'administrateur
+exports.deleteCommentaireAdmin = (req, res, next) => {
+  const commentaireId = req.params.id;  
+  Commentaire.findOne({ where: { id: commentaireId } })
+    .then((commentaire) => {    
+        Commentaire.destroy({ where: { id: commentaireId } })
+            .then(() => res.status(200).json({ message: "Commentaire supprimé !" }))
+            .catch((error) => res.status(403).json({ error }));         
+    })
+    .catch((error) => res.status(503).json({ error }));
+};
+
 
 // route pour modifier le nombre de commentaires
 exports.modifNbrCommentaire = (req, res, next) => {

@@ -3,8 +3,12 @@ import axios from 'axios'
 /**
  * liste des URL de l'API */
 const urlMessage = 'http://127.0.0.1:8000/api/messages/'
+const urlMessageAdmin = 'http://127.0.0.1:8000/api/messages/admin/'
 const urlCommentaire = 'http://127.0.0.1:8000/api/commentaires/'
+const urlCommentaireAdmin = 'http://127.0.0.1:8000/api/commentaires/admin/'
 const urlRepCommentaire = 'http://127.0.0.1:8000/api/repCommentaires/'
+const urlRepCommentaireAdmin =
+  'http://127.0.0.1:8000/api/repCommentaires/admin/'
 const urlLikeMessaqge = 'http://127.0.0.1:8000/api/likes/likeMessage/'
 const urlLikeCommentaire = 'http://127.0.0.1:8000/api/likes/likeCommentaire/'
 const urlLogin = 'http://127.0.0.1:8000/api/auth/login'
@@ -19,8 +23,8 @@ const AlertMessage3 = 'Utilisateur supprimé'
 
 /**
  * fonction pour publie un message
- * @param {*} data - information du message
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {FormData} data - information du message
+ * @param {string} token - token d'identification de l'utilisateur
  * @returns - message d'erreur
  */
 async function PublieMessage(data, token) {
@@ -36,7 +40,7 @@ export { PublieMessage }
 
 /**
  * fonction pour afficher l'ensemblre des messages
- * @param {*} setDataMessages -  state message
+ * @param {React.Dispatch<React.SetStateAction<any[]>>} setDataMessages - state message
  */
 function AfficheMessages(setDataMessages) {
   axios
@@ -53,8 +57,8 @@ export { AfficheMessages }
 
 /**
  * fonction pour supprimer un message
- * @param {*} dataMess - information du message
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} dataMess - information du message
+ * @param {string} token - token d'identification de l'utilisateur
  */
 function SupprimerMessage(dataMess, token) {
   axios
@@ -68,9 +72,25 @@ function SupprimerMessage(dataMess, token) {
 export { SupprimerMessage }
 
 /**
+ * fonction pour supprimer un message pour administrateur
+ * @param {string} dataMess - information du message
+ * @param {string} token - token d'identification de l'utilisateur
+ */
+function SupprimerMessageAdmin(dataMess, token) {
+  axios
+    .delete(urlMessageAdmin + dataMess.id, {
+      headers: { Authorization: 'bearer ' + token },
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+export { SupprimerMessageAdmin }
+
+/**
  * fonction pour select un message
- * @param {*} setAfficheCommentaire - state commentaire
- * @param {*} dataMess - information du message
+ * @param {React.Dispatch<React.SetStateAction<any[]>>} setAfficheCommentaire - state commentaire
+ * @param {string} dataMess - information du message
  */
 function SelectUnMessage(setAfficheCommentaire, dataMess) {
   axios
@@ -88,7 +108,7 @@ export { SelectUnMessage }
 /**
  * fonction pour publier un commentaire
  * @param {*} data - information du commentaire
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} token - token d'identification de l'utilisateur
  * @returns - mesage d'erreur
  */
 async function PublieCommentaire(data, token) {
@@ -104,7 +124,7 @@ export { PublieCommentaire }
 
 /**
  * fonction pour afficher un commentaire
- * @param {*} setDataCommentaire - state commentaire
+ * @param {React.Dispatch<React.SetStateAction<any[]>>} setDataCommentaire - state commentaire
  */
 function AfficheCommentaire(setDataCommentaire) {
   axios
@@ -121,8 +141,8 @@ export { AfficheCommentaire }
 
 /**
  * fonction pour selectionner un commentaire
- * @param {*} setReponse - state réponse de commentaire
- * @param {*} dataCom - information du commentaire
+ * @param {React.Dispatch<React.SetStateAction<any[]>>} setReponse - state réponse de commentaire
+ * @param {string} dataCom - information du commentaire
  */
 function SelectUnCommentaire(setReponse, dataCom) {
   axios
@@ -139,8 +159,8 @@ export { SelectUnCommentaire }
 
 /**
  * fonction pour supprimer un commentaire
- * @param {*} dataCom - information du commentaire
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} dataCom - information du commentaire
+ * @param {string} token - token d'identification de l'utilisateur
  */
 function SupprimerCommentaire(dataCom, token) {
   axios
@@ -152,6 +172,22 @@ function SupprimerCommentaire(dataCom, token) {
     })
 }
 export { SupprimerCommentaire }
+
+/**
+ * fonction pour supprimer un commentaire pour l'administrateur
+ * @param {string} dataCom - information du commentaire
+ * @param {string} token - token d'identification de l'utilisateur
+ */
+function SupprimerCommentaireAdmin(dataCom, token) {
+  axios
+    .delete(urlCommentaireAdmin + dataCom.id, {
+      headers: { Authorization: 'bearer ' + token },
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+export { SupprimerCommentaireAdmin }
 
 /**
  * fonction pour modifier le nombre de commentaire
@@ -166,7 +202,7 @@ export { ModifNbrCommentaire }
 
 /**
  * fonction pour affiche les réponses de commentaire
- * @param {*} setDataRepCommentaire - state réponse de commentaire
+ * @param {React.Dispatch<React.SetStateAction<any[]>>} setDataRepCommentaire - state réponse de commentaire
  */
 function AfficheRepCommentaire(setDataRepCommentaire) {
   axios
@@ -184,7 +220,7 @@ export { AfficheRepCommentaire }
 /**
  * fonction pour publier les réponses de commentaire
  * @param {*} data - information des réponses de commentaire
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} token - token d'identification de l'utilisateur
  * @returns - message d'erreur
  */
 async function PublieRepCommentaire(data, token) {
@@ -200,8 +236,8 @@ export { PublieRepCommentaire }
 
 /**
  * fonction pour supprimer une réponse de commentaire
- * @param {*} dataRepCom - information des réponses de commentaire
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} dataRepCom - information des réponses de commentaire
+ * @param {string} token - token d'identification de l'utilisateur
  */
 function SupprimerRepCommentaire(dataRepCom, token) {
   axios
@@ -213,6 +249,22 @@ function SupprimerRepCommentaire(dataRepCom, token) {
     })
 }
 export { SupprimerRepCommentaire }
+
+/**
+ * fonction pour supprimer une réponse de commentaire pour l'administrateur
+ * @param {string} dataRepCom - information des réponses de commentaire
+ * @param {string} token - token d'identification de l'utilisateur
+ */
+function SupprimerRepCommentaireAdmin(dataRepCom, token) {
+  axios
+    .delete(urlRepCommentaireAdmin + dataRepCom.id, {
+      headers: { Authorization: 'bearer ' + token },
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+export { SupprimerRepCommentaireAdmin }
 
 /**
  * fonction pour modifier le nombre de réponse de commentaire
@@ -227,9 +279,9 @@ export { ModifNbrRepCommentaire }
 
 /**
  * fonction pour afficher les likes message
- * @param {*} dataMess - information de message
- * @param {*} userPseudo - pseudo de l'utilisateur
- * @param {*} setDataLikeMessages - state des likes messages
+ * @param {string} dataMess - information de message
+ * @param {string} userPseudo - pseudo de l'utilisateur
+ * @param {React.Dispatch<React.SetStateAction<any[]>>} setDataLikeMessages - state des likes messages
  */
 function AfficheLikeMessage(dataMess, userPseudo, setDataLikeMessages) {
   fetch(urlLikeMessaqge)
@@ -248,8 +300,8 @@ export { AfficheLikeMessage }
 
 /**
  * fonction pour supprimer un like message
- * @param {*} dataMess - information du message
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} dataMess - information du message
+ * @param {string} token - token d'identification de l'utilisateur
  */
 function SupprimerLikeMessage(dataMess, token) {
   axios
@@ -264,8 +316,8 @@ export { SupprimerLikeMessage }
 
 /**
  * fonction pour liker un message
- * @param {*} data - information like message
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} data - information like message
+ * @param {string} token - token d'identification de l'utilisateur
  * @returns - message d'erreur
  */
 async function CréerLikeMessage(data, token) {
@@ -281,7 +333,7 @@ export { CréerLikeMessage }
 
 /**
  * fonction pour modifier le nombre de like message
- * @param {*} data - information message
+ * @param {string} data - information message
  */
 function ModifNbrLikeMessage(data) {
   axios.put(urlLikeMessaqge, data).catch((err) => {
@@ -292,9 +344,9 @@ export { ModifNbrLikeMessage }
 
 /**
  * fonction pour afficher les likes commentaire
- * @param {*} dataCom - information commentaire
- * @param {*} userPseudo - pseudo de l'utilisateur
- * @param {*} setDataLikeCommentaire - state like commentaire
+ * @param {string} dataCom - information commentaire
+ * @param {string} userPseudo - pseudo de l'utilisateur
+ * @param {React.Dispatch<React.SetStateAction<any[]>>} setDataLikeCommentaire - state like commentaire
  */
 function AfficheLikeCommentaire(dataCom, userPseudo, setDataLikeCommentaire) {
   fetch(urlLikeCommentaire)
@@ -313,8 +365,8 @@ export { AfficheLikeCommentaire }
 
 /**
  * fonction pour supprimer un like commentaire
- * @param {*} dataCom - information commentaire
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} dataCom - information commentaire
+ * @param {string} token - token d'identification de l'utilisateur
  */
 function SupprimerLikeCommentaire(dataCom, token) {
   axios
@@ -330,7 +382,7 @@ export { SupprimerLikeCommentaire }
 /**
  * fonction pour liker un commentaire
  * @param {*} data - information like commentaire
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} token - token d'identification de l'utilisateur
  * @returns - message d'erreur
  */
 async function CréerLikeCommentaire(data, token) {
@@ -357,7 +409,7 @@ export { ModifNbrLikeCommentaire }
 
 /**
  * fonction pour se connecter au site
- * @param {*} user - information de l'utilisateur
+ * @param {string} user - information de l'utilisateur
  */
 function UserLogin(user) {
   axios
@@ -378,22 +430,25 @@ export { UserLogin }
 
 /**
  * fonction pour créer un nouvel utilisateur
- * @param {*} user - information de l'utilisateur
+ * @param {string} user - information de l'utilisateur
  */
 function UserSignup(user) {
   axios
     .post(urlSignup, user)
     .then((res) => {
+      alert('Compte créer')
       window.location.href = './'
     })
-    .catch(() => alert(alertMessage1))
+    .catch(() =>
+      alert(alertMessage1 + ' ou compte déja existant avec ce pseudo !')
+    )
 }
 export { UserSignup }
 
 /**
  * fonction pour suppimer son compte utilisteur
- * @param {*} email - email de l'utilisateur
- * @param {*} token - token d'identification de l'utilisateur
+ * @param {string} email - email de l'utilisateur
+ * @param {string} token - token d'identification de l'utilisateur
  */
 function UserDelete(email, token) {
   axios
@@ -410,7 +465,7 @@ export { UserDelete }
 
 /**
  * fonction pour supprimer un compte utilisateur pour l'administrateur
- * @param {*} pseudo - pseudo de l'utilisateur
+ * @param {string} pseudo - pseudo de l'utilisateur
  */
 function DeleteOneUser(pseudo) {
   axios

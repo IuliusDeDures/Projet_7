@@ -66,6 +66,29 @@ exports.deleteMessage = (req, res, next) => {
     .catch((error) => res.status(503).json({ error }));
 };
 
+// route pour supprimer un message
+exports.deleteMessageAdmin = (req, res, next) => {
+  const messageId = req.params.id;
+  Message.findOne({ where: { id: messageId } })
+    .then((message) => {      
+        if (req.file) {
+          const filename = message.imageUrl.split("/images/")[1];
+          fs.unlink(`images/${filename}`, () => {
+            Message.destroy({ where: { id: messageId } })
+              .then(() =>
+                res.status(200).json({ message: "Message supprimé !" })
+              )
+              .catch((error) => res.status(403).json({ error }));
+          });
+        } else {
+          Message.destroy({ where: { id: messageId } })
+            .then(() => res.status(200).json({ message: "Message supprimé !" }))
+            .catch((error) => res.status(403).json({ error }));
+        }      
+    })
+    .catch((error) => res.status(503).json({ error }));
+};
+
 // route pour afficher l'ensemble des messages
 exports.getAllMessage = (req, res, next) => {
   Message.findAll()

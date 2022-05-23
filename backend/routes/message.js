@@ -18,5 +18,8 @@ router.delete("/:id", auth, messageCtrl.deleteMessage);
 // route pour l'affichage d'un message
 router.get("/:id", messageCtrl.getOneMessage);
 
+// route pour la suppression d'un message pour l'administrateur
+router.delete("/admin/:id", auth, messageCtrl.deleteMessageAdmin);
+
 
 module.exports = router;

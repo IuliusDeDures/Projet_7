@@ -12,6 +12,7 @@ import {
   AfficheMessages,
   SupprimerMessage,
   SelectUnMessage,
+  SupprimerMessageAdmin,
 } from './utils/Requete'
 import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
@@ -88,17 +89,21 @@ function SectionMessage() {
 
   /**
    * fonction pour supprimer un message et mettre à jour le DOM
-   * @param {*} dataMess - information message
+   * @param {string} dataMess - information message
    */
   function supMessage(dataMess) {
-    SupprimerMessage(dataMess, token)
+    if (isAdmin === 'true') {
+      SupprimerMessageAdmin(dataMess, token)
+    } else {
+      SupprimerMessage(dataMess, token)
+    }
     alert('Message suprimé')
     AfficheMessages(setDataMessages)
   }
 
   /**
    * fonction pour selectionner un message
-   * @param {*} dataMess - information message
+   * @param {string} dataMess - information message
    */
   function selectMessage(dataMess) {
     SelectUnMessage(setAfficheCommentaire, dataMess)

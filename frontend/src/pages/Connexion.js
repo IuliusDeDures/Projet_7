@@ -1,10 +1,10 @@
 import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
-import '../styles/Connection.css'
+import '../styles/Connexion.css'
 import React, { useState } from 'react'
 import { UserLogin } from '../components/utils/Requete'
 
 /**
- * fonction pour la connection au site
+ * fonction pour la connexion au site
  * @returns - la page de connection
  */
 function Connection() {
@@ -30,7 +30,7 @@ function Connection() {
       </div>
       <div className="connect-group-form">
         <form className="connect-form-login">
-          <h2 className="connect-form-title">Connection :</h2>
+          <h2 className="connect-form-title">Connexion :</h2>
           <label htmlFor="email" className="connect-label-email">
             Votre adresse email :{}
           </label>
@@ -60,7 +60,7 @@ function Connection() {
               console.log(email, password)
             }}
           >
-            Connection
+            Connexion
           </button>
         </form>
       </div>

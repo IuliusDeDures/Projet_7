@@ -14,7 +14,7 @@ function Inscription() {
 
   /**
    * fonction pour la validation de l'email de l'utilisateur
-   * @param {*} email - email de l'utlisateur
+   * @param {string} email - email de l'utlisateur
    * @returns - message d'erreur
    */
   function validationMail(email) {

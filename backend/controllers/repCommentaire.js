@@ -34,24 +34,32 @@ exports.createRepCommentaire = (req, res, next) => {
   }
 ;
 
-
 // route pour supprimer une réponse de commentaire
 exports.deleteRepCommentaire = (req, res, next) => {
   const repCommentaireId = req.params.id;
-  
   RepCommentaire.findOne({ where: { id: repCommentaireId } })
     .then((repCommentaire) => {
-      if (repCommentaire.userPseudo == req.auth.userPseudo) {               
-             
+      if (repCommentaire.userPseudo == req.auth.userPseudo) {  
         RepCommentaire.destroy({ where: { id: repCommentaireId } })
             .then(() => res.status(200).json({ message: "Réponse de commentaire supprimé !" }))
-            .catch((error) => res.status(403).json({ error }));        
-        
+            .catch((error) => res.status(403).json({ error })); 
       } else {
         res.status(401).json({
           error: "Utilisateur non valide !",
         });
       }
+    })
+    .catch((error) => res.status(503).json({ error }));
+};
+
+// route pour supprimer une réponse de commentaire pour l'administrateur
+exports.deleteRepCommentaireAdmin = (req, res, next) => {
+  const repCommentaireId = req.params.id;
+  RepCommentaire.findOne({ where: { id: repCommentaireId } })
+    .then((repCommentaire) => {             
+        RepCommentaire.destroy({ where: { id: repCommentaireId } })
+            .then(() => res.status(200).json({ message: "Réponse de commentaire supprimé !" }))
+            .catch((error) => res.status(403).json({ error }));
     })
     .catch((error) => res.status(503).json({ error }));
 };

@@ -16,8 +16,8 @@ library.add(faThumbsUp)
 
 /**
  * // fonction principal des likes commentaires
- * @param {*} dataCom - information commentaire
- * @param {*} setDataCommentaire - state commentaire
+ * @param {Object} dataCom - information commentaire
+ * @param {Object} setDataCommentaire - state commentaire
  * @returns - likes commentaire
  */
 function LikeCommentaire({ dataCom, setDataCommentaire }) {

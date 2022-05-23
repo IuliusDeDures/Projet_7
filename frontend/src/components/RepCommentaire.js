@@ -6,6 +6,7 @@ import {
   AfficheMessages,
   ModifNbrRepCommentaire,
   AfficheCommentaire,
+  SupprimerRepCommentaireAdmin,
 } from './utils/Requete'
 import { dateParser } from './utils/DateParser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,10 +18,10 @@ library.add(faTrashCan)
 
 /**
  * // fonction principal des réponses de commentaire
- * @param {*} dataMess - information message
- * @param {*} setDataMessages - state message
- * @param {*} setDataCommentaire - state commentaire
- * @param {*} dataCom - information commentaire
+ * @param {Object} dataMess - information message
+ * @param {Object} setDataMessages - state message
+ * @param {Object} setDataCommentaire - state commentaire
+ * @param {Object} dataCom - information commentaire
  * @returns - les réponses de commentaire
  */
 function RepCommentaire({
@@ -78,10 +79,14 @@ function RepCommentaire({
   }
   /**
    * fonction pour supprimer une reponse de commentaire et mettre à jour le DOM
-   * @param {*} dataRepCom - information réponse de commentaire
+   * @param {string} dataRepCom - information réponse de commentaire
    */
   function supRepCommentaire(dataRepCom) {
-    SupprimerRepCommentaire(dataRepCom, token)
+    if (isAdmin === 'true') {
+      SupprimerRepCommentaireAdmin(dataRepCom, token)
+    } else {
+      SupprimerRepCommentaire(dataRepCom, token)
+    }
     const data = {
       idMessage: dataMess.id,
       nbrRepCommentaire: dataMess.nbrRepCommentaire,
@@ -125,7 +130,7 @@ function RepCommentaire({
                   userPseudo === dataRepCom.userPseudo ? (
                     <button
                       className="sup-repCommentaire"
-                      title="Supprimer le commentaire"
+                      title="Supprimer la réponse de commentaire"
                       onClick={(e) => {
                         e.preventDefault()
                         supRepCommentaire(dataRepCom)

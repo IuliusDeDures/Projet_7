@@ -1,4 +1,5 @@
-/** fonction pour la formatage de la date */
+/**
+ * fonction pour la formatage de la date */
 function dateParser(num) {
   let options = {
     hour: '2-digit',

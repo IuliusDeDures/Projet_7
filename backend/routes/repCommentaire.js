@@ -20,4 +20,7 @@ router.get("/:id", repCommentaireCtrl.getOneRepCommentaire);
 // route pour modifier le nombre de réponses de commentaires
 router.put("/",repCommentaireCtrl.modifNbrRepCommentaire);
 
+// route pour la suppression d'une réponse de commentaire pour l'administrateur
+router.delete("/admin/:id", auth, repCommentaireCtrl.deleteRepCommentaireAdmin);
+
 module.exports = router;

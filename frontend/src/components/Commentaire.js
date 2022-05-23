@@ -6,6 +6,7 @@ import {
   AfficheMessages,
   ModifNbrCommentaire,
   SelectUnCommentaire,
+  SupprimerCommentaireAdmin,
 } from './utils/Requete'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -21,8 +22,8 @@ library.add(faThumbsUp, faComment, faTrashCan)
 
 /**
  * fonction principal des commentaires
- * @param {*} dataMess - information message
- * @param {*} setDataMessages - state message
+ * @param {Object} dataMess - information message
+ * @param {Object} setDataMessages - state message
  * @returns - les commentaires
  */
 function Commentaire({ dataMess, setDataMessages }) {
@@ -73,12 +74,15 @@ function Commentaire({ dataMess, setDataMessages }) {
   }
   /**
    * fonction pour supprimer un commentaire et mettre à jour le DOM
-   * @param {*} dataCom - information commentaire
+   * @param {string} dataCom - information commentaire
    */
-
   function supCommentaire(dataCom) {
     if (dataCom.nbrRepCommentaireCom === 0) {
-      SupprimerCommentaire(dataCom, token)
+      if (isAdmin === 'true') {
+        SupprimerCommentaireAdmin(dataCom, token)
+      } else {
+        SupprimerCommentaire(dataCom, token)
+      }
       const data = {
         idMessage: dataMess.id,
         nbrCommentaire: dataMess.nbrCommentaire,
@@ -102,7 +106,7 @@ function Commentaire({ dataMess, setDataMessages }) {
   }
   /**
    * fonction pour selectionner un commentaire
-   * @param {*} dataCom - information commentaire
+   * @param {string} dataCom - information commentaire
    */
   function selectCommentaire(dataCom) {
     SelectUnCommentaire(setAfficheReponse, dataCom)

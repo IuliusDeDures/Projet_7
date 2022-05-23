@@ -16,8 +16,8 @@ library.add(faThumbsUp)
 
 /**
  * fonction principal des likes messages
- * @param {*} dataMess - information message
- * @param {*} setDataMessages - state message
+ * @param {Object} dataMess - information message
+ * @param {Object} setDataMessages - state message
  * @returns likes message
  */
 function LikeMessage({ dataMess, setDataMessages }) {
