@@ -6,12 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(0, 128, 255);
-  width: 40%;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  margin: auto;
-  border-radius: 40px;
 }
 
 .sup-group-header {
@@ -20,7 +14,6 @@
   border-radius: 75px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   background-color: rgb(225, 225, 225);
-  width: 90%;
 }
 
 .sup-group-logo {
@@ -102,18 +95,5 @@
 @media all and (max-width: 950px) {
   .sup-group-titre {
     font-size: 2em;
-  }
-  .sup-group-suppression {
-    width: 60%;
-  }
-}
-@media all and (max-width: 950px) {
-  .sup-group-suppression {
-    width: 80%;
-  }
-}
-@media all and (max-width: 950px) {
-  .sup-group-suppression {
-    width: 100%;
   }
 }
