@@ -1,19 +1,12 @@
 .commentairesPlusForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-left: 10px;
 }
 
 .allCommentaires {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.titre-commentaire {
-  font-size: 110%;
-  font-weight: bold;
 }
 
 .commentaire {
@@ -22,27 +15,18 @@
   margin: 0px 15px 5px 15px;
   padding: 5px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
+  width: max-content;
+  max-width: 93%;
 }
 .commentaire-header {
-  display: flex;
-  justify-content: space-around;
+  width: 100%;
 }
 .commentaire-pseudoUser {
   margin: 1px 1px 5px 1px;
-  font-size: small;
+  font-weight: bold;
 }
-.commentaire-date {
-  margin: 1px 1px 5px 1px;
-  font-size: small;
-}
-
 .commentaire-contenu {
-  display: flex;
-  justify-content: center;
-  margin: 1px 1px 5px 1px;
+  margin: 3px 1px 10px 1px;
 }
 .commentaire-boutton {
   display: flex;
@@ -55,8 +39,9 @@
   border-radius: 20px;
   display: flex;
   margin-left: 10px;
+  background-color: rgb(200, 200, 200);
+  padding: 5px;
 }
-
 .sup-commentaire-icon {
   font-size: 115%;
   padding: 5px;
@@ -66,21 +51,32 @@
 .sup-commentaire-icon:hover {
   color: red;
 }
-
+.commentaire-date {
+  margin: 0 0 0 10px;
+  font-size: small;
+  align-self: center;
+}
 .form-commentaire {
   background-color: rgb(225, 225, 225);
   border-radius: 20px;
   margin: 10px 15px 5px 15px;
   padding: 5px;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
 }
 .nouveau-commentaire {
   border-radius: 20px;
-  margin: 2px;
+  width: 90%;
 }
 .envoie-nouveau-commentaire {
   border-radius: 20px;
   border: none;
-  margin-right: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
 }
 .envoie-nouveau-commentaire:hover {
   color: blue;
@@ -90,6 +86,8 @@
   border: none;
   margin-left: 10px;
   display: flex;
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
 }
 .repondre-commentaire:hover {
   color: blue;
@@ -98,4 +96,23 @@
   padding: 7px;
   align-self: center;
   cursor: pointer;
+}
+@media all and (max-width: 450px) {
+  .commentairesPlusForm {
+    margin-left: 0;
+  }
+  .form-commentaire {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .commentaire {
+    margin-left: 5px;
+  }
+  .commentaire-boutton {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .commentaire-date {
+    font-size: x-small;
+  }
 }

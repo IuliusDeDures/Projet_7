@@ -1,0 +1,14 @@
+.group-forum {
+  width: 70%;
+  margin: auto;
+}
+@media all and (max-width: 950px) {
+  .group-forum {
+    width: 90%;
+  }
+}
+@media all and (max-width: 700px) {
+  .group-forum {
+    width: 100%;
+  }
+}

@@ -1,18 +1,7 @@
 .repCommentairesPlusForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-
-.allRepCommentaires {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-}
-
 .repCommentaire {
   background-color: white;
   border-radius: 20px;
@@ -20,9 +9,6 @@
   padding: 5px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   width: fit-content;
-  display: flex;
-  flex-direction: column;
-  height: max-content;
 }
 .repCommentaire-header {
   display: flex;
@@ -31,6 +17,7 @@
 .repCommentaire-pseudoUser {
   margin: 1px 1px 5px 1px;
   font-size: small;
+  font-weight: bold;
 }
 
 .repCommentaire-date {
@@ -39,18 +26,18 @@
 }
 
 .repCommentaire-contenu {
-  display: flex;
-  justify-content: center;
-  margin: 1px 1px 5px 1px;
+  margin: 1px 1px 7px 1px;
 }
 .repCommentaire-boutton {
   display: flex;
-  justify-content: flex-end;
+  margin-left: 5px;
+  justify-content: flex-start;
 }
 .sup-repCommentaire {
   border: none;
   background-color: rgb(225, 225, 225);
   border-radius: 10px;
+  height: 20px;
   display: flex;
 }
 
@@ -65,20 +52,32 @@
 }
 
 .form-repCommentaire {
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(200, 200, 200);
   border-radius: 20px;
-  margin: 10px 15px 5px 15px;
+  margin: 5px 5px 10px 5px;
   padding: 5px;
+  display: flex;
+  justify-content: space-around;
 }
 .nouveau-repCommentaire {
   border-radius: 20px;
-  margin: 2px;
+  width: 65%;
 }
 .envoie-nouveau-repCommentaire {
   border-radius: 20px;
   border: none;
-  margin-right: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: rgb(225, 225, 225);
+  cursor: pointer;
 }
 .envoie-nouveau-repCommentaire:hover {
   color: blue;
+}
+@media all and (max-width: 450px) {
+  .repCommentaire-date {
+    font-size: x-small;
+    align-self: center;
+  }
 }

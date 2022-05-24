@@ -16,7 +16,7 @@ import {
 } from './utils/Requete'
 import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
-import { dateParser } from './utils/DateParser'
+import { dateParserMessage } from './utils/DateParser'
 
 library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
 
@@ -47,6 +47,8 @@ function SectionMessage() {
   const [image, setImage] = useState()
   const [file, setFile] = useState()
   const [afficheCommentaire, setAfficheCommentaire] = useState(false)
+
+  let placeholderMessage = 'Quoi de neuf, ' + userPseudo + ' ?'
 
   useEffect(() => {
     AfficheMessages(setDataMessages)
@@ -121,7 +123,7 @@ function SectionMessage() {
             className="nouveau-message"
             rows="2"
             cols="70"
-            placeholder="Tapez votre message"
+            placeholder={placeholderMessage}
             onChange={(e) => setText(e.target.value)}
             value={text}
             required
@@ -173,16 +175,20 @@ function SectionMessage() {
           <div key={dataMess.id} className="messagePlusCommentaire">
             <div className="message-header">
               <p className="message-pseudoUser">{dataMess.userPseudo}</p>
-              <p className="message-date">{dateParser(dataMess.createdAt)}</p>
+              <p className="message-date">
+                Publié le {dateParserMessage(dataMess.createdAt)}
+              </p>
             </div>
             <div className="message">
               <p className="message-contenu">{dataMess.text}</p>
               {dataMess.file && (
-                <img
-                  className="message-image"
-                  src={dataMess.file}
-                  alt="fichier_image"
-                />
+                <div className="message-conteneur-image">
+                  <img
+                    className="message-image"
+                    src={dataMess.file}
+                    alt="fichier_image"
+                  />
+                </div>
               )}
               <div className="message-boutton">
                 {isAdmin === 'true' || userPseudo === dataMess.userPseudo ? (

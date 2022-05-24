@@ -19,62 +19,51 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  max-width: 100%;
-  width: fit-content;
+  width: 80%;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   background-color: rgb(200, 200, 200);
 }
 
 .message {
-  background-color: rgb(225, 225, 225);
-  border-radius: 20px;
-  margin: 0px 5px 15px 5px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  width: fit-content;
-  max-width: 90%;
-  align-self: center;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
+  width: 95%;
+  margin: auto;
 }
 .message-contenu {
+  padding: 2px 7px;
+  margin: 10px;
+  width: 95%;
+}
+.message-conteneur-image {
+  width: 100%;
   display: flex;
-  text-align: center;
-  justify-content: center;
-  margin: 1px 1px 10px 1px;
-  max-width: 650px;
+  background-color: black;
+  margin-bottom: 15px;
 }
 .message-image {
-  align-self: center;
-  padding-bottom: 10px;
-  width: 95%;
-  max-width: 650px;
-}
-.message-header {
-  display: flex;
-  justify-content: space-around;
+  margin: auto;
+  max-width: 100%;
 }
 
+.message-header {
+  border-bottom: 1px solid gray;
+  width: 95%;
+  margin: auto;
+}
 .message-pseudoUser {
-  font-size: small;
-  background-color: rgb(225, 225, 225);
   border-radius: 20px;
   padding: 2px 7px;
-  width: fit-content;
   margin: 5px 10px 5px 10px;
-  box-shadow: 2px 2px 4px rgb(200, 200, 200);
-  align-self: center;
+  font-weight: bold;
 }
 .message-date {
-  font-size: small;
-  background-color: rgb(225, 225, 225);
   border-radius: 20px;
   padding: 2px 7px;
-  width: fit-content;
   margin: 5px 10px 5px 10px;
-  box-shadow: 2px 2px 4px rgb(200, 200, 200);
-  align-self: center;
+  font-size: small;
 }
 
 .ajout-message {
@@ -125,6 +114,7 @@
 }
 .envoie-message {
   border: none;
+  background-color: rgb(225, 225, 225);
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
   border-radius: 25px;
@@ -134,8 +124,12 @@
   height: min-content;
   cursor: pointer;
 }
+.envoie-message:hover {
+  color: blue;
+}
 .annule-message {
   border: none;
+  background-color: rgb(225, 225, 225);
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
   border-radius: 25px;
@@ -144,6 +138,9 @@
   width: min-content;
   height: min-content;
   cursor: pointer;
+}
+.annule-message:hover {
+  color: red;
 }
 .contenu-message {
   background-color: rgb(225, 225, 225);
@@ -184,10 +181,10 @@
 
 .message-boutton {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   height: 20px;
-  padding: 5px;
-  border-radius: 15px;
+  padding: 10px;
+  border-top: 1px solid gray;
 }
 .sup-message {
   border: none;
@@ -207,7 +204,7 @@
 .com-message {
   border: none;
   background-color: rgb(225, 225, 225);
-  margin-left: 10px;
+  margin-left: 15px;
   border-radius: 10px;
   padding-left: 5px;
 }
@@ -223,7 +220,7 @@
 .com-boutton {
   border: none;
   background-color: rgb(225, 225, 225);
-  margin-left: 10px;
+  margin-left: 15px;
   border-radius: 10px;
   display: flex;
 }
@@ -236,7 +233,7 @@
 .message-icon-nbrRepCommentaire {
   background-color: rgb(225, 225, 225);
   border-radius: 10px;
-  margin-left: 10px;
+  margin-left: 15px;
   display: flex;
 }
 .icon-nbrRepCommentaire {
@@ -278,16 +275,16 @@
     width: 100%;
   }
   .form-message {
-    max-width: 90%;
+    width: 85%;
   }
   .messagePlusCommentaire {
-    max-width: 90%;
+    width: 95%;
   }
   .form-message {
     padding: 0 0 10px 0;
   }
-}
-.nouveau-message {
-  margin-top: 0px;
-  margin-bottom: 10px;
+  .nouveau-message {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
 }

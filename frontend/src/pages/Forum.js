@@ -1,6 +1,6 @@
 import Message from '../components/Message'
 import Banner from '../components/Banner'
-
+import '../styles/Forum.css'
 /**
  * fonction de la page forum
  * @returns - la page forum

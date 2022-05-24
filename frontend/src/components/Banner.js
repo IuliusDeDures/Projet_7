@@ -1,5 +1,12 @@
 import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/Banner.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSlash } from '@fortawesome/free-solid-svg-icons'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faUserSlash, faUserPlus, faArrowRightFromBracket)
 
 /**
  * fonction qui envoie faire la page de suppression de son compte utilisateur
@@ -54,20 +61,36 @@ function Banner() {
 
         <div className="group-boutton">
           {isAdmin === 'true' ? (
-            <button className="group-listeUser" onClick={CreaCompteAdmin}>
-              Créer un compte administrateur
+            <button
+              className="group-listeUser"
+              onClick={CreaCompteAdmin}
+              title="Créer un utilisateur administrateur"
+            >
+              <FontAwesomeIcon icon="fa-solid fa-user-plus" />
             </button>
           ) : null}
-          <button className="group-logout" onClick={connexion}>
-            Déconnexion
+          <button
+            className="group-logout"
+            onClick={connexion}
+            title="Déconnexion"
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" />
           </button>
           {isAdmin === 'true' ? (
-            <button className="group-admin-deleteUser" onClick={suppUnCompte}>
-              Supprimer un compte
+            <button
+              className="group-admin-deleteUser"
+              onClick={suppUnCompte}
+              title="Supprimer un utilisateur"
+            >
+              <FontAwesomeIcon icon="fa-solid fa-user-slash" />
             </button>
           ) : (
-            <button className="group-deleteUser" onClick={suppCompte}>
-              Supprimer le compte
+            <button
+              className="group-deleteUser"
+              onClick={suppCompte}
+              title="Supprimer le compte"
+            >
+              <FontAwesomeIcon icon="fa-solid fa-user-slash" />
             </button>
           )}
         </div>

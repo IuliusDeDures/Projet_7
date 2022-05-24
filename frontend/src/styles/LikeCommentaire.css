@@ -1,6 +1,6 @@
 .like-commentaire {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(200, 200, 200);
   border-radius: 10px;
   display: flex;
 }
@@ -12,7 +12,7 @@
 }
 .dislike-commentaire {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(200, 200, 200);
   border-radius: 10px;
   display: flex;
 }
@@ -24,8 +24,8 @@
   cursor: pointer;
 }
 .all-like-commentaire {
-  background-color: rgb(225, 225, 225);
   border-radius: 10px;
   margin-left: 10px;
   display: flex;
+  background-color: rgb(200, 200, 200);
 }

@@ -8,7 +8,7 @@ import {
   AfficheCommentaire,
   SupprimerRepCommentaireAdmin,
 } from './utils/Requete'
-import { dateParser } from './utils/DateParser'
+import { dateParserCommentaire } from './utils/DateParser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
@@ -119,7 +119,7 @@ function RepCommentaire({
                     {dataRepCom.userPseudo} :
                   </p>
                   <p className="repCommentaire-date">
-                    {dateParser(dataRepCom.createdAt)}
+                    {dateParserCommentaire(dataRepCom.createdAt)}
                   </p>
                 </div>
                 <p className="repCommentaire-contenu">

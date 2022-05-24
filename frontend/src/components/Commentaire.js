@@ -16,7 +16,7 @@ import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import '../styles/Commentaire.css'
 import RepCommentaire from './RepCommentaire'
 import LikeCommentaire from './LikeCommentaire'
-import { dateParser } from './utils/DateParser'
+import { dateParserCommentaire } from './utils/DateParser'
 
 library.add(faThumbsUp, faComment, faTrashCan)
 
@@ -94,7 +94,7 @@ function Commentaire({ dataMess, setDataMessages }) {
       AfficheMessages(setDataMessages)
     } else {
       alert(
-        'Ce commentaire ne peut être supprimer car il ya des reponses à ce commentaire. Supprimer les réponses pour supprimer le commentaire'
+        'Ce commentaire ne peut être supprimé car il y a des reponses à ce commentaire.\n\nSupprimer ces réponses pour supprimer ce commentaire !'
       )
     }
   }
@@ -114,8 +114,25 @@ function Commentaire({ dataMess, setDataMessages }) {
 
   return (
     <div className="commentairesPlusForm">
+      <form className="form-commentaire">
+        <input
+          type="text"
+          className="nouveau-commentaire"
+          value={commentaire}
+          placeholder="Ecrivez un commentaire..."
+          onChange={(e) => setCommentaire(e.target.value)}
+        />
+        <button
+          className="envoie-nouveau-commentaire"
+          onClick={(e) => {
+            e.preventDefault()
+            Commenter()
+          }}
+        >
+          Envoyer
+        </button>
+      </form>
       <div className="allCommentaires">
-        <p className="titre-commentaire">Commentaire :</p>
         {dataCommentaire.map((dataCom) => (
           <div key={dataCom.id}>
             {dataCom.idMessage === dataMess.id ? (
@@ -123,9 +140,6 @@ function Commentaire({ dataMess, setDataMessages }) {
                 <div className="commentaire-header">
                   <p className="commentaire-pseudoUser">
                     {dataCom.userPseudo} :
-                  </p>
-                  <p className="commentaire-date">
-                    {dateParser(dataCom.createdAt)}
                   </p>
                 </div>
                 <p className="commentaire-contenu">{dataCom.commentaire}</p>
@@ -186,6 +200,9 @@ function Commentaire({ dataMess, setDataMessages }) {
                   <div className="message-nbrLikes">
                     <p className="nbrLikes">{dataCom.likes}</p>
                   </div>
+                  <p className="commentaire-date">
+                    {dateParserCommentaire(dataCom.createdAt)}
+                  </p>
                 </div>
                 {afficheReponse === dataCom.id && (
                   <RepCommentaire
@@ -200,24 +217,6 @@ function Commentaire({ dataMess, setDataMessages }) {
           </div>
         ))}
       </div>
-      <form className="form-commentaire">
-        <input
-          type="text"
-          className="nouveau-commentaire"
-          value={commentaire}
-          placeholder="Votre commentaire..."
-          onChange={(e) => setCommentaire(e.target.value)}
-        />
-        <button
-          className="envoie-nouveau-commentaire"
-          onClick={(e) => {
-            e.preventDefault()
-            Commenter()
-          }}
-        >
-          Envoyer
-        </button>
-      </form>
     </div>
   )
 }
