@@ -112,7 +112,8 @@ function SectionMessage() {
   }
 
   /**
-   * fonction pour afficher les message d'un utilisateur
+   * fonction pour aller sur la page qui affiche les message d'un utilisateur
+   * @param {string} dataMess - information message
    */
   function userForum(dataMess) {
     window.location.href =

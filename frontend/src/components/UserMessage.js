@@ -76,7 +76,7 @@ function SectionMessage() {
   }
 
   /**
-   * fonction pour afficher les message d'un utilisateur
+   * fonction pour retourner sur la page qui affiche l'ensemble des messages
    */
   function Forum() {
     window.location.href =
