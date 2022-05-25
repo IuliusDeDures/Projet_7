@@ -111,6 +111,21 @@ function SectionMessage() {
     SelectUnMessage(setAfficheCommentaire, dataMess)
   }
 
+  /**
+   * fonction pour afficher les message d'un utilisateur
+   */
+  function userForum(dataMess) {
+    window.location.href =
+      './userMessage?userPseudo=' +
+      userPseudo +
+      'isAdmin' +
+      isAdmin +
+      'Bearer' +
+      token +
+      'selectUser' +
+      dataMess.userPseudo
+  }
+
   return (
     <div className="sectionMessage">
       <div className="ajout-message">
@@ -174,7 +189,16 @@ function SectionMessage() {
         {dataMessage.map((dataMess) => (
           <div key={dataMess.id} className="messagePlusCommentaire">
             <div className="message-header">
-              <p className="message-pseudoUser">{dataMess.userPseudo}</p>
+              <button
+                className="message-pseudoUser"
+                title="Voir tous les messages de cet utilisateur"
+                onClick={(e) => {
+                  e.preventDefault()
+                  userForum(dataMess)
+                }}
+              >
+                {dataMess.userPseudo}
+              </button>
               <p className="message-date">
                 Publié le {dateParserMessage(dataMess.createdAt)}
               </p>

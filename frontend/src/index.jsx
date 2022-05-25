@@ -7,6 +7,7 @@ import Forum from './pages/Forum'
 import SupprimerCompte from './pages/SupprimerCompte'
 import SupprimerUnCompte from './pages/SupprimerUnCompte'
 import CreaCompteAdmin from './pages/CreaCompteAdmin'
+import UserForum from './pages/UserForum'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,9 @@ ReactDOM.render(
         </Route>
         <Route path="/message">
           <Forum />
+        </Route>
+        <Route path="/userMessage">
+          <UserForum />
         </Route>
         <Route path="/CreaCompteAdmin">
           <CreaCompteAdmin />

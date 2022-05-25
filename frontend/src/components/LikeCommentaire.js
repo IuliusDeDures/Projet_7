@@ -28,11 +28,13 @@ function LikeCommentaire({ dataCom, setDataCommentaire }) {
   let search_parms = new URLSearchParams(url.search)
   let userPseudoIsAdminBearer = ''
   let token = ''
+  let tokenSelectUser = ''
   let userPseudo = ''
   let userPseudoIsAdmin = ''
   if (search_parms.has('userPseudo')) {
     userPseudoIsAdminBearer = search_parms.get('userPseudo')
-    token = userPseudoIsAdminBearer.split('Bearer')[1]
+    tokenSelectUser = userPseudoIsAdminBearer.split('Bearer')[1]
+    token = tokenSelectUser.split('selectUser')[0]
     userPseudoIsAdmin = userPseudoIsAdminBearer.split('Bearer')[0]
     userPseudo = userPseudoIsAdmin.split('isAdmin')[0]
   }

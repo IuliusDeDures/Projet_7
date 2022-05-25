@@ -39,11 +39,13 @@ let url = new URL(window.location.href)
 let search_parms = new URLSearchParams(url.search)
 let userPseudoIsAdminBearer = ''
 let token = ''
+let tokenSelectUser = ''
 let isAdmin = ''
 let userPseudoIsAdmin = ''
 if (search_parms.has('userPseudo')) {
   userPseudoIsAdminBearer = search_parms.get('userPseudo')
-  token = userPseudoIsAdminBearer.split('Bearer')[1]
+  tokenSelectUser = userPseudoIsAdminBearer.split('Bearer')[1]
+  token = tokenSelectUser.split('selectUser')[0]
   userPseudoIsAdmin = userPseudoIsAdminBearer.split('Bearer')[0]
   isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
 }

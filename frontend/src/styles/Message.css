@@ -18,13 +18,19 @@
 .messagePlusCommentaire {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  align-self: center;
   width: 80%;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   background-color: rgb(200, 200, 200);
+  margin-bottom: 20px;
 }
-
+.selectUser {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
 .message {
   align-self: flex-start;
   display: flex;
@@ -49,20 +55,26 @@
 }
 
 .message-header {
+  margin: auto;
   border-bottom: 1px solid gray;
   width: 95%;
-  margin: auto;
 }
 .message-pseudoUser {
   border-radius: 20px;
   padding: 2px 7px;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 0 10px;
   font-weight: bold;
+  border: none;
+  background-color: rgb(200, 200, 200);
+  font-size: 105%;
+}
+.message-pseudoUser:hover {
+  color: blue;
 }
 .message-date {
   border-radius: 20px;
   padding: 2px 7px;
-  margin: 5px 10px 5px 10px;
+  margin: 0 10px 5px 10px;
   font-size: small;
 }
 
