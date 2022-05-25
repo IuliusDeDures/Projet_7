@@ -7,6 +7,7 @@ import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faImage } from '@fortawesome/free-regular-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import { faComments } from '@fortawesome/free-regular-svg-icons'
+import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import {
   AfficheMessages,
   SupprimerMessage,
@@ -17,7 +18,7 @@ import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
 import { dateParserMessage } from './utils/DateParser'
 
-library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
+library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments, faHouse)
 
 /**
  * fonction principal des messages
@@ -89,22 +90,30 @@ function SectionMessage() {
 
   return (
     <div className="sectionMessage">
+      <div className="retour-allMessage">
+        <button
+          className="bouton-retour-allMessage"
+          title="Retour à l'afficher des messages de tous les utilisateurs"
+          onClick={(e) => {
+            e.preventDefault()
+            Forum()
+          }}
+        >
+          <FontAwesomeIcon
+            className="icon-bouton-retour-allMessage"
+            icon="fa-solid fa-house"
+          />
+        </button>
+      </div>
       <div className="allMessages">
         {dataMessage.map((dataMess) => (
           <div className="selectUser" key={dataMess.id}>
             {selectUser === dataMess.userPseudo ? (
               <div className="messagePlusCommentaire">
                 <div className="message-header">
-                  <button
-                    className="message-pseudoUser"
-                    title="afficher les messages de tous les utilisateurs"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      Forum(dataMess)
-                    }}
-                  >
+                  <div className="message-pseudoUser">
                     {dataMess.userPseudo}
-                  </button>
+                  </div>
                   <p className="message-date">
                     Publié le {dateParserMessage(dataMess.createdAt)}
                   </p>

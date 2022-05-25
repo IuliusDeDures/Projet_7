@@ -6,6 +6,24 @@
   max-height: 800px;
   overflow: Auto;
 }
+.retour-allMessage {
+  width: 100%;
+  margin: auto;
+  background-color: rgb(0, 128, 255);
+  display: flex;
+  justify-content: center;
+}
+.bouton-retour-allMessage {
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgb(200, 200, 200);
+}
+.icon-bouton-retour-allMessage {
+  font-size: large;
+}
 
 .allMessages {
   width: 100%;
