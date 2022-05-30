@@ -62,6 +62,16 @@ function Banner() {
         <h1 className="group-header-title">Goupomania</h1>
 
         <div className="group-boutton">
+          <button
+            className="group-logout"
+            onClick={connexion}
+            title="Déconnexion"
+          >
+            <FontAwesomeIcon
+              className="group-logout-logo"
+              icon="fa-solid fa-arrow-right-from-bracket"
+            />
+          </button>
           {isAdmin === 'true' ? (
             <button
               className="group-createUser"
@@ -71,13 +81,6 @@ function Banner() {
               <FontAwesomeIcon icon="fa-solid fa-user-plus" />
             </button>
           ) : null}
-          <button
-            className="group-logout"
-            onClick={connexion}
-            title="Déconnexion"
-          >
-            <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" />
-          </button>
           {isAdmin === 'true' ? (
             <button
               className="group-admin-deleteUser"
