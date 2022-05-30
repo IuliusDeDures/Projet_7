@@ -7,6 +7,14 @@
     6. LA TABLE "likescommentaires"
 AVEC LA COMMANDE : run sql (nécessite MySQL 8)
 
+CONFIG BASE DE DONNEE = 
+  username:'Groupomania',
+  password:'$Group001',
+  database:'groupomania',
+  dialect:'mysql',
+  host:'localhost',
+
+
 2. DEPUIS LE DOSSIER BACKEND INSTALLER LES ELEMENTS DU BACKEND AVEC LA COMMANDE : npm install
 
 3. DEMARRER LE SERVEUR DU BACKEND AVEC LA COMMANDE : nodemon server (PORT 8000)

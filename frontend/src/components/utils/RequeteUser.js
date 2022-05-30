@@ -2,10 +2,10 @@ import axios from 'axios'
 
 /**
  * liste des URL de l'API */
-const urlLogin = 'http://127.0.0.1:8000/api/auth/login'
-const urlSignup = 'http://127.0.0.1:8000/api/auth/signup'
-const urlDeleteUser = 'http://127.0.0.1:8000/api/auth/'
-const urlDeleteOneUser = 'http://127.0.0.1:8000/api/auth/deleteOne/'
+const urlLogin = `${process.env.REACT_APP_API_URL}auth/login`
+const urlSignup = `${process.env.REACT_APP_API_URL}auth/signup`
+const urlDeleteUser = `${process.env.REACT_APP_API_URL}auth/`
+const urlDeleteOneUser = `${process.env.REACT_APP_API_URL}auth/deleteOne/`
 /**
  * message d'alerte */
 const alertMessageInfoIncorrecte = 'les informations saisies sont incorrectes'

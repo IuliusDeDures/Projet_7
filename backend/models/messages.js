@@ -1,10 +1,11 @@
 const config = {
-  username: "root",
-  password: "$49JulBau72$",
-  database: "groupomania",
-  dialect: "mysql",
-  host: "localhost",
+  username:'Groupomania',
+  password:'$Group001',
+  database:'groupomania',
+  dialect:'mysql',
+  host:'localhost',
 };
+
 const Sequelize = require("sequelize");
 const database = new Sequelize(config);
 

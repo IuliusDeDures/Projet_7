@@ -22,9 +22,9 @@ const limiteur = rateLimit({
 require("dotenv").config();
 
 // connection à la base de donnée SQL
-const database = new Sequelize("groupomania", "root", "$49JulBau72$", {
-  dialect: "mysql",
-  host: "localhost",
+const database = new Sequelize('groupomania','Groupomania', '$Group001', {
+  dialect: 'mysql',
+  host: 'localhost',
 });
 try {
   database.authenticate();

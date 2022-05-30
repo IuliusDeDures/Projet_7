@@ -2,8 +2,8 @@ import axios from 'axios'
 
 /**
  * liste des URL de l'API */
-const urlLikeMessaqge = 'http://127.0.0.1:8000/api/likes/likeMessage/'
-const urlLikeCommentaire = 'http://127.0.0.1:8000/api/likes/likeCommentaire/'
+const urlLikeMessaqge = `${process.env.REACT_APP_API_URL}likes/likeMessage/`
+const urlLikeCommentaire = `${process.env.REACT_APP_API_URL}likes/likeCommentaire/`
 
 /**
  * message d'alerte */

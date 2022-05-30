@@ -2,9 +2,8 @@ import axios from 'axios'
 
 /**
  * liste des URL de l'API */
-const urlRepCommentaire = 'http://127.0.0.1:8000/api/repCommentaires/'
-const urlRepCommentaireAdmin =
-  'http://127.0.0.1:8000/api/repCommentaires/admin/'
+const urlRepCommentaire = `${process.env.REACT_APP_API_URL}repCommentaires/`
+const urlRepCommentaireAdmin = `${process.env.REACT_APP_API_URL}repCommentaires/admin/`
 
 /**
  * message d'alerte */

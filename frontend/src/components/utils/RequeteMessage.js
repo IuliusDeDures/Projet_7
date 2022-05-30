@@ -2,8 +2,8 @@ import axios from 'axios'
 
 /**
  * liste des URL de l'API */
-const urlMessage = 'http://127.0.0.1:8000/api/messages/'
-const urlMessageAdmin = 'http://127.0.0.1:8000/api/messages/admin/'
+const urlMessage = `${process.env.REACT_APP_API_URL}messages/`
+const urlMessageAdmin = `${process.env.REACT_APP_API_URL}messages/admin/`
 
 /**
  * message d'alerte */
