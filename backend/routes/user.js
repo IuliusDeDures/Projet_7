@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const pseudo = require("../middleware/pseudo-validator");
 const password = require("../middleware/password-validator");
+const email = require("../middleware/email-validator");
 const userCtrl = require("../controllers/user");
 const auth = require("../middleware/auth");
 
 // route pour l'inscription d'un nouvel utilisateur
-router.post("/signup", pseudo, password, userCtrl.signup);
+router.post("/signup", pseudo, password, email, userCtrl.signup);
 
 // route pour la connection d'un utilisateur
 router.post("/login", userCtrl.login);
