@@ -14,7 +14,7 @@ const path = require("path");
 // configuration du limiteur de requête
 const limiteur = rateLimit({
   windowMs: 1 * 60 * 1000, // période 1 minutes
-  max: 200, // limite à 200 requête pour 1 minutes
+  max: 100, // limite à 100 requête pour 1 minutes
   standardHeaders: true,
   legacyHeaders: false,
 });
