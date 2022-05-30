@@ -1,8 +1,11 @@
 .like-commentaire {
   border: none;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
   border-radius: 10px;
   display: flex;
+}
+.like-commentaire:hover {
+  background-color: rgb(200, 200, 200);
 }
 .like-commentaire-icon {
   font-size: 115%;
@@ -12,9 +15,12 @@
 }
 .dislike-commentaire {
   border: none;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
   border-radius: 10px;
   display: flex;
+}
+.dislike-commentaire:hover {
+  background-color: rgb(200, 200, 200);
 }
 .dislike-commentaire-icon {
   color: blue;

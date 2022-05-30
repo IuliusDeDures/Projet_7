@@ -190,8 +190,8 @@ function Commentaire({ dataMess, setDataMessages }) {
                     </button>
                   )}
 
-                  <div className="message-nbrRepCommentaire">
-                    <p className="nbrRepCommentaire">
+                  <div className="commentaire-nbrRepCommentaire">
+                    <p className="com-nbrRepCommentaire">
                       {dataCom.nbrRepCommentaireCom}
                     </p>
                   </div>
@@ -199,8 +199,8 @@ function Commentaire({ dataMess, setDataMessages }) {
                     dataCom={dataCom}
                     setDataCommentaire={setDataCommentaire}
                   />
-                  <div className="message-nbrLikes">
-                    <p className="nbrLikes">{dataCom.likes}</p>
+                  <div className="commentaire-nbrLikes">
+                    <p className="com-nbrLikes">{dataCom.likes}</p>
                   </div>
                   <p className="commentaire-date">
                     {dateParserCommentaire(dataCom.createdAt)}

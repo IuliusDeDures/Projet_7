@@ -39,8 +39,11 @@
   border-radius: 20px;
   display: flex;
   margin-left: 10px;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
   padding: 5px;
+}
+.sup-commentaire:hover {
+  background-color: rgb(200, 200, 200);
 }
 .sup-commentaire-icon {
   font-size: 115%;
@@ -86,16 +89,39 @@
   border: none;
   margin-left: 10px;
   display: flex;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(225, 225, 225);
   cursor: pointer;
 }
 .repondre-commentaire:hover {
   color: blue;
+  background-color: rgb(200, 200, 200);
 }
 .icon-nbrRepCommentaireCom {
   padding: 7px;
   align-self: center;
   cursor: pointer;
+}
+.commentaire-nbrRepCommentaire {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+.com-nbrRepCommentaire {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
+}
+.commentaire-nbrLikes {
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  display: flex;
+}
+.com-nbrLikes {
+  margin: 0;
+  padding: 5px;
+  font-size: 80%;
+  align-self: center;
 }
 @media all and (max-width: 450px) {
   .commentairesPlusForm {

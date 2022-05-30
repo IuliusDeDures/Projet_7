@@ -15,11 +15,15 @@
 }
 .bouton-retour-allMessage {
   border: none;
+  background-color: white;
   width: 40px;
   height: 40px;
   margin-bottom: 15px;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
+}
+.bouton-retour-allMessage:hover {
+  background-color: rgb(225, 225, 225);
 }
 .icon-bouton-retour-allMessage {
   font-size: large;
@@ -40,8 +44,8 @@
   width: 80%;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  background-color: rgb(200, 200, 200);
   margin-bottom: 20px;
+  background-color: white;
 }
 .selectUser {
   display: flex;
@@ -74,7 +78,7 @@
 
 .message-header {
   margin: auto;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(200, 200, 200);
   width: 95%;
 }
 .message-pseudoUser {
@@ -83,7 +87,7 @@
   margin: 5px 10px 0 10px;
   font-weight: bold;
   border: none;
-  background-color: rgb(200, 200, 200);
+  background-color: white;
   font-size: 105%;
 }
 .message-pseudoUser:hover {
@@ -114,7 +118,7 @@
 .nouveau-message {
   border: none;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   padding: 10px;
   margin: 15px;
   border-radius: 25px;
@@ -138,13 +142,13 @@
   border-radius: 25px;
   margin-right: 15px;
   padding: 10px;
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   position: relative;
   cursor: pointer;
 }
 .envoie-message {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
   border-radius: 25px;
@@ -159,7 +163,7 @@
 }
 .annule-message {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
   font-weight: bold;
   border-radius: 25px;
@@ -173,7 +177,7 @@
   color: red;
 }
 .contenu-message {
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   list-style-type: none;
   border-radius: 25px;
   box-shadow: 5px 5px 10px rgb(200, 200, 200);
@@ -214,13 +218,16 @@
   justify-content: flex-start;
   height: 20px;
   padding: 10px;
-  border-top: 1px solid gray;
+  border-top: 1px solid rgb(200, 200, 200);
 }
 .sup-message {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   border-radius: 10px;
   display: flex;
+}
+.sup-message:hover {
+  background-color: rgb(225, 225, 225);
 }
 .sup-message-icon {
   font-size: 115%;
@@ -231,13 +238,7 @@
 .sup-message-icon:hover {
   color: red;
 }
-.com-message {
-  border: none;
-  background-color: rgb(225, 225, 225);
-  margin-left: 15px;
-  border-radius: 10px;
-  padding-left: 5px;
-}
+
 .icon-commentaire {
   font-size: 115%;
   padding: 5px;
@@ -249,19 +250,21 @@
 }
 .com-boutton {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   margin-left: 15px;
   border-radius: 10px;
   display: flex;
 }
-.message-nbrCommentaire {
+.com-boutton:hover {
   background-color: rgb(225, 225, 225);
+}
+.message-nbrCommentaire {
+  background-color: white;
   border-radius: 10px;
-  margin-left: 3px;
   display: flex;
 }
 .message-icon-nbrRepCommentaire {
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   border-radius: 10px;
   margin-left: 15px;
   display: flex;
@@ -283,15 +286,13 @@
   align-self: center;
 }
 .message-nbrRepCommentaire {
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   border-radius: 10px;
-  margin-left: 3px;
   display: flex;
 }
 .message-nbrLikes {
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   border-radius: 10px;
-  margin-left: 3px;
   display: flex;
 }
 .nbrLikes {

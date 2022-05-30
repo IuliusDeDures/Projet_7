@@ -64,7 +64,7 @@ function Banner() {
         <div className="group-boutton">
           {isAdmin === 'true' ? (
             <button
-              className="group-listeUser"
+              className="group-createUser"
               onClick={CreaCompteAdmin}
               title="Créer un utilisateur administrateur"
             >

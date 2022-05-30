@@ -1,8 +1,11 @@
 .like-message {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   border-radius: 10px;
   display: flex;
+}
+.like-message:hover {
+  background-color: rgb(225, 225, 225);
 }
 .like-message-icon {
   font-size: 115%;
@@ -12,9 +15,12 @@
 }
 .dislike-message {
   border: none;
-  background-color: rgb(225, 225, 225);
+  background-color: white;
   border-radius: 10px;
   display: flex;
+}
+.dislike-message:hover {
+  background-color: rgb(225, 225, 225);
 }
 .dislike-message-icon {
   color: blue;
