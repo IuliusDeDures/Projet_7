@@ -34,9 +34,6 @@
   margin-left: 20px;
 }
 .group-boutton {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   padding: 10px;
 }
 
@@ -95,10 +92,7 @@
 .group-createUser:hover {
   background-color: rgb(225, 225, 225);
 }
-@media all and (max-width: 950px) {
-  .group-banner-header {
-    width: 100%;
-  }
+@media all and (max-width: 1060px) {
   .group-header {
     flex-direction: column;
     margin: auto;
@@ -129,5 +123,10 @@
   }
   .group-deleteUser {
     margin: 5px;
+  }
+}
+@media all and (max-width: 950px) {
+  .group-banner-header {
+    width: 100%;
   }
 }
