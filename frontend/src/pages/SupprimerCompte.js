@@ -1,6 +1,6 @@
 import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/SupprimerCompte.css'
-import { UserDelete } from '../components/utils/Requete'
+import { UserDelete } from '../components/utils/RequeteUser'
 import { useState } from 'react'
 
 /**

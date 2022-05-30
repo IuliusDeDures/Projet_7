@@ -13,7 +13,7 @@ import {
   SupprimerMessage,
   SelectUnMessage,
   SupprimerMessageAdmin,
-} from './utils/Requete'
+} from './utils/RequeteMessage'
 import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
 import { dateParserMessage } from './utils/DateParser'

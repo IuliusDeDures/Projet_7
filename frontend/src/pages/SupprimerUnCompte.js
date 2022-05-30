@@ -1,6 +1,6 @@
 import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/SupprimerUnCompte.css'
-import axios from 'axios'
+import { DeleteOneUser } from '../components/utils/RequeteUser'
 import { useState } from 'react'
 
 /**
@@ -14,13 +14,7 @@ function SupprimerUnCompte() {
    * fonction pour supprimer un compte utlisateur pour l'administrateur
    */
   function Delete() {
-    axios
-      .delete(`http://127.0.0.1:8000/api/auth/deleteOne/${pseudo}`)
-      .then((res) => {
-        alert('Utilisateur supprimé')
-        window.location.href = './'
-      })
-      .catch(() => alert('les informations saisies sont incorrectes'))
+    DeleteOneUser(pseudo)
   }
 
   return (

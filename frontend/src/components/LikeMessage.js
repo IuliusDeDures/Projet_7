@@ -8,8 +8,8 @@ import {
   CréerLikeMessage,
   SupprimerLikeMessage,
   ModifNbrLikeMessage,
-  AfficheMessages,
-} from './utils/Requete'
+} from './utils/RequeteLike'
+import { AfficheMessages } from './utils/RequeteMessage'
 import '../styles/LikeMessage.css'
 
 library.add(faThumbsUp)

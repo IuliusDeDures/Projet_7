@@ -3,11 +3,11 @@ import {
   AfficheCommentaire,
   PublieCommentaire,
   SupprimerCommentaire,
-  AfficheMessages,
   ModifNbrCommentaire,
   SelectUnCommentaire,
   SupprimerCommentaireAdmin,
-} from './utils/Requete'
+} from './utils/RequeteCommmentaire'
+import { AfficheMessages } from './utils/RequeteMessage'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'

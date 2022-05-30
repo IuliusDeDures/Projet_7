@@ -1,7 +1,7 @@
 import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/CreaCompteAdmin.css'
 import React, { useState } from 'react'
-import { UserSignup } from '../components/utils/Requete'
+import { UserSignup } from '../components/utils/RequeteUser'
 
 /**
  * fonction pour l'inscription au site pour l'administrateur

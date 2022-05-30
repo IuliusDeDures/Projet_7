@@ -3,11 +3,11 @@ import {
   AfficheRepCommentaire,
   PublieRepCommentaire,
   SupprimerRepCommentaire,
-  AfficheMessages,
   ModifNbrRepCommentaire,
-  AfficheCommentaire,
   SupprimerRepCommentaireAdmin,
-} from './utils/Requete'
+} from './utils/RequeteRepCommentaire'
+import { AfficheMessages } from './utils/RequeteMessage'
+import { AfficheCommentaire } from './utils/RequeteCommmentaire'
 import { dateParserCommentaire } from './utils/DateParser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'

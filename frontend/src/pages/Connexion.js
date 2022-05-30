@@ -1,7 +1,7 @@
 import logo from '../assets/icon-left-font-monochrome-black_rogner.png'
 import '../styles/Connexion.css'
 import React, { useState } from 'react'
-import { UserLogin } from '../components/utils/Requete'
+import { UserLogin } from '../components/utils/RequeteUser'
 
 /**
  * fonction pour la connexion au site

@@ -8,8 +8,8 @@ import {
   CréerLikeCommentaire,
   SupprimerLikeCommentaire,
   ModifNbrLikeCommentaire,
-  AfficheCommentaire,
-} from './utils/Requete'
+} from './utils/RequeteLike'
+import { AfficheCommentaire } from './utils/RequeteCommmentaire'
 import '../styles/LikeCommentaire.css'
 
 library.add(faThumbsUp)
