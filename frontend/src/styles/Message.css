@@ -82,7 +82,6 @@
   width: 95%;
 }
 .message-pseudoUser {
-  border-radius: 20px;
   padding: 2px 7px;
   margin: 5px 10px 0 10px;
   font-weight: bold;
@@ -97,6 +96,22 @@
   border-radius: 20px;
   padding: 2px 7px;
   margin: 0 10px 5px 10px;
+  font-size: small;
+}
+.message-partage {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+.message-userPartage {
+  padding: 2px 7px;
+  margin: 5px 10px 0 10px;
+  font-weight: bold;
+}
+.message-datePartage {
+  padding: 2px 7px;
+  margin: 0px 10px 0 10px;
   font-size: small;
 }
 
@@ -301,6 +316,26 @@
   font-size: 80%;
   align-self: center;
 }
+.partage-message {
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  margin-left: 15px;
+}
+.partage-message:hover {
+  background-color: rgb(225, 225, 225);
+}
+.icon-partage-message {
+  font-size: 115%;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+.icon-partage-message:hover {
+  color: blue;
+}
+
 @media all and (max-width: 950px) {
   .sectionMessage {
     width: 100%;

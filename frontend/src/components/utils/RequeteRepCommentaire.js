@@ -1,10 +1,5 @@
 import axios from 'axios'
-
-/**
- * liste des URL de l'API */
-const urlRepCommentaire = 'http://127.0.0.1:8000/api/repCommentaires/'
-const urlRepCommentaireAdmin =
-  'http://127.0.0.1:8000/api/repCommentaires/admin/'
+import { urlRepCommentaire, urlRepCommentaireAdmin } from './UrlApi'
 
 /**
  * message d'alerte */

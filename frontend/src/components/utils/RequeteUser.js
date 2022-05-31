@@ -1,11 +1,6 @@
 import axios from 'axios'
+import { urlLogin, urlSignup, urlDeleteUser, urlDeleteOneUser } from './UrlApi'
 
-/**
- * liste des URL de l'API */
-const urlLogin = 'http://127.0.0.1:8000/api/auth/login'
-const urlSignup = 'http://127.0.0.1:8000/api/auth/signup'
-const urlDeleteUser = 'http://127.0.0.1:8000/api/auth/'
-const urlDeleteOneUser = 'http://127.0.0.1:8000/api/auth/deleteOne/'
 /**
  * message d'alerte */
 const alertMessageInfoIncorrecte = 'les informations saisies sont incorrectes'

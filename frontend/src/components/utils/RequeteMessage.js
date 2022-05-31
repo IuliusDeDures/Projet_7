@@ -1,9 +1,5 @@
 import axios from 'axios'
-
-/**
- * liste des URL de l'API */
-const urlMessage = 'http://127.0.0.1:8000/api/messages/'
-const urlMessageAdmin = 'http://127.0.0.1:8000/api/messages/admin/'
+import { urlMessage, urlMessageAdmin } from './UrlApi'
 
 /**
  * message d'alerte */

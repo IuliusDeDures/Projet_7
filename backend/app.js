@@ -14,7 +14,7 @@ const path = require("path");
 // configuration du limiteur de requête
 const limiteur = rateLimit({
   windowMs: 1 * 60 * 1000, // période 1 minutes
-  max: 100, // limite à 100 requête pour 1 minutes
+  max: 200, // limite à 200 requête pour 1 minutes
   standardHeaders: true,
   legacyHeaders: false,
 });
@@ -22,9 +22,9 @@ const limiteur = rateLimit({
 require("dotenv").config();
 
 // connection à la base de donnée SQL
-const database = new Sequelize("groupomania", "root", "$49JulBau72$", {
-  dialect: "mysql",
-  host: "localhost",
+const database = new Sequelize('groupomania','Groupomania', '$Group001', {
+  dialect: 'mysql',
+  host: 'localhost',
 });
 try {
   database.authenticate();

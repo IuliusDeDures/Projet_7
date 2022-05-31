@@ -14,7 +14,9 @@ exports.createMessage = (req, res, next) => {
       text: req.body.text,
       likes: 0,
       nbrCommentaire: 0,  
-      nbrRepCommentaire : 0,          
+      nbrRepCommentaire : 0, 
+      userPartage:req.body.userPartage,
+      datePartage:req.body.datePartage,         
     });    
     message
       .save()
@@ -27,7 +29,10 @@ exports.createMessage = (req, res, next) => {
       text: req.body.text,
       likes: 0,  
       nbrCommentaire: 0,  
-      nbrRepCommentaire : 0,         
+      nbrRepCommentaire : 0,  
+      userPartage:req.body.userPartage,
+      datePartage:req.body.datePartage, 
+      file:req.body.file       
     });
     message
     .save()
