@@ -30,6 +30,9 @@ function SupprimerCompte() {
         <img src={logo} alt="logo-groupomania" className="sup-group-logo" />
         <h1 className="sup-group-titre">Groupomania</h1>
       </div>
+      <div className="sup-group-info">
+        <p className="sup-info">A bientôt !</p>
+      </div>
       <div className="sup-group-form">
         <form className="sup-form-deleteUser">
           <h2 className="sup-form-title">Supprimer un compte :</h2>

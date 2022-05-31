@@ -354,3 +354,14 @@
     margin-bottom: 10px;
   }
 }
+@media all and (max-width: 375px) {
+  .com-boutton {
+    margin-left: 10px;
+  }
+  .message-icon-nbrRepCommentaire {
+    margin-left: 10px;
+  }
+  .partage-message {
+    margin-left: 10px;
+  }
+}

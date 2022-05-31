@@ -27,6 +27,9 @@ function SupprimerUnCompte() {
         />
         <h1 className="sup-admin-group-titre">Groupomania</h1>
       </div>
+      <div className="sup-admin-group-info">
+        <p className="sup-admin-info">A bientôt !</p>
+      </div>
       <div className="sup-admin-group-form">
         <form className="sup-admin-form-deleteUser">
           <h2 className="sup-admin-form-title">Supprimer un compte :</h2>
