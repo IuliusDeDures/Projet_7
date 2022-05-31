@@ -114,10 +114,28 @@ function SectionMessage() {
                   <div className="message-pseudoUser">
                     {dataMess.userPseudo}
                   </div>
-                  <p className="message-date">
-                    Publié le {dateParserMessage(dataMess.createdAt)}
-                  </p>
+                  {dataMess.userPartage !== null &&
+                  dataMess.datePartage !== null ? (
+                    <p className="message-date">
+                      Partagé le {dateParserMessage(dataMess.createdAt)}
+                    </p>
+                  ) : (
+                    <p className="message-date">
+                      Publié le {dateParserMessage(dataMess.createdAt)}
+                    </p>
+                  )}
                 </div>
+                {dataMess.userPartage !== null &&
+                dataMess.datePartage !== null ? (
+                  <div className="message-partage">
+                    <span className="message-userPartage">
+                      {dataMess.userPartage}
+                    </span>
+                    <span className="message-datePartage">
+                      Publié le {dataMess.datePartage}
+                    </span>
+                  </div>
+                ) : null}
                 <div className="message">
                   <p className="message-contenu">{dataMess.text}</p>
                   {dataMess.file && (

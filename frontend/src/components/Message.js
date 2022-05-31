@@ -7,6 +7,7 @@ import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faImage } from '@fortawesome/free-regular-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import { faComments } from '@fortawesome/free-regular-svg-icons'
+import { faShare } from '@fortawesome/free-solid-svg-icons'
 import {
   PublieMessage,
   AfficheMessages,
@@ -18,7 +19,7 @@ import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
 import { dateParserMessage } from './utils/DateParser'
 
-library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments)
+library.add(faThumbsUp, faImage, faComment, faTrashCan, faComments, faShare)
 
 /**
  * fonction principal des messages
@@ -111,6 +112,16 @@ function SectionMessage() {
     SelectUnMessage(setAfficheCommentaire, dataMess)
   }
 
+  async function partageMessage(dataMess) {
+    const data = new FormData()
+    data.append('text', dataMess.text)
+    data.append('userPartage', dataMess.userPseudo)
+    data.append('datePartage', dateParserMessage(dataMess.createdAt))
+    if (dataMess.file) data.append('file', dataMess.file)
+    await PublieMessage(data, token)
+    AfficheMessages(setDataMessages)
+  }
+
   /**
    * fonction pour aller sur la page qui affiche les message d'un utilisateur
    * @param {string} dataMess - information message
@@ -200,10 +211,27 @@ function SectionMessage() {
               >
                 {dataMess.userPseudo}
               </button>
-              <p className="message-date">
-                Publié le {dateParserMessage(dataMess.createdAt)}
-              </p>
+              {dataMess.userPartage !== null &&
+              dataMess.datePartage !== null ? (
+                <p className="message-date">
+                  Partagé le {dateParserMessage(dataMess.createdAt)}
+                </p>
+              ) : (
+                <p className="message-date">
+                  Publié le {dateParserMessage(dataMess.createdAt)}
+                </p>
+              )}
             </div>
+            {dataMess.userPartage !== null && dataMess.datePartage !== null ? (
+              <div className="message-partage">
+                <span className="message-userPartage">
+                  {dataMess.userPartage}
+                </span>
+                <span className="message-datePartage">
+                  Publié le {dataMess.datePartage}
+                </span>
+              </div>
+            ) : null}
             <div className="message">
               <p className="message-contenu">{dataMess.text}</p>
               {dataMess.file && (
@@ -283,6 +311,19 @@ function SectionMessage() {
                 <div className="message-nbrLikes">
                   <p className="nbrLikes">{dataMess.likes}</p>
                 </div>
+                <button
+                  className="partage-message"
+                  title="Partager ce message"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    partageMessage(dataMess)
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-share"
+                    className="icon-partage-message"
+                  />
+                </button>
               </div>
             </div>
             {afficheCommentaire === dataMess.id && (
