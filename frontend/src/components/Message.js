@@ -112,6 +112,10 @@ function SectionMessage() {
     SelectUnMessage(setAfficheCommentaire, dataMess)
   }
 
+  /**
+   * fontion pour partager un message
+   * @param {*} dataMess - information message
+   */
   async function partageMessage(dataMess) {
     const data = new FormData()
     data.append('text', dataMess.text)

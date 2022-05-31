@@ -43,6 +43,9 @@ function Inscription() {
         <img src={logo} alt="logo-groupomania" className="ins-group-logo" />
         <h1 className="ins-group-titre">Groupomania</h1>
       </div>
+      <div className="ins-group-info">
+        <p className="ins-info">Rejoignez-nous !</p>
+      </div>
       <div className="ins-group-form">
         <form className="ins-form-signUp">
           <h2 className="ins-form-title">Créer un compte :</h2>

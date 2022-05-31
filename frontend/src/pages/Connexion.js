@@ -28,6 +28,9 @@ function Connection() {
         <img src={logo} alt="logo-groupomania" className="connect-group-logo" />
         <h1 className="connect-group-titre">Groupomania</h1>
       </div>
+      <div className="connect-group-info">
+        <p className="connect-info">Bienvenue !</p>
+      </div>
       <div className="connect-group-form">
         <form className="connect-form-login">
           <h2 className="connect-form-title">Connexion :</h2>

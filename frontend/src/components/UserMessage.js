@@ -13,6 +13,7 @@ import {
   SupprimerMessage,
   SelectUnMessage,
   SupprimerMessageAdmin,
+  PublieMessage,
 } from './utils/RequeteMessage'
 import Commentaire from './Commentaire'
 import LikeMessage from './LikeMessage'
@@ -73,6 +74,20 @@ function SectionMessage() {
    */
   function selectMessage(dataMess) {
     SelectUnMessage(setAfficheCommentaire, dataMess)
+  }
+
+  /**
+   * fontion pour partager un message
+   * @param {*} dataMess - information message
+   */
+  async function partageMessage(dataMess) {
+    const data = new FormData()
+    data.append('text', dataMess.text)
+    data.append('userPartage', dataMess.userPseudo)
+    data.append('datePartage', dateParserMessage(dataMess.createdAt))
+    if (dataMess.file) data.append('file', dataMess.file)
+    await PublieMessage(data, token)
+    AfficheMessages(setDataMessages)
   }
 
   /**
@@ -218,6 +233,19 @@ function SectionMessage() {
                     <div className="message-nbrLikes">
                       <p className="nbrLikes">{dataMess.likes}</p>
                     </div>
+                    <button
+                      className="partage-message"
+                      title="Partager ce message"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        partageMessage(dataMess)
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon="fa-solid fa-share"
+                        className="icon-partage-message"
+                      />
+                    </button>
                   </div>
                 </div>
                 {afficheCommentaire === dataMess.id && (

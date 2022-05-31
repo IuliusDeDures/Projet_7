@@ -56,6 +56,9 @@ function Inscription() {
         <img src={logo} alt="logo-groupomania" className="cca-group-logo" />
         <h1 className="cca-group-titre">Groupomania</h1>
       </div>
+      <div className="cca-group-info">
+        <p className="cca-info">Bienvenue !</p>
+      </div>
       <div className="cca-group-form">
         <form className="cca-form-signUp">
           <h2 className="cca-form-title">Créer un compte :</h2>
