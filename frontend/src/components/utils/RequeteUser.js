@@ -36,7 +36,7 @@ function UserSignup(user) {
   axios
     .post(urlSignup, user)
     .then((res) => {
-      alert('Compte créer')
+      alert('Compte créé')
       window.location.href = './'
     })
     .catch(() =>
