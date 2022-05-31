@@ -1,9 +1,5 @@
 import axios from 'axios'
-
-/**
- * liste des URL de l'API */
-const urlRepCommentaire = `${process.env.REACT_APP_API_URL}repCommentaires/`
-const urlRepCommentaireAdmin = `${process.env.REACT_APP_API_URL}repCommentaires/admin/`
+import { urlRepCommentaire, urlRepCommentaireAdmin } from './UrlApi'
 
 /**
  * message d'alerte */

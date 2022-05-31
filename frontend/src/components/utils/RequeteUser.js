@@ -1,11 +1,6 @@
 import axios from 'axios'
+import { urlLogin, urlSignup, urlDeleteUser, urlDeleteOneUser } from './UrlApi'
 
-/**
- * liste des URL de l'API */
-const urlLogin = `${process.env.REACT_APP_API_URL}auth/login`
-const urlSignup = `${process.env.REACT_APP_API_URL}auth/signup`
-const urlDeleteUser = `${process.env.REACT_APP_API_URL}auth/`
-const urlDeleteOneUser = `${process.env.REACT_APP_API_URL}auth/deleteOne/`
 /**
  * message d'alerte */
 const alertMessageInfoIncorrecte = 'les informations saisies sont incorrectes'

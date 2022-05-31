@@ -1,9 +1,5 @@
 import axios from 'axios'
-
-/**
- * liste des URL de l'API */
-const urlLikeMessaqge = `${process.env.REACT_APP_API_URL}likes/likeMessage/`
-const urlLikeCommentaire = `${process.env.REACT_APP_API_URL}likes/likeCommentaire/`
+import { urlLikeCommentaire, urlLikeMessaqge } from './UrlApi'
 
 /**
  * message d'alerte */

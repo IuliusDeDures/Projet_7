@@ -1,9 +1,5 @@
 import axios from 'axios'
-
-/**
- * liste des URL de l'API */
-const urlMessage = `${process.env.REACT_APP_API_URL}messages/`
-const urlMessageAdmin = `${process.env.REACT_APP_API_URL}messages/admin/`
+import { urlMessage, urlMessageAdmin } from './UrlApi'
 
 /**
  * message d'alerte */
