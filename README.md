@@ -1,13 +1,14 @@
-1. CREER LA BASE DE DONNEE "groupomania" ET CES DIFFERENTES TABLES DANS L'ORDRE SUIVANT   
+1. CREER DANS "MySQL Workbench 8.0" LA BASE DE DONNEE "groupomania" ET CES DIFFERENTES TABLES DANS L'ORDRE SUIVANT   
     1. LA TABLE "users"
     2. LA TABLE "messages"
     3. LA TABLE "commentaires"
     4. LA TABLE "reponsecommentaires"
     5. LA TABLE "likesmessages"
     6. LA TABLE "likescommentaires"
-AVEC LA COMMANDE : run sql (nécessite MySQL 8)
 
-CONFIG BASE DE DONNEE = 
+(nécessite MySQL 8)
+
+ET L'UTILISATEUR SUIVANT :
   username:'Groupomania',
   password:'$Group001',
   database:'groupomania',
