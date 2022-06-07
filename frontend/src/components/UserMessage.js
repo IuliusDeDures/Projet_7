@@ -64,7 +64,7 @@ function SectionMessage() {
     } else {
       SupprimerMessage(dataMess, token)
     }
-    alert('Message suprimé')
+    alert('Message supprimé')
     AfficheMessages(setDataMessages)
   }
 
