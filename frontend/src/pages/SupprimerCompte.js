@@ -75,7 +75,7 @@ function SupprimerCompte() {
               window.location.href = './'
             }}
           >
-            Retour
+            Annuler
           </button>
         </form>
       </div>
