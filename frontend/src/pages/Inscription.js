@@ -104,7 +104,7 @@ function Inscription() {
               window.location.href = './'
             }}
           >
-            Retour
+            Annuler
           </button>
         </form>
       </div>
