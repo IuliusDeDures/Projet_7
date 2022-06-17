@@ -71,7 +71,7 @@ exports.deleteMessage = (req, res, next) => {
     .catch((error) => res.status(503).json({ error }));
 };
 
-// route pour supprimer un message
+// route pour supprimer un message (administrateur)
 exports.deleteMessageAdmin = (req, res, next) => {
   const messageId = req.params.id;
   Message.findOne({ where: { id: messageId } })
