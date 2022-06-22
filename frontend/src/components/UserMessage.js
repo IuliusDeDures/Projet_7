@@ -31,22 +31,18 @@ function SectionMessage() {
    */
   let url = new URL(window.location.href)
   let search_parms = new URLSearchParams(url.search)
-  let userPseudoIsAdminBearerSelectUser = ''
-  let tokenSelectUser = ''
-  let token = ''
   let selectUser = ''
-  let userPseudo = ''
-  let isAdmin = ''
-  let userPseudoIsAdmin = ''
-  if (search_parms.has('userPseudo')) {
-    userPseudoIsAdminBearerSelectUser = search_parms.get('userPseudo')
-    tokenSelectUser = userPseudoIsAdminBearerSelectUser.split('Bearer')[1]
-    token = tokenSelectUser.split('selectUser')[0]
-    selectUser = tokenSelectUser.split('selectUser')[1]
-    userPseudoIsAdmin = userPseudoIsAdminBearerSelectUser.split('Bearer')[0]
-    isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
-    userPseudo = userPseudoIsAdmin.split('isAdmin')[0]
+  let SelectUserPseudo = ''
+  if (search_parms.has('selectUser')) {
+    SelectUserPseudo = search_parms.get('selectUser')
+    selectUser = SelectUserPseudo.split('selectUser')[0]
   }
+  let datas = sessionStorage.getItem('infoUser')
+  let data = JSON.parse(datas)
+  let userPseudo = data.userPseudo
+  let isAdmin = data.isAdmin
+  let token = data.token
+
   const [dataMessage, setDataMessages] = useState([])
   const [afficheCommentaire, setAfficheCommentaire] = useState(false)
 
@@ -94,13 +90,7 @@ function SectionMessage() {
    * fonction pour retourner sur la page qui affiche l'ensemble des messages
    */
   function Forum() {
-    window.location.href =
-      './message?userPseudo=' +
-      userPseudo +
-      'isAdmin' +
-      isAdmin +
-      'Bearer' +
-      token
+    window.location.href = './message'
   }
 
   return (
@@ -163,8 +153,7 @@ function SectionMessage() {
                     </div>
                   )}
                   <div className="message-boutton">
-                    {isAdmin === 'true' ||
-                    userPseudo === dataMess.userPseudo ? (
+                    {isAdmin === true || userPseudo === dataMess.userPseudo ? (
                       <button
                         className="sup-message"
                         title="Supprimer le message"

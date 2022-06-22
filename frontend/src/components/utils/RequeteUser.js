@@ -14,16 +14,10 @@ const alertMessageUserDelete = 'Utilisateur supprimé'
 function UserLogin(user) {
   axios
     .post(urlLogin, user)
-    .then(
-      (res) =>
-        (window.location.href =
-          './message?userPseudo=' +
-          res.data.userPseudo +
-          'isAdmin' +
-          res.data.isAdmin +
-          'Bearer' +
-          res.data.token)
-    )
+    .then((res) => {
+      sessionStorage.setItem('infoUser', JSON.stringify(res.data))
+      window.location.href = '/message'
+    })
     .catch(() => alert(alertMessagePasInscrit))
 }
 export { UserLogin }
@@ -38,6 +32,7 @@ function UserSignup(user) {
     .then((res) => {
       alert('Compte créé')
       window.location.href = './'
+      sessionStorage.removeItem('infoUser')
     })
     .catch(() =>
       alert(
@@ -60,6 +55,7 @@ function UserDelete(email, token) {
     .then((res) => {
       alert(alertMessageUserDelete)
       window.location.href = './'
+      sessionStorage.removeItem('infoUser')
     })
     .catch(() => alert(alertMessageInfoIncorrecte))
 }
@@ -75,6 +71,7 @@ function DeleteOneUser(pseudo) {
     .then((res) => {
       alert(alertMessageUserDelete)
       window.location.href = './'
+      sessionStorage.removeItem('infoUser')
     })
     .catch(() => alert(alertMessageInfoIncorrecte))
 }

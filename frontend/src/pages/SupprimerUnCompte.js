@@ -59,6 +59,7 @@ function SupprimerUnCompte() {
             onClick={(e) => {
               e.preventDefault()
               window.location.href = './'
+              sessionStorage.removeItem('infoUser')
             }}
           >
             Annuler
