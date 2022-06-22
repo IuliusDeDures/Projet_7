@@ -8,53 +8,44 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faUserSlash, faUserPlus, faArrowRightFromBracket)
 
-/**
- * fonction qui envoie faire la page de suppression de son compte utilisateur
- */
-function suppCompte() {
-  window.location.href = '/supprimerCompte?token=' + token
-}
-/**
- * fonction qui envoie faire la page de suppression de compte pour l'administrateur
- */
-function suppUnCompte() {
-  window.location.href = '/supprimerUnCompte'
-}
-/**
- * fonction qui envoie faire la page de connexion
- */
-function connexion() {
-  window.location.href = '/'
-}
-/**
- * fonction qui envoie faire la page de creation de compte pour l'administrateur
- */
-function CreaCompteAdmin() {
-  window.location.href = '/CreaCompteAdmin'
-}
-/**
- * recupération du token et d'isAdmin
- */
-let url = new URL(window.location.href)
-let search_parms = new URLSearchParams(url.search)
-let userPseudoIsAdminBearer = ''
-let token = ''
-let tokenSelectUser = ''
-let isAdmin = ''
-let userPseudoIsAdmin = ''
-if (search_parms.has('userPseudo')) {
-  userPseudoIsAdminBearer = search_parms.get('userPseudo')
-  tokenSelectUser = userPseudoIsAdminBearer.split('Bearer')[1]
-  token = tokenSelectUser.split('selectUser')[0]
-  userPseudoIsAdmin = userPseudoIsAdminBearer.split('Bearer')[0]
-  isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
-}
-
-/**
- * fonction pour afficher le header de la page forum
- * @returns - le header de la page forum
- */
 function Banner() {
+  /**
+   * fonction qui envoie faire la page de suppression de son compte utilisateur
+   */
+  function suppCompte() {
+    window.location.href = '/supprimerCompte?token=' + token
+  }
+  /**
+   * fonction qui envoie faire la page de suppression de compte pour l'administrateur
+   */
+  function suppUnCompte() {
+    window.location.href = '/supprimerUnCompte'
+  }
+  /**
+   * fonction qui envoie faire la page de connexion
+   */
+  function connexion() {
+    window.location.href = '/'
+    sessionStorage.removeItem('infoUser')
+  }
+  /**
+   * fonction qui envoie faire la page de creation de compte pour l'administrateur
+   */
+  function CreaCompteAdmin() {
+    window.location.href = '/CreaCompteAdmin'
+  }
+  /**
+   * recupération du token et d'isAdmin
+   */
+  let datas = sessionStorage.getItem('infoUser')
+  let data = JSON.parse(datas)
+  let isAdmin = data.isAdmin
+  let token = data.token
+
+  /**
+   * fonction pour afficher le header de la page forum
+   * @returns - le header de la page forum
+   */
   return (
     <div className="group-banner-header">
       <div className="group-header">
@@ -72,7 +63,7 @@ function Banner() {
               icon="fa-solid fa-arrow-right-from-bracket"
             />
           </button>
-          {isAdmin === 'true' ? (
+          {isAdmin === true ? (
             <button
               className="group-createUser"
               onClick={CreaCompteAdmin}
@@ -81,7 +72,7 @@ function Banner() {
               <FontAwesomeIcon icon="fa-solid fa-user-plus" />
             </button>
           ) : null}
-          {isAdmin === 'true' ? (
+          {isAdmin === true ? (
             <button
               className="group-admin-deleteUser"
               onClick={suppUnCompte}

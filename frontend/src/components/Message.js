@@ -29,20 +29,12 @@ function SectionMessage() {
   /**
    * recupération du token, isAdmin et de user pseudo
    */
-  let url = new URL(window.location.href)
-  let search_parms = new URLSearchParams(url.search)
-  let userPseudoIsAdminBearer = ''
-  let token = ''
-  let userPseudo = ''
-  let isAdmin = ''
-  let userPseudoIsAdmin = ''
-  if (search_parms.has('userPseudo')) {
-    userPseudoIsAdminBearer = search_parms.get('userPseudo')
-    token = userPseudoIsAdminBearer.split('Bearer')[1]
-    userPseudoIsAdmin = userPseudoIsAdminBearer.split('Bearer')[0]
-    isAdmin = userPseudoIsAdmin.split('isAdmin')[1]
-    userPseudo = userPseudoIsAdmin.split('isAdmin')[0]
-  }
+  let datas = sessionStorage.getItem('infoUser')
+  let data = JSON.parse(datas)
+  let userPseudo = data.userPseudo
+  let isAdmin = data.isAdmin
+  let token = data.token
+
   const [dataMessage, setDataMessages] = useState([])
   const [text, setText] = useState('')
   const [image, setImage] = useState()
@@ -131,15 +123,7 @@ function SectionMessage() {
    * @param {string} dataMess - information message
    */
   function userForum(dataMess) {
-    window.location.href =
-      './userMessage?userPseudo=' +
-      userPseudo +
-      'isAdmin' +
-      isAdmin +
-      'Bearer' +
-      token +
-      'selectUser' +
-      dataMess.userPseudo
+    window.location.href = './userMessage?selectUser=' + dataMess.userPseudo
   }
 
   return (
@@ -248,7 +232,7 @@ function SectionMessage() {
                 </div>
               )}
               <div className="message-boutton">
-                {isAdmin === 'true' || userPseudo === dataMess.userPseudo ? (
+                {isAdmin === true || userPseudo === dataMess.userPseudo ? (
                   <button
                     className="sup-message"
                     title="Supprimer le message"

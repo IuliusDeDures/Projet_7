@@ -60,7 +60,6 @@ function Connection() {
             onClick={(e) => {
               e.preventDefault()
               Login()
-              console.log(email, password)
             }}
           >
             Connexion

@@ -8,12 +8,10 @@ import { useState } from 'react'
  * @returns - la page de suppression de son compte utilisateur
  */
 function SupprimerCompte() {
-  let url = new URL(window.location.href)
-  let search_parms = new URLSearchParams(url.search)
-  let token = ''
-  if (search_parms.has('token')) {
-    token = search_parms.get('token')
-  }
+  let datas = sessionStorage.getItem('infoUser')
+  let data = JSON.parse(datas)
+  let token = data.token
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -73,6 +71,7 @@ function SupprimerCompte() {
             onClick={(e) => {
               e.preventDefault()
               window.location.href = './'
+              sessionStorage.removeItem('infoUser')
             }}
           >
             Annuler
