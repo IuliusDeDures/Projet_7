@@ -69,7 +69,7 @@ function Commentaire({ dataMess, setDataMessages }) {
    */
   function supCommentaire(dataCom) {
     if (dataCom.nbrRepCommentaireCom === 0) {
-      if (isAdmin === 'true') {
+      if (isAdmin === true) {
         SupprimerCommentaireAdmin(dataCom, token)
       } else {
         SupprimerCommentaire(dataCom, token)

@@ -73,7 +73,7 @@ function RepCommentaire({
    * @param {string} dataRepCom - information réponse de commentaire
    */
   function supRepCommentaire(dataRepCom) {
-    if (isAdmin === 'true') {
+    if (isAdmin === true) {
       SupprimerRepCommentaireAdmin(dataRepCom, token)
     } else {
       SupprimerRepCommentaire(dataRepCom, token)
