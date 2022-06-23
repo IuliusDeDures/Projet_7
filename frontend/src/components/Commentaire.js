@@ -135,7 +135,7 @@ function Commentaire({ dataMess, setDataMessages }) {
                 </div>
                 <p className="commentaire-contenu">{dataCom.commentaire}</p>
                 <div className="commentaire-boutton">
-                  {isAdmin === 'true' || userPseudo === dataCom.userPseudo ? (
+                  {isAdmin === true || userPseudo === dataCom.userPseudo ? (
                     <button
                       className="sup-commentaire"
                       title="Supprimer le commentaire"
