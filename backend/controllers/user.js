@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 
 // route pour l'inscription d'un nouvel utilisateur
 exports.signup = (req, res, next) => {
+  if (req.body.isUserAdmin == true ){
   bcrypt
     .hash(req.body.password, 10)
     .then((hash) => {
@@ -23,6 +24,25 @@ exports.signup = (req, res, next) => {
         );
     })
     .catch((error) => res.status(500).json({ error }));
+  }else{
+    bcrypt
+    .hash(req.body.password, 10)
+    .then((hash) => {
+      const user = new User({
+        email: req.body.email,
+        pseudo: req.body.pseudo,
+        password: hash,
+        isAdmin: false,
+      });
+      user
+        .save()
+        .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
+        .catch((error) =>
+          res.status(400).json({ error: "Utilisateur déja créé" })
+        );
+    })
+    .catch((error) => res.status(500).json({ error }));    
+  }
 };
 
 // route pour la connexion d'un utilisateur dejà inscrit
