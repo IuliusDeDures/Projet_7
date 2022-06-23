@@ -8,13 +8,21 @@ import { useState } from 'react'
  * @returns - la page de suppression d'un compte utilisateur pour l'administrateur
  */
 function SupprimerUnCompte() {
+  let datas = sessionStorage.getItem('infoUser')
+  let data = JSON.parse(datas)
+  let isUserAdmin = data.isAdmin
+
   const [pseudo, setPseudo] = useState('')
 
   /**
    * fonction pour supprimer un compte utlisateur pour l'administrateur
    */
   function Delete() {
-    DeleteOneUser(pseudo)
+    if (isUserAdmin === true) {
+      DeleteOneUser(pseudo)
+    } else {
+      alert("Vous n'etes pas administrateur !")
+    }
   }
 
   return (

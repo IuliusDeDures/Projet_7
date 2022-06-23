@@ -8,6 +8,10 @@ import { UserSignup } from '../components/utils/RequeteUser'
  * @returns - la page d'inscription au site pour l'administrateur
  */
 function Inscription() {
+  let datas = sessionStorage.getItem('infoUser')
+  let data = JSON.parse(datas)
+  let isUserAdmin = data.isAdmin
+
   const [email, setEmail] = useState()
   const [pseudo, setPseudo] = useState()
   const [password, setPassword] = useState()
@@ -37,6 +41,7 @@ function Inscription() {
         pseudo: pseudo,
         password: password,
         isAdmin: true,
+        isUserAdmin: isUserAdmin,
       }
       UserSignup(user)
     } else {
@@ -45,6 +50,7 @@ function Inscription() {
         pseudo: pseudo,
         password: password,
         isAdmin: false,
+        isUserAdmin: isUserAdmin,
       }
       UserSignup(user)
     }
