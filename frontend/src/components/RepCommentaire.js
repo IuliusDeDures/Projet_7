@@ -117,8 +117,7 @@ function RepCommentaire({
                   {dataRepCom.repCommentaire}
                 </p>
                 <div className="repCommentaire-boutton">
-                  {isAdmin === 'true' ||
-                  userPseudo === dataRepCom.userPseudo ? (
+                  {isAdmin === true || userPseudo === dataRepCom.userPseudo ? (
                     <button
                       className="sup-repCommentaire"
                       title="Supprimer la réponse de commentaire"
