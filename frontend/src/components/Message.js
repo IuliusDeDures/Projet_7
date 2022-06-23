@@ -87,7 +87,7 @@ function SectionMessage() {
    * @param {string} dataMess - information message
    */
   function supMessage(dataMess) {
-    if (isAdmin === 'true') {
+    if (isAdmin === true) {
       SupprimerMessageAdmin(dataMess, token)
     } else {
       SupprimerMessage(dataMess, token)
